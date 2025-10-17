@@ -1,0 +1,153 @@
+# Copyright © Mandala Consulting, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-10-17
+name: Auto-Increment Version on PR
+
+on:
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  version-check-and-increment:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git Identity
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.x'
+
+      - name: Check and increment versions
+        id: version-check
+        run: |
+          echo "Checking for version conflicts with master..."
+
+          # Fetch master branch for comparison
+          git fetch origin master:master
+
+          # Define all project files to check
+          declare -a PROJECTS=(
+            "MC.Logging/MandalaConsulting.Logging.csproj"
+            "MC.Memory/MandalaConsulting.Memory.csproj"
+            "MC.APIMiddlewares/MandalaConsulting.APIMiddlewares.csproj"
+            "MC.Repository.Mongo/MandalaConsulting.Repository.Mongo.csproj"
+            "MC.Objects/MandalaConsulting.Objects.csproj"
+            "MC.Objects.API/MandalaConsulting.Objects.API.csproj"
+          )
+
+          VERSIONS_UPDATED=0
+          UPDATED_PROJECTS=""
+
+          for PROJECT_PATH in "${PROJECTS[@]}"; do
+            if [ ! -f "$PROJECT_PATH" ]; then
+              echo "Warning: $PROJECT_PATH not found, skipping"
+              continue
+            fi
+
+            # Get version from PR branch
+            PR_VERSION=$(grep -o '<Version>[^<]*</Version>' "$PROJECT_PATH" | sed 's/<Version>\(.*\)<\/Version>/\1/')
+
+            if [ -z "$PR_VERSION" ]; then
+              echo "No <Version> tag found in $PROJECT_PATH - skipping"
+              continue
+            fi
+
+            # Get version from master branch
+            MASTER_VERSION=$(git show master:"$PROJECT_PATH" 2>/dev/null | grep -o '<Version>[^<]*</Version>' | sed 's/<Version>\(.*\)<\/Version>/\1/' || echo "")
+
+            if [ -z "$MASTER_VERSION" ]; then
+              echo "$PROJECT_PATH: New project (not in master), version: $PR_VERSION"
+              continue
+            fi
+
+            echo ""
+            echo "Checking $PROJECT_PATH:"
+            echo "  PR version:     $PR_VERSION"
+            echo "  Master version: $MASTER_VERSION"
+
+            # Compare versions
+            if [ "$PR_VERSION" = "$MASTER_VERSION" ]; then
+              echo "  ⚠️  Version conflict detected - incrementing patch version"
+
+              # Parse version components (assuming semantic versioning: MAJOR.MINOR.PATCH)
+              IFS='.' read -r -a VERSION_PARTS <<< "$PR_VERSION"
+              MAJOR="${VERSION_PARTS[0]}"
+              MINOR="${VERSION_PARTS[1]}"
+              PATCH="${VERSION_PARTS[2]}"
+
+              # Increment patch version
+              NEW_PATCH=$((PATCH + 1))
+              NEW_VERSION="${MAJOR}.${MINOR}.${NEW_PATCH}"
+
+              echo "  ✓ New version: $NEW_VERSION"
+
+              # Update the version in the csproj file
+              sed -i "s|<Version>${PR_VERSION}</Version>|<Version>${NEW_VERSION}</Version>|g" "$PROJECT_PATH"
+
+              VERSIONS_UPDATED=$((VERSIONS_UPDATED + 1))
+              UPDATED_PROJECTS="${UPDATED_PROJECTS}\n- ${PROJECT_PATH}: ${PR_VERSION} → ${NEW_VERSION}"
+            else
+              echo "  ✓ Version already differs from master"
+            fi
+          done
+
+          echo ""
+          echo "Summary: $VERSIONS_UPDATED project(s) had versions incremented"
+
+          # Set outputs
+          echo "versions_updated=$VERSIONS_UPDATED" >> $GITHUB_OUTPUT
+          echo "updated_projects<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$UPDATED_PROJECTS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Commit version changes
+        if: steps.version-check.outputs.versions_updated != '0'
+        run: |
+          git add -A
+          git commit -m "Auto-increment versions for PR to master"
+          git push origin ${{ github.event.pull_request.head.ref }}
+
+      - name: Comment on PR with version updates
+        if: steps.version-check.outputs.versions_updated != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const updatedProjects = `${{ steps.version-check.outputs.updated_projects }}`;
+            const count = '${{ steps.version-check.outputs.versions_updated }}';
+
+            const comment = `## 🔢 Version Auto-Increment
+
+            **${count} project(s) had versions automatically incremented** to resolve conflicts with master branch:
+
+            ${updatedProjects}
+
+            These changes have been committed to this PR branch automatically.
+
+            ---
+            *🤖 Automated by version-increment workflow*`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: comment
+            });
+
+      - name: No version updates needed
+        if: steps.version-check.outputs.versions_updated == '0'
+        run: |
+          echo "✓ All project versions are already different from master - no updates needed"
