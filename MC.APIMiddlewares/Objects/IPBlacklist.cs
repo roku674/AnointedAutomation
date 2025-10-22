@@ -28,6 +28,14 @@ namespace MandalaConsulting.APIMiddleware.Objects
         /// <param name="reason">The reason for banning the IP.</param>
         public static void AddBannedIP(string ip, string reason)
         {
+            if (string.IsNullOrWhiteSpace(ip))
+            {
+                IPBlacklistMiddleware.AddLog(
+                    LogMessage.Warning("Attempted to add null or empty IP to blacklist. Ignoring.")
+                );
+                return;
+            }
+
             if (!blacklistedIPs.ContainsKey(ip))
             {
                 blacklistedIPs[ip] = reason;
@@ -43,6 +51,11 @@ namespace MandalaConsulting.APIMiddleware.Objects
         /// <returns>The reason for blocking the IP, or null if the IP is not blocked.</returns>
         public static string GetBlockReason(string ipAddress)
         {
+            if (string.IsNullOrWhiteSpace(ipAddress))
+            {
+                return null;
+            }
+
             if (blacklistedIPs.TryGetValue(ipAddress, out string reason))
             {
                 return reason;
@@ -58,6 +71,11 @@ namespace MandalaConsulting.APIMiddleware.Objects
         /// <returns>True if the IP is blocked, false otherwise.</returns>
         public static bool IsIPBlocked(string ipAddress)
         {
+            if (string.IsNullOrWhiteSpace(ipAddress))
+            {
+                return false;
+            }
+
             if (blacklistedIPs.ContainsKey(ipAddress))
             {
                 string reason = blacklistedIPs[ipAddress];

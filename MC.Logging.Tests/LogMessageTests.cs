@@ -339,5 +339,463 @@ namespace MandalaConsulting.Logging.Tests
             Assert.NotNull(logMessage.localOperationName);
             Assert.DoesNotContain("MoveNext", logMessage.localOperationName);
         }
+
+        // EDGE CASE TESTS - Added per CLAUDE_TESTING.md requirements
+
+        [Fact]
+        public void Constructor_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            MessageType messageType = MessageType.Error;
+            string message = null;
+
+            // Act
+            LogMessage logMessage = new LogMessage(messageType, message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(messageType, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Constructor_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            MessageType messageType = MessageType.Warning;
+            string message = "";
+
+            // Act
+            LogMessage logMessage = new LogMessage(messageType, message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(messageType, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Constructor_WithVeryLongMessage_CreatesInstance()
+        {
+            // Arrange
+            MessageType messageType = MessageType.Informational;
+            string message = new string('A', 10000); // 10,000 character message
+
+            // Act
+            LogMessage logMessage = new LogMessage(messageType, message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal(message, logMessage.message);
+            Assert.Equal(messageType, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Constructor_WithSpecialCharacters_CreatesInstance()
+        {
+            // Arrange
+            MessageType messageType = MessageType.Message;
+            string message = "Test with special chars: !@#$%^&*()_+-=[]{}|;':\",./<>?\n\r\t";
+
+            // Act
+            LogMessage logMessage = new LogMessage(messageType, message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal(message, logMessage.message);
+        }
+
+        [Fact]
+        public void Constructor_WithUnicodeCharacters_CreatesInstance()
+        {
+            // Arrange
+            MessageType messageType = MessageType.Message;
+            string message = "Unicode test: 你好世界 🌍 ñ é ü";
+
+            // Act
+            LogMessage logMessage = new LogMessage(messageType, message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal(message, logMessage.message);
+        }
+
+        [Fact]
+        public void Critical_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = null;
+
+            // Act
+            LogMessage logMessage = LogMessage.Critical(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(MessageType.Critical, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Critical_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = "";
+
+            // Act
+            LogMessage logMessage = LogMessage.Critical(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(MessageType.Critical, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Error_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = null;
+
+            // Act
+            LogMessage logMessage = LogMessage.Error(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(MessageType.Error, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Error_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = "";
+
+            // Act
+            LogMessage logMessage = LogMessage.Error(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(MessageType.Error, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Warning_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = null;
+
+            // Act
+            LogMessage logMessage = LogMessage.Warning(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(MessageType.Warning, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Warning_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = "";
+
+            // Act
+            LogMessage logMessage = LogMessage.Warning(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(MessageType.Warning, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Informational_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = null;
+
+            // Act
+            LogMessage logMessage = LogMessage.Informational(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(MessageType.Informational, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Informational_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = "";
+
+            // Act
+            LogMessage logMessage = LogMessage.Informational(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(MessageType.Informational, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Success_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = null;
+
+            // Act
+            LogMessage logMessage = LogMessage.Success(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(MessageType.Success, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Success_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = "";
+
+            // Act
+            LogMessage logMessage = LogMessage.Success(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(MessageType.Success, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Celebrate_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = null;
+
+            // Act
+            LogMessage logMessage = LogMessage.Celebrate(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(MessageType.Celebrate, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Celebrate_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = "";
+
+            // Act
+            LogMessage logMessage = LogMessage.Celebrate(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(MessageType.Celebrate, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Message_WithNullMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = null;
+
+            // Act
+            LogMessage logMessage = LogMessage.Message(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Null(logMessage.message);
+            Assert.Equal(MessageType.Message, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Message_WithEmptyMessage_CreatesInstance()
+        {
+            // Arrange
+            string message = "";
+
+            // Act
+            LogMessage logMessage = LogMessage.Message(message);
+
+            // Assert
+            Assert.NotNull(logMessage);
+            Assert.Equal("", logMessage.message);
+            Assert.Equal(MessageType.Message, logMessage.messageType);
+        }
+
+        [Fact]
+        public void Constructor_RaisesLogAddedEvent()
+        {
+            // Arrange
+            bool eventRaised = false;
+            LogMessage capturedLog = null;
+            LogMessage.LogAddedEventHandler handler = (sender, e) =>
+            {
+                eventRaised = true;
+                capturedLog = e.log;
+            };
+            LogMessage.LogAdded += handler;
+
+            string testMessage = "Event test message";
+
+            try
+            {
+                // Act
+                LogMessage logMessage = new LogMessage(MessageType.Informational, testMessage);
+
+                // Assert
+                Assert.True(eventRaised, "LogAdded event should be raised");
+                Assert.NotNull(capturedLog);
+                Assert.Equal(testMessage, capturedLog.message);
+                Assert.Equal(MessageType.Informational, capturedLog.messageType);
+            }
+            finally
+            {
+                // Cleanup
+                LogMessage.LogAdded -= handler;
+            }
+        }
+
+        [Fact]
+        public void ConstructorWithId_RaisesLogAddedEvent()
+        {
+            // Arrange
+            bool eventRaised = false;
+            LogMessage capturedLog = null;
+            LogMessage.LogAddedEventHandler handler = (sender, e) =>
+            {
+                eventRaised = true;
+                capturedLog = e.log;
+            };
+            LogMessage.LogAdded += handler;
+
+            int testId = 999;
+            string testMessage = "Event test message with ID";
+
+            try
+            {
+                // Act
+                LogMessage logMessage = new LogMessage(testId, MessageType.Critical, testMessage);
+
+                // Assert
+                Assert.True(eventRaised, "LogAdded event should be raised");
+                Assert.NotNull(capturedLog);
+                Assert.Equal(testId, capturedLog.id);
+                Assert.Equal(testMessage, capturedLog.message);
+                Assert.Equal(MessageType.Critical, capturedLog.messageType);
+            }
+            finally
+            {
+                // Cleanup
+                LogMessage.LogAdded -= handler;
+            }
+        }
+
+        [Fact]
+        public void FactoryMethod_RaisesLogAddedEvent()
+        {
+            // Arrange
+            bool eventRaised = false;
+            LogMessage capturedLog = null;
+            LogMessage.LogAddedEventHandler handler = (sender, e) =>
+            {
+                eventRaised = true;
+                capturedLog = e.log;
+            };
+            LogMessage.LogAdded += handler;
+
+            string testMessage = "Factory method event test";
+
+            try
+            {
+                // Act
+                LogMessage logMessage = LogMessage.Error(testMessage);
+
+                // Assert
+                Assert.True(eventRaised, "LogAdded event should be raised from factory method");
+                Assert.NotNull(capturedLog);
+                Assert.Equal(testMessage, capturedLog.message);
+                Assert.Equal(MessageType.Error, capturedLog.messageType);
+            }
+            finally
+            {
+                // Cleanup
+                LogMessage.LogAdded -= handler;
+            }
+        }
+
+        [Fact]
+        public void Constructor_SetsTimestampToCurrentTime()
+        {
+            // Arrange
+            DateTime before = DateTime.Now;
+
+            // Act
+            LogMessage logMessage = new LogMessage(MessageType.Informational, "Timestamp test");
+            DateTime after = DateTime.Now;
+
+            // Assert
+            Assert.True(logMessage.timeStamp >= before, "Timestamp should be >= time before creation");
+            Assert.True(logMessage.timeStamp <= after, "Timestamp should be <= time after creation");
+        }
+
+        [Fact]
+        public void Constructor_WithIdZero_SetsIdCorrectly()
+        {
+            // Arrange
+            int id = 0;
+
+            // Act
+            LogMessage logMessage = new LogMessage(id, MessageType.Informational, "Test");
+
+            // Assert
+            Assert.Equal(0, logMessage.id);
+        }
+
+        [Fact]
+        public void Constructor_WithNegativeId_SetsIdCorrectly()
+        {
+            // Arrange
+            int id = -1;
+
+            // Act
+            LogMessage logMessage = new LogMessage(id, MessageType.Informational, "Test");
+
+            // Assert
+            Assert.Equal(-1, logMessage.id);
+        }
+
+        [Fact]
+        public void Constructor_WithMaxIntId_SetsIdCorrectly()
+        {
+            // Arrange
+            int id = int.MaxValue;
+
+            // Act
+            LogMessage logMessage = new LogMessage(id, MessageType.Informational, "Test");
+
+            // Assert
+            Assert.Equal(int.MaxValue, logMessage.id);
+        }
+
+        [Fact]
+        public void LogMessageEventArgs_WithNullLog_StoresNull()
+        {
+            // Arrange
+            LogMessage logMessage = null;
+
+            // Act
+            LogMessageEventArgs args = new LogMessageEventArgs(logMessage);
+
+            // Assert
+            Assert.Null(args.log);
+        }
     }
 }
