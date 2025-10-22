@@ -84,7 +84,8 @@ namespace MandalaConsulting.APIMiddleware.Utility
                 ipAddress = context.HttpContext.Connection.RemoteIpAddress?.ToString();
             }
 
-            if (ipAddress == "::1")
+            // If still null or empty, or if localhost, return default IP
+            if (string.IsNullOrEmpty(ipAddress) || ipAddress.Equals("::1"))
             {
                 IPBlacklistMiddleware.AddLog(
                     LogMessage.Critical(

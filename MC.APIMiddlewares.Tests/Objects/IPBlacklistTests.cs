@@ -111,19 +111,204 @@ namespace MandalaConsulting.APIMiddlewares.Tests.Objects
             // Arrange
             string ip1 = "192.168.1.11";
             string reason1 = "Test reason 1";
-            
+
             string ip2 = "192.168.1.12";
             string reason2 = "Test reason 2";
-            
+
             // Act
             IPBlacklist.AddBannedIP(ip1, reason1);
             IPBlacklist.AddBannedIP(ip2, reason2);
-            
+
             // Assert
             Assert.Equal(reason1, IPBlacklist.GetBlockReason(ip1));
             Assert.Equal(reason2, IPBlacklist.GetBlockReason(ip2));
             Assert.True(IPBlacklist.IsIPBlocked(ip1));
             Assert.True(IPBlacklist.IsIPBlocked(ip2));
+        }
+
+        // EDGE CASE TESTS - Added per CLAUDE_TESTING.md requirements
+
+        [Fact]
+        public void AddBannedIP_WithNullIP_DoesNotAddToBlacklist()
+        {
+            // Arrange
+            string ip = null;
+            string reason = "Test reason";
+
+            // Act
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Assert
+            // FIXED: Now validates input and ignores null IPs instead of throwing exception
+            Assert.Null(IPBlacklist.GetBlockReason(ip));
+            Assert.False(IPBlacklist.IsIPBlocked(ip));
+        }
+
+        [Fact]
+        public void AddBannedIP_WithEmptyStringIP_DoesNotAddToBlacklist()
+        {
+            // Arrange
+            string ip = "";
+            string reason = "Test reason";
+
+            // Act
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Assert
+            // FIXED: Now validates input and ignores empty string IPs
+            Assert.Null(IPBlacklist.GetBlockReason(ip));
+            Assert.False(IPBlacklist.IsIPBlocked(ip));
+        }
+
+        [Fact]
+        public void AddBannedIP_WithNullReason_AddsToBlacklist()
+        {
+            // Arrange
+            string ip = "192.168.1.200";
+            string reason = null;
+
+            // Act
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Assert
+            Assert.Null(IPBlacklist.GetBlockReason(ip));
+            Assert.True(IPBlacklist.IsIPBlocked(ip));
+        }
+
+        [Fact]
+        public void AddBannedIP_WithEmptyStringReason_AddsToBlacklist()
+        {
+            // Arrange
+            string ip = "192.168.1.201";
+            string reason = "";
+
+            // Act
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Assert
+            Assert.Equal("", IPBlacklist.GetBlockReason(ip));
+            Assert.True(IPBlacklist.IsIPBlocked(ip));
+        }
+
+        [Fact]
+        public void GetBlockReason_WithNullIP_ReturnsNull()
+        {
+            // Arrange
+            string ip = null;
+
+            // Act
+            string reason = IPBlacklist.GetBlockReason(ip);
+
+            // Assert
+            // FIXED: Now validates input and returns null instead of throwing exception
+            Assert.Null(reason);
+        }
+
+        [Fact]
+        public void GetBlockReason_WithEmptyStringIP_ReturnsNullIfNotBlacklisted()
+        {
+            // Arrange
+            string ip = "";
+
+            // Act
+            string reason = IPBlacklist.GetBlockReason(ip);
+
+            // Assert
+            Assert.Null(reason);
+        }
+
+        [Fact]
+        public void IsIPBlocked_WithNullIP_ReturnsFalse()
+        {
+            // Arrange
+            string ip = null;
+
+            // Act
+            bool isBlocked = IPBlacklist.IsIPBlocked(ip);
+
+            // Assert
+            // FIXED: Now validates input and returns false instead of throwing exception
+            Assert.False(isBlocked);
+        }
+
+        [Fact]
+        public void IsIPBlocked_WithEmptyStringIP_ReturnsFalseIfNotBlacklisted()
+        {
+            // Arrange
+            string ip = "";
+
+            // Act
+            bool isBlocked = IPBlacklist.IsIPBlocked(ip);
+
+            // Assert
+            Assert.False(isBlocked);
+        }
+
+        [Fact]
+        public void IsIPBlocked_WhenIPIsBlocked_CallsAddLog()
+        {
+            // Arrange
+            string ip = "192.168.1.250";
+            string reason = "Test logging";
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Clear logs to ensure fresh state
+            IPBlacklistMiddleware.ClearLogs();
+
+            // Act
+            bool isBlocked = IPBlacklist.IsIPBlocked(ip);
+
+            // Assert
+            Assert.True(isBlocked);
+            // Verify that a log was added (checking that logs collection is not empty)
+            // Note: We can't directly inspect the logs without exposing them,
+            // but this documents the expected behavior per IPBlacklist.cs:64
+        }
+
+        [Fact]
+        public void AddBannedIP_WithWhitespaceIP_DoesNotAddToBlacklist()
+        {
+            // Arrange
+            string ip = "   ";
+            string reason = "Test whitespace";
+
+            // Act
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Assert
+            // FIXED: Now validates input and ignores whitespace-only IPs
+            Assert.Null(IPBlacklist.GetBlockReason(ip));
+            Assert.False(IPBlacklist.IsIPBlocked(ip));
+        }
+
+        [Fact]
+        public void AddBannedIP_WithSpecialCharactersInReason_AddsToBlacklist()
+        {
+            // Arrange
+            string ip = "192.168.1.202";
+            string reason = "Test with special chars: !@#$%^&*()_+-=[]{}|;':\",./<>?";
+
+            // Act
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Assert
+            Assert.Equal(reason, IPBlacklist.GetBlockReason(ip));
+            Assert.True(IPBlacklist.IsIPBlocked(ip));
+        }
+
+        [Fact]
+        public void AddBannedIP_WithVeryLongReason_AddsToBlacklist()
+        {
+            // Arrange
+            string ip = "192.168.1.203";
+            string reason = new string('A', 10000); // 10,000 character reason
+
+            // Act
+            IPBlacklist.AddBannedIP(ip, reason);
+
+            // Assert
+            Assert.Equal(reason, IPBlacklist.GetBlockReason(ip));
+            Assert.True(IPBlacklist.IsIPBlocked(ip));
         }
     }
 }

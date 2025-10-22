@@ -79,5 +79,125 @@ namespace MandalaConsulting.APIMiddlewares.Tests.Objects
             Assert.Equal(ipv6, bannedIP.ipv6);
             Assert.Equal(reason, bannedIP.reason);
         }
+
+        // EDGE CASE TESTS - Added per CLAUDE_TESTING.md requirements
+
+        [Fact]
+        public void Constructor_WithNullIPAddresses_SetsNullValues()
+        {
+            // Act
+            var bannedIP = new BannedIP(null, null);
+
+            // Assert
+            Assert.Null(bannedIP.ipv4);
+            Assert.Null(bannedIP.ipv6);
+        }
+
+        [Fact]
+        public void Constructor_WithEmptyIPAddresses_SetsEmptyStrings()
+        {
+            // Act
+            var bannedIP = new BannedIP("", "");
+
+            // Assert
+            Assert.Equal("", bannedIP.ipv4);
+            Assert.Equal("", bannedIP.ipv6);
+        }
+
+        [Fact]
+        public void Constructor_WithAllNullParameters_SetsAllNull()
+        {
+            // Act
+            var bannedIP = new BannedIP(null, null, null, null);
+
+            // Assert
+            Assert.Null(bannedIP._id);
+            Assert.Null(bannedIP.ipv4);
+            Assert.Null(bannedIP.ipv6);
+            Assert.Null(bannedIP.reason);
+        }
+
+        [Fact]
+        public void Constructor_WithAllEmptyParameters_SetsAllEmpty()
+        {
+            // Act
+            var bannedIP = new BannedIP("", "", "", "");
+
+            // Assert
+            Assert.Equal("", bannedIP._id);
+            Assert.Equal("", bannedIP.ipv4);
+            Assert.Equal("", bannedIP.ipv6);
+            Assert.Equal("", bannedIP.reason);
+        }
+
+        [Fact]
+        public void Constructor_WithVeryLongStrings_SetsValues()
+        {
+            // Arrange
+            string longString = new string('a', 10000);
+
+            // Act
+            var bannedIP = new BannedIP(longString, longString, longString, longString);
+
+            // Assert
+            Assert.Equal(longString, bannedIP._id);
+            Assert.Equal(longString, bannedIP.ipv4);
+            Assert.Equal(longString, bannedIP.ipv6);
+            Assert.Equal(longString, bannedIP.reason);
+        }
+
+        [Fact]
+        public void Properties_CanBeSetToNull()
+        {
+            // Arrange
+            var bannedIP = new BannedIP("id", "ipv4", "ipv6", "reason");
+
+            // Act
+            bannedIP._id = null;
+            bannedIP.ipv4 = null;
+            bannedIP.ipv6 = null;
+            bannedIP.reason = null;
+
+            // Assert
+            Assert.Null(bannedIP._id);
+            Assert.Null(bannedIP.ipv4);
+            Assert.Null(bannedIP.ipv6);
+            Assert.Null(bannedIP.reason);
+        }
+
+        [Fact]
+        public void Properties_CanBeSetToEmptyString()
+        {
+            // Arrange
+            var bannedIP = new BannedIP("id", "ipv4", "ipv6", "reason");
+
+            // Act
+            bannedIP._id = "";
+            bannedIP.ipv4 = "";
+            bannedIP.ipv6 = "";
+            bannedIP.reason = "";
+
+            // Assert
+            Assert.Equal("", bannedIP._id);
+            Assert.Equal("", bannedIP.ipv4);
+            Assert.Equal("", bannedIP.ipv6);
+            Assert.Equal("", bannedIP.reason);
+        }
+
+        [Fact]
+        public void Constructor_WithSpecialCharacters_SetsValues()
+        {
+            // Arrange
+            string specialChars = "!@#$%^&*()_+-=[]{}|;':\",./<>?";
+
+            // Act
+            var bannedIP = new BannedIP(specialChars, specialChars, specialChars, specialChars);
+
+            // Assert
+            Assert.Equal(specialChars, bannedIP._id);
+            Assert.Equal(specialChars, bannedIP.ipv4);
+            Assert.Equal(specialChars, bannedIP.ipv6);
+            Assert.Equal(specialChars, bannedIP.reason);
+        }
     }
 }
