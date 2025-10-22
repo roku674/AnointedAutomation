@@ -34,27 +34,43 @@ jobs:
       - name: Check and increment versions
         id: version-check
         run: |
-          echo "Checking for version conflicts with master..."
+          echo "Checking for code changes and version conflicts with master..."
 
           # Fetch master branch for comparison
           git fetch origin master:master
 
-          # Define all project files to check
-          declare -a PROJECTS=(
-            "MC.Logging/MandalaConsulting.Logging.csproj"
-            "MC.Memory/MandalaConsulting.Memory.csproj"
-            "MC.APIMiddlewares/MandalaConsulting.APIMiddlewares.csproj"
-            "MC.Repository.Mongo/MandalaConsulting.Repository.Mongo.csproj"
-            "MC.Objects/MandalaConsulting.Objects.csproj"
-            "MC.Objects.API/MandalaConsulting.Objects.API.csproj"
+          # Define all project files and their directories to check
+          declare -A PROJECTS=(
+            ["MC.Logging/MandalaConsulting.Logging.csproj"]="MC.Logging"
+            ["MC.Memory/MandalaConsulting.Memory.csproj"]="MC.Memory"
+            ["MC.APIMiddlewares/MandalaConsulting.APIMiddlewares.csproj"]="MC.APIMiddlewares"
+            ["MC.Repository.Mongo/MandalaConsulting.Repository.Mongo.csproj"]="MC.Repository.Mongo"
+            ["MC.Objects/MandalaConsulting.Objects.csproj"]="MC.Objects"
+            ["MC.Objects.API/MandalaConsulting.Objects.API.csproj"]="MC.Objects.API"
           )
 
           VERSIONS_UPDATED=0
           UPDATED_PROJECTS=""
 
-          for PROJECT_PATH in "${PROJECTS[@]}"; do
+          for PROJECT_PATH in "${!PROJECTS[@]}"; do
+            PROJECT_DIR="${PROJECTS[$PROJECT_PATH]}"
+
             if [ ! -f "$PROJECT_PATH" ]; then
               echo "Warning: $PROJECT_PATH not found, skipping"
+              continue
+            fi
+
+            echo ""
+            echo "Checking $PROJECT_PATH:"
+
+            # Check if there are any code changes in this project directory
+            CODE_CHANGES=$(git diff --name-only master...HEAD -- "$PROJECT_DIR" | grep -v "\.csproj$" | wc -l)
+
+            echo "  Code changes detected: $CODE_CHANGES file(s)"
+
+            # Skip if no code changes (excluding .csproj file itself)
+            if [ "$CODE_CHANGES" -eq 0 ]; then
+              echo "  ✓ No code changes - skipping version check"
               continue
             fi
 
@@ -62,7 +78,7 @@ jobs:
             PR_VERSION=$(grep -o '<Version>[^<]*</Version>' "$PROJECT_PATH" | sed 's/<Version>\(.*\)<\/Version>/\1/')
 
             if [ -z "$PR_VERSION" ]; then
-              echo "No <Version> tag found in $PROJECT_PATH - skipping"
+              echo "  No <Version> tag found - skipping"
               continue
             fi
 
@@ -70,18 +86,16 @@ jobs:
             MASTER_VERSION=$(git show master:"$PROJECT_PATH" 2>/dev/null | grep -o '<Version>[^<]*</Version>' | sed 's/<Version>\(.*\)<\/Version>/\1/' || echo "")
 
             if [ -z "$MASTER_VERSION" ]; then
-              echo "$PROJECT_PATH: New project (not in master), version: $PR_VERSION"
+              echo "  New project (not in master), version: $PR_VERSION"
               continue
             fi
 
-            echo ""
-            echo "Checking $PROJECT_PATH:"
             echo "  PR version:     $PR_VERSION"
             echo "  Master version: $MASTER_VERSION"
 
-            # Compare versions
+            # Compare versions - only increment if they match
             if [ "$PR_VERSION" = "$MASTER_VERSION" ]; then
-              echo "  ⚠️  Version conflict detected - incrementing patch version"
+              echo "  ⚠️  Version not incremented despite code changes - auto-incrementing patch version"
 
               # Parse version components (assuming semantic versioning: MAJOR.MINOR.PATCH)
               IFS='.' read -r -a VERSION_PARTS <<< "$PR_VERSION"
@@ -101,7 +115,7 @@ jobs:
               VERSIONS_UPDATED=$((VERSIONS_UPDATED + 1))
               UPDATED_PROJECTS="${UPDATED_PROJECTS}\n- ${PROJECT_PATH}: ${PR_VERSION} → ${NEW_VERSION}"
             else
-              echo "  ✓ Version already differs from master"
+              echo "  ✓ Version already incremented"
             fi
           done
 
