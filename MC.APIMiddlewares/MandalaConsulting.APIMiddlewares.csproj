@@ -22,7 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MC.Logging\MandalaConsulting.Logging.csproj" />
     <ProjectReference Include="..\MC.Memory\MandalaConsulting.Memory.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.3.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.0" />
   </ItemGroup>
 
