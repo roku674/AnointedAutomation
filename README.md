@@ -1,12 +1,12 @@
-# Mandala Consulting .NET Code Repository
+# Anointed Automation .NET Code Repository
 
-Welcome to the Mandala Consulting repository! This repository contains our open-sourced .NET code, aimed at providing useful libraries and tools for the community.
+Welcome to the Anointed Automation repository! This repository contains our open-sourced .NET code, aimed at providing useful libraries and tools for the community.
 
 ### [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE_DICTIONARY.md)
 
 ## Table of Contents
 
-- [About Mandala Consulting](#about-mandala-consulting)
+- [About Anointed Automation](#about-anointed-automation)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -15,9 +15,9 @@ Welcome to the Mandala Consulting repository! This repository contains our open-
 - [License](#license)
 - [Contact](#contact)
 
-## About Mandala Consulting
+## About Anointed Automation
 
-Mandala Consulting is dedicated to delivering high-quality software solutions and fostering innovation within the .NET community. By sharing our code, we hope to empower developers and promote collaboration.
+Anointed Automation is dedicated to delivering high-quality software solutions and fostering innovation within the .NET community. By sharing our code, we hope to empower developers and promote collaboration.
 
 ## Features
 
@@ -37,12 +37,12 @@ dotnet add package <PackageName>
 
 Our libraries are available as NuGet packages. Here are the packages currently available:
 
-- **MandalaConsulting.APIMiddlewares** - Middleware components for ASP.NET Core APIs
-- **MandalaConsulting.Logging** - Standardized logging utilities
-- **MandalaConsulting.Memory** - Memory management utilities
-- **MandalaConsulting.Objects** - Common object models
-- **MandalaConsulting.Objects.API** - API-specific object models
-- **MandalaConsulting.Repository.Mongo** - MongoDB repository pattern implementation
+- **AnointedAutomation.APIMiddlewares** - Middleware components for ASP.NET Core APIs
+- **AnointedAutomation.Logging** - Standardized logging utilities
+- **AnointedAutomation.Memory** - Memory management utilities
+- **AnointedAutomation.Objects** - Common object models
+- **AnointedAutomation.Objects.API** - API-specific object models
+- **AnointedAutomation.Repository.Mongo** - MongoDB repository pattern implementation
 
 ### Package Publishing
 

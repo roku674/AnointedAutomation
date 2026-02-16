@@ -3,11 +3,11 @@
 # PROJECT STRUCTURE LIBRARIES
 
 ## Solution Overview
-The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
+The AnointedAutomation solution contains 6 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
 
 ## Library Details
 
-### 1. MC.Logging (MandalaConsulting.Logging) v0.0.5
+### 1. AnointedAutomation.Logging v0.0.5
 
 **Purpose & Functionality:**
 - Provides standardized logging framework for .NET applications
@@ -47,7 +47,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - Properties: `id`, `localOperationName`, `message`, `messageSource`, `messageType`, `timeStamp`
 - Static property: `MessageSourceSetter` for application identification
 
-### 2. MC.Memory (MandalaConsulting.Memory) v0.0.4
+### 2. AnointedAutomation.Memory v0.0.4
 
 **Purpose & Functionality:**
 - Memory management utilities for .NET applications
@@ -71,7 +71,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - `ReturnUnusedMemoryToOS()` - Private method for OS memory return
 - Uses .NET's no-GC region feature for optimization
 
-### 3. MC.APIMiddlewares (MandalaConsulting.APIMiddlewares) v0.0.13
+### 3. AnointedAutomation.APIMiddlewares v0.0.13
 
 **Purpose & Functionality:**
 - ASP.NET Core middleware collection for API security and monitoring
@@ -122,9 +122,9 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
   - IP validation helpers
 
 **Dependencies:**
-- **Internal:** 
-  - MC.Logging (logging functionality)
-  - MC.Memory (garbage collection)
+- **Internal:**
+  - AnointedAutomation.Logging (logging functionality)
+  - AnointedAutomation.Memory (garbage collection)
 - **External:**
   - Microsoft.AspNetCore (2.3.0)
   - Microsoft.AspNetCore.Mvc.Core (2.3.0)
@@ -135,7 +135,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - Event system for logging and IP banning
 - Environment variable configuration: `API_KEY`, `API_KEY_NAME`
 
-### 4. MC.Repository.Mongo (MandalaConsulting.Repository.Mongo) v0.0.5
+### 4. AnointedAutomation.Repository.Mongo v0.0.5
 
 **Purpose & Functionality:**
 - MongoDB database operations wrapper
@@ -167,11 +167,11 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 
 **Dependencies:**
 - **Internal:**
-  - MC.Logging (for operation logging)
+  - AnointedAutomation.Logging (for operation logging)
 - **External:**
   - MongoDB.Bson (3.4.0)
   - MongoDB.Driver (3.4.0)
-  - MongoDB.Driver.Core (2.30.0) 
+  - MongoDB.Driver.Core (2.30.0)
   - MongoDB.Driver.GridFS (2.30.0)
   - MongoDB.Libmongocrypt (1.12.0)
 
@@ -181,7 +181,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - Utility methods: `ConnectionStringBuilder()`, `GetIdFromObj<T>()`
 - Event system: `LogAdded`, `LogCleared` events
 
-### 5. MC.Objects (MandalaConsulting.Objects) v0.0.12
+### 5. AnointedAutomation.Objects v0.0.12
 
 **Purpose & Functionality:**
 - Core data models for general application development
@@ -240,22 +240,22 @@ All billing models include complete XML documentation
   - MongoDB.Libmongocrypt (1.12.0)
   - Newtonsoft.Json (13.0.3)
 
-### 6. MC.Objects.API (MandalaConsulting.Objects.API) v0.0.5
+### 6. AnointedAutomation.Objects.API v0.0.5
 
 **Purpose & Functionality:**
-- API-specific data models extending MC.Objects
+- API-specific data models extending AnointedAutomation.Objects
 - ASP.NET Core integration for web APIs
 - File upload handling and API response standardization
 
 **Key Classes:**
-- All classes from MC.Objects (same structure, different namespace)
+- All classes from AnointedAutomation.Objects (same structure, different namespace)
 - `CustomFormFile` - IFormFile implementation for multipart uploads
   - Complete XML documentation for file handling
 - API-specific `ResponseData` class
   - Full documentation of response structure
 
 **Dependencies:**
-- **Internal:** None (contains duplicate models from MC.Objects)
+- **Internal:** None (contains duplicate models from AnointedAutomation.Objects)
 - **External:**
   - MongoDB.Driver (3.4.0)
   - MongoDB.Driver.Core (2.30.0)
@@ -268,30 +268,30 @@ All billing models include complete XML documentation
 ## Inter-Library Dependencies
 
 ```
-MC.APIMiddlewares
-├── MC.Logging (logging)
-└── MC.Memory (garbage collection)
+AnointedAutomation.APIMiddlewares
+├── AnointedAutomation.Logging (logging)
+└── AnointedAutomation.Memory (garbage collection)
 
-MC.Repository.Mongo
-└── MC.Logging (operation logging)
+AnointedAutomation.Repository.Mongo
+└── AnointedAutomation.Logging (operation logging)
 
-MC.Memory
+AnointedAutomation.Memory
 └── (no internal dependencies)
 
-MC.Logging
+AnointedAutomation.Logging
 └── (no internal dependencies)
 
-MC.Objects
+AnointedAutomation.Objects
 └── (no internal dependencies)
 
-MC.Objects.API
+AnointedAutomation.Objects.API
 └── (no internal dependencies)
 ```
 
 ## Key Architectural Notes
 
-1. **Namespace Structure**: Libraries use `MandalaConsulting.{Feature}` pattern with sub-namespaces
-2. **Duplicate Models**: MC.Objects and MC.Objects.API contain identical models in different namespaces
+1. **Namespace Structure**: Libraries use `AnointedAutomation.{Feature}` pattern with sub-namespaces
+2. **Duplicate Models**: AnointedAutomation.Objects and AnointedAutomation.Objects.API contain identical models in different namespaces
 3. **MongoDB Integration**: Heavy use of MongoDB across multiple libraries
 4. **Event-Driven Architecture**: Logging and middleware components use .NET events
 5. **NuGet Package Strategy**: All libraries configured for NuGet distribution

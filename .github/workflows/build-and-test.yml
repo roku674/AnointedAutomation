@@ -1,4 +1,4 @@
-# Copyright © Mandala Consulting, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
+# Copyright © Anointed Automation, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
 # Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 name: .NET Test
 
@@ -14,10 +14,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '8.x'
 
@@ -33,10 +33,10 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
         dotnet-version: '8.x'
 
@@ -47,20 +47,20 @@ jobs:
       run: dotnet build --no-restore --configuration Release
 
     - name: Run Logging Tests
-      run: dotnet test MC.Logging.Tests/MandalaConsulting.Logging.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
+      run: dotnet test AnointedAutomation.Logging.Tests/AnointedAutomation.Logging.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
 
     - name: Run Memory Tests
-      run: dotnet test MC.Memory.Tests/MandalaConsulting.Memory.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
+      run: dotnet test AnointedAutomation.Memory.Tests/AnointedAutomation.Memory.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
 
     - name: Run APIMiddlewares Tests
-      run: dotnet test MC.APIMiddlewares.Tests/MandalaConsulting.APIMiddlewares.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
+      run: dotnet test AnointedAutomation.APIMiddlewares.Tests/AnointedAutomation.APIMiddlewares.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
 
     - name: Run Repository.Mongo Tests
-      run: dotnet test MC.Repository.Mongo.Tests/MandalaConsulting.Repository.Mongo.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
+      run: dotnet test AnointedAutomation.Repository.Mongo.Tests/AnointedAutomation.Repository.Mongo.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
 
     - name: Publish Test Results
       if: always()
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: test-results
         path: '**/TestResults/*'

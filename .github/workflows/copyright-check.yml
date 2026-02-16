@@ -19,7 +19,7 @@ jobs:
     
     steps:
       - name: Checkout master branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0  # Need full history for proper git attribution
           ref: master
@@ -205,7 +205,7 @@ jobs:
       
       - name: Close existing copyright PRs
         if: steps.check-changes.outputs.changes == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             // Find and close any existing monthly copyright PRs
@@ -241,7 +241,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.check-changes.outputs.changes == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const branchName = '${{ steps.create-branch.outputs.branch_name }}';

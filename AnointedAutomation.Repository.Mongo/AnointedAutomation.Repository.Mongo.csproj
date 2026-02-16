@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://github.com/roku674/AnointedAutomation</PackageProjectUrl>
+		<Title>AnointedAutomation.Repository.Mongo</Title>
+		<Company>Anointed Automation LLC - Alexander Fields</Company>
+		<Copyright>Copyright © 2023 Anointed Automation, LLC All rights reserved.</Copyright>
+		<Description>Repository for Generic Mongo Usage - AnointedAutomation.Repository.Mongo</Description>
+		<RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
+		<Version>0.0.8</Version>
+		<PackageTags>Mongo</PackageTags>
+		<PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Repository.Logging</PackageReleaseNotes>
+		<Authors>Anointed Automation LLC, Alexander Fields</Authors>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="nuget.config" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AnointedAutomation.Logging\AnointedAutomation.Logging.csproj" />
+		<PackageReference Include="MongoDB.Bson" Version="3.6.0" />
+	  <PackageReference Include="MongoDB.Driver" Version="3.6.0" />
+	  <PackageReference Include="MongoDB.Driver.Core" Version="2.30.0" />
+	  <PackageReference Include="MongoDB.Driver.GridFS" Version="2.30.0" />
+	  <PackageReference Include="MongoDB.Libmongocrypt" Version="1.12.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Include="nuget.config" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
+
+</Project>

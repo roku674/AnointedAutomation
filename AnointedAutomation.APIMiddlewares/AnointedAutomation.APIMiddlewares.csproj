@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/roku674/AnointedAutomation</PackageProjectUrl>
+    <Title>AnointedAutomation.APIMiddlewares</Title>
+    <Company>Anointed Automation LLC - Alexander Fields</Company>
+    <Copyright>Copyright © 2023 Anointed Automation, LLC All rights reserved.</Copyright>
+    <Description>Middlewares for APIs - AnointedAutomation.APIMiddlewares</Description>
+    <RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
+    <Version>0.0.15</Version>
+    <PackageTags>middleware</PackageTags>
+    <PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.APIMiddlewares</PackageReleaseNotes>
+    <Authors>Anointed Automation LLC, Alexander Fields</Authors>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AnointedAutomation.Logging\AnointedAutomation.Logging.csproj" />
+    <ProjectReference Include="..\AnointedAutomation.Memory\AnointedAutomation.Memory.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.3.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.9" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>

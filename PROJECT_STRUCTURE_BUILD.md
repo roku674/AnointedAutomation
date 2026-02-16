@@ -3,7 +3,7 @@
 # PROJECT STRUCTURE BUILD
 
 ## CI/CD Pipeline Overview
-The MandalaConsulting solution uses GitHub Actions for automated build, test, and deployment with sophisticated version management and quality gates.
+The AnointedAutomation solution uses GitHub Actions for automated build, test, and deployment with sophisticated version management and quality gates.
 
 ## GitHub Actions Workflows
 
@@ -84,7 +84,7 @@ The MandalaConsulting solution uses GitHub Actions for automated build, test, an
 ## Build Configuration
 
 ### Solution Structure
-- **Main Solution**: `MandalaConsulting.sln`
+- **Main Solution**: `AnointedAutomation.sln`
 - **Projects**: 6 libraries + 4 test projects
 - **Target Framework**: .NET 8.0
 - **Configuration**: Debug/Release builds
@@ -109,12 +109,12 @@ The MandalaConsulting solution uses GitHub Actions for automated build, test, an
 - **Format**: MAJOR.MINOR.PATCH (e.g., 0.0.5)
 - **Control**: `<Version>` tags in individual .csproj files
 - **Current Versions**:
-  - MC.Logging: 0.0.5
-  - MC.Memory: 0.0.4
-  - MC.APIMiddlewares: 0.0.13
-  - MC.Repository.Mongo: 0.0.5
-  - MC.Objects: 0.0.12
-  - MC.Objects.API: 0.0.5
+  - AnointedAutomation.Logging: 0.0.5
+  - AnointedAutomation.Memory: 0.0.4
+  - AnointedAutomation.APIMiddlewares: 0.0.13
+  - AnointedAutomation.Repository.Mongo: 0.0.5
+  - AnointedAutomation.Objects: 0.0.12
+  - AnointedAutomation.Objects.API: 0.0.5
 
 ### Automated Version Detection
 - **Script**: `check-version-changes.sh`
@@ -133,10 +133,10 @@ The MandalaConsulting solution uses GitHub Actions for automated build, test, an
 ~/.dotnet/dotnet test
 
 # Build specific project
-~/.dotnet/dotnet build MC.{LibraryName}/
+~/.dotnet/dotnet build AnointedAutomation.{LibraryName}/
 
 # Test specific project
-~/.dotnet/dotnet test MC.{LibraryName}.Tests/
+~/.dotnet/dotnet test AnointedAutomation.{LibraryName}.Tests/
 ```
 
 ### Package Creation
@@ -145,16 +145,16 @@ The MandalaConsulting solution uses GitHub Actions for automated build, test, an
 ~/.dotnet/dotnet pack --configuration Release
 
 # Create specific package
-~/.dotnet/dotnet pack MC.{LibraryName}/ --configuration Release
+~/.dotnet/dotnet pack AnointedAutomation.{LibraryName}/ --configuration Release
 ```
 
 ### Publishing (Manual)
 ```bash
 # Publish to NuGet.org
-~/.dotnet/dotnet nuget push "MC.{LibraryName}/bin/Release/*.nupkg" --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+~/.dotnet/dotnet nuget push "AnointedAutomation.{LibraryName}/bin/Release/*.nupkg" --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
 
 # Publish to GitHub Packages
-~/.dotnet/dotnet nuget push "MC.{LibraryName}/bin/Release/*.nupkg" --api-key $GITHUB_TOKEN --source https://nuget.pkg.github.com/roku674/index.json
+~/.dotnet/dotnet nuget push "AnointedAutomation.{LibraryName}/bin/Release/*.nupkg" --api-key $GITHUB_TOKEN --source https://nuget.pkg.github.com/roku674/index.json
 ```
 
 ## Quality Gates

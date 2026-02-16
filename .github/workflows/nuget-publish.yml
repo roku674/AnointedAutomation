@@ -1,4 +1,4 @@
-# Copyright © Mandala Consulting, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
+# Copyright © Anointed Automation, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
 # Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 name: Publish NuGet Packages
 
@@ -13,12 +13,12 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0  # Full history for version tags
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 8.0.x
 
@@ -39,12 +39,12 @@ jobs:
           
           # Define packages to check
           declare -A PACKAGES=(
-            ["MC.Logging/MandalaConsulting.Logging.csproj"]="mandalaconsulting.logging"
-            ["MC.Memory/MandalaConsulting.Memory.csproj"]="mandalaconsulting.memory"
-            ["MC.APIMiddlewares/MandalaConsulting.APIMiddlewares.csproj"]="mandalaconsulting.apimiddlewares"
-            ["MC.Repository.Mongo/MandalaConsulting.Repository.Mongo.csproj"]="mandalaconsulting.repository.mongo"
-            ["MC.Objects/MandalaConsulting.Objects.csproj"]="mandalaconsulting.objects"
-            ["MC.Objects.API/MandalaConsulting.Objects.API.csproj"]="mandalaconsulting.objects.api"
+            ["AnointedAutomation.Logging/AnointedAutomation.Logging.csproj"]="anointedautomation.logging"
+            ["AnointedAutomation.Memory/AnointedAutomation.Memory.csproj"]="anointedautomation.memory"
+            ["AnointedAutomation.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="anointedautomation.apimiddlewares"
+            ["AnointedAutomation.Repository.Mongo/AnointedAutomation.Repository.Mongo.csproj"]="anointedautomation.repository.mongo"
+            ["AnointedAutomation.Objects/AnointedAutomation.Objects.csproj"]="anointedautomation.objects"
+            ["AnointedAutomation.Objects.API/AnointedAutomation.Objects.API.csproj"]="anointedautomation.objects.api"
           )
           
           for PROJECT_PATH in "${!PACKAGES[@]}"; do
@@ -101,7 +101,7 @@ jobs:
 
       - name: Upload packages as artifacts
         if: steps.check-pack.outputs.has_packages == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: nuget-packages
           path: ./nupkgs/*.nupkg

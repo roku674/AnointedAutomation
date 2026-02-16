@@ -12,7 +12,7 @@ The Google integration objects provide structured data models for handling Googl
 
 Main container class that encapsulates Google authentication and profile data.
 
-**Namespace**: `MandalaConsulting.Objects.Google`
+**Namespace**: `AnointedAutomation.Objects.Google`
 
 **Properties**:
 - `GoogleTokenInfo` - Contains OAuth2 token information
@@ -60,7 +60,7 @@ Represents a Google user's profile information.
 ## Usage Example
 
 ```csharp
-using MandalaConsulting.Objects.Google;
+using AnointedAutomation.Objects.Google;
 using Google.Integrations;
 
 // Create token info
@@ -99,7 +99,7 @@ var googleData = new GoogleObjects(tokenInfo, userProfile);
 
 ## License
 
-Copyright © 2023 Mandala Consulting, LLC. All rights reserved.
+Copyright © 2023 Anointed Automation, LLC. All rights reserved.
 
 ## Author
 

@@ -22,7 +22,7 @@ To publish a new version of a package:
 2. Create a pull request to merge your changes into master:
    ```bash
    git checkout -b feature/update-package-version
-   git add MC.APIMiddlewares/MandalaConsulting.APIMiddlewares.csproj
+   git add AnointedAutomation.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj
    git commit -m "Bump APIMiddlewares version to 0.0.10"
    git push origin feature/update-package-version
    ```
@@ -48,17 +48,17 @@ If you see "403 Forbidden" or "The specified API key is invalid":
 
 1. Ensure the `NUGET_API_KEY` secret is set correctly in GitHub repository settings
 2. Verify the API key has permissions for all packages:
-   - MandalaConsulting.APIMiddlewares
-   - MandalaConsulting.Logging
-   - MandalaConsulting.Memory
-   - MandalaConsulting.Objects
-   - MandalaConsulting.Objects.API
-   - MandalaConsulting.Repository.Mongo
+   - AnointedAutomation.APIMiddlewares
+   - AnointedAutomation.Logging
+   - AnointedAutomation.Memory
+   - AnointedAutomation.Objects
+   - AnointedAutomation.Objects.API
+   - AnointedAutomation.Repository.Mongo
 
 3. Generate a new API key on NuGet.org if needed:
    - Go to https://www.nuget.org/account/apikeys
    - Create a new key with "Push" permissions
-   - Select all your packages or use glob pattern `MandalaConsulting.*`
+   - Select all your packages or use glob pattern `AnointedAutomation.*`
 
 ## Manual Publishing
 
@@ -66,10 +66,10 @@ To manually publish a specific package:
 
 ```bash
 # Pack the project
-dotnet pack MC.Objects/MandalaConsulting.Objects.csproj -c Release -o ./nupkgs
+dotnet pack AnointedAutomation.Objects/AnointedAutomation.Objects.csproj -c Release -o ./nupkgs
 
 # Push to NuGet
-dotnet nuget push ./nupkgs/MandalaConsulting.Objects.0.0.10.nupkg \
+dotnet nuget push ./nupkgs/AnointedAutomation.Objects.0.0.10.nupkg \
   --api-key YOUR_API_KEY \
   --source https://api.nuget.org/v3/index.json
 ```
