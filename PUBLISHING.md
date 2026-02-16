@@ -1,13 +1,13 @@
-# Publishing MandalaConsulting NuGet Packages
+# Publishing AnointedAutomation NuGet Packages
 
 This repository contains several NuGet packages that can be published to NuGet.org:
 
-- [MandalaConsulting.APIMiddlewares](https://www.nuget.org/packages/MandalaConsulting.APIMiddlewares/)
-- [MandalaConsulting.Logging](https://www.nuget.org/packages/MandalaConsulting.Logging/)
-- [MandalaConsulting.Memory](https://www.nuget.org/packages/MandalaConsulting.Memory/)
-- [MandalaConsulting.Objects](https://www.nuget.org/packages/MandalaConsulting.Objects/)
-- [MandalaConsulting.Objects.API](https://www.nuget.org/packages/MandalaConsulting.Objects.API/)
-- [MandalaConsulting.Repository.Mongo](https://www.nuget.org/packages/MandalaConsulting.Repository.Mongo/)
+- [AnointedAutomation.APIMiddlewares](https://www.nuget.org/packages/AnointedAutomation.APIMiddlewares/)
+- [AnointedAutomation.Logging](https://www.nuget.org/packages/AnointedAutomation.Logging/)
+- [AnointedAutomation.Memory](https://www.nuget.org/packages/AnointedAutomation.Memory/)
+- [AnointedAutomation.Objects](https://www.nuget.org/packages/AnointedAutomation.Objects/)
+- [AnointedAutomation.Objects.API](https://www.nuget.org/packages/AnointedAutomation.Objects.API/)
+- [AnointedAutomation.Repository.Mongo](https://www.nuget.org/packages/AnointedAutomation.Repository.Mongo/)
 
 ## Automatic Publishing via GitHub Actions
 
@@ -71,10 +71,10 @@ dotnet build --configuration Release
 dotnet test --configuration Release
 
 # Pack a specific project
-dotnet pack MC.Logging/MandalaConsulting.Logging.csproj --configuration Release
+dotnet pack MC.Logging/AnointedAutomation.Logging.csproj --configuration Release
 
 # Push to NuGet
-dotnet nuget push MC.Logging/bin/Release/MandalaConsulting.Logging.*.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
+dotnet nuget push MC.Logging/bin/Release/AnointedAutomation.Logging.*.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
 ```
 
 ## GitHub Actions Configuration

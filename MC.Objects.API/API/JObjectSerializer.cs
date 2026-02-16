@@ -1,4 +1,4 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-06-08 14:21:14
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-06-08 14:21:14
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 using MongoDB.Bson;
@@ -6,7 +6,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Newtonsoft.Json.Linq;
 
-namespace MandalaConsulting.Objects.API
+namespace AnointedAutomation.Objects.API
 {
     /// <summary>
     /// Custom serializer for converting between JObject and BSON format.

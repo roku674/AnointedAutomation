@@ -1,17 +1,17 @@
-# MandalaConsulting.Memory
+# AnointedAutomation.Memory
 
 A .NET library providing memory management utilities for optimizing application performance through controlled garbage collection.
 
 ## Overview
 
-The MandalaConsulting.Memory library offers utilities to manage and optimize memory usage in .NET applications. It provides controlled garbage collection mechanisms to help return unused memory to the operating system.
+The AnointedAutomation.Memory library offers utilities to manage and optimize memory usage in .NET applications. It provides controlled garbage collection mechanisms to help return unused memory to the operating system.
 
 ## Installation
 
 Install via NuGet:
 
 ```bash
-dotnet add package MandalaConsulting.Memory
+dotnet add package AnointedAutomation.Memory
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ dotnet add package MandalaConsulting.Memory
 The `GarbageCollection` class provides methods to perform manual garbage collection and attempt to return unused memory to the operating system.
 
 ```csharp
-using MandalaConsulting.Optimization.Memory;
+using AnointedAutomation.Optimization.Memory;
 
 // Create a new instance
 var gc = new GarbageCollection();
@@ -57,7 +57,7 @@ gc.PerformGarbageCollection(null);
 
 ## License
 
-Copyright © 2023 Mandala Consulting, LLC. All rights reserved.
+Copyright © 2023 Anointed Automation, LLC. All rights reserved.
 
 ## Author
 

@@ -3,11 +3,11 @@
 # PROJECT STRUCTURE LIBRARIES
 
 ## Solution Overview
-The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
+The AnointedAutomation solution contains 6 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
 
 ## Library Details
 
-### 1. MC.Logging (MandalaConsulting.Logging) v0.0.5
+### 1. MC.Logging (AnointedAutomation.Logging) v0.0.5
 
 **Purpose & Functionality:**
 - Provides standardized logging framework for .NET applications
@@ -47,7 +47,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - Properties: `id`, `localOperationName`, `message`, `messageSource`, `messageType`, `timeStamp`
 - Static property: `MessageSourceSetter` for application identification
 
-### 2. MC.Memory (MandalaConsulting.Memory) v0.0.4
+### 2. MC.Memory (AnointedAutomation.Memory) v0.0.4
 
 **Purpose & Functionality:**
 - Memory management utilities for .NET applications
@@ -71,7 +71,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - `ReturnUnusedMemoryToOS()` - Private method for OS memory return
 - Uses .NET's no-GC region feature for optimization
 
-### 3. MC.APIMiddlewares (MandalaConsulting.APIMiddlewares) v0.0.13
+### 3. MC.APIMiddlewares (AnointedAutomation.APIMiddlewares) v0.0.13
 
 **Purpose & Functionality:**
 - ASP.NET Core middleware collection for API security and monitoring
@@ -135,7 +135,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - Event system for logging and IP banning
 - Environment variable configuration: `API_KEY`, `API_KEY_NAME`
 
-### 4. MC.Repository.Mongo (MandalaConsulting.Repository.Mongo) v0.0.5
+### 4. MC.Repository.Mongo (AnointedAutomation.Repository.Mongo) v0.0.5
 
 **Purpose & Functionality:**
 - MongoDB database operations wrapper
@@ -181,7 +181,7 @@ The MandalaConsulting solution contains 6 core libraries targeting .NET 8.0, eac
 - Utility methods: `ConnectionStringBuilder()`, `GetIdFromObj<T>()`
 - Event system: `LogAdded`, `LogCleared` events
 
-### 5. MC.Objects (MandalaConsulting.Objects) v0.0.12
+### 5. MC.Objects (AnointedAutomation.Objects) v0.0.12
 
 **Purpose & Functionality:**
 - Core data models for general application development
@@ -240,7 +240,7 @@ All billing models include complete XML documentation
   - MongoDB.Libmongocrypt (1.12.0)
   - Newtonsoft.Json (13.0.3)
 
-### 6. MC.Objects.API (MandalaConsulting.Objects.API) v0.0.5
+### 6. MC.Objects.API (AnointedAutomation.Objects.API) v0.0.5
 
 **Purpose & Functionality:**
 - API-specific data models extending MC.Objects
@@ -290,7 +290,7 @@ MC.Objects.API
 
 ## Key Architectural Notes
 
-1. **Namespace Structure**: Libraries use `MandalaConsulting.{Feature}` pattern with sub-namespaces
+1. **Namespace Structure**: Libraries use `AnointedAutomation.{Feature}` pattern with sub-namespaces
 2. **Duplicate Models**: MC.Objects and MC.Objects.API contain identical models in different namespaces
 3. **MongoDB Integration**: Heavy use of MongoDB across multiple libraries
 4. **Event-Driven Architecture**: Logging and middleware components use .NET events

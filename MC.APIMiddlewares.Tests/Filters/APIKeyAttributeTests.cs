@@ -1,7 +1,7 @@
-// Copyright © Mandala Consulting, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
+// Copyright © Anointed Automation, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 using Xunit;
-using MandalaConsulting.APIMiddleware.Filters;
+using AnointedAutomation.APIMiddleware.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Abstractions;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Moq;
 
-namespace MandalaConsulting.APIMiddlewares.Tests.Filters
+namespace AnointedAutomation.APIMiddlewares.Tests.Filters
 {
     /// <summary>
     /// Tests for the APIKeyAttribute filter.

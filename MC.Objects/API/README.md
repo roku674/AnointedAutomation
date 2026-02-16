@@ -1,8 +1,8 @@
-# MandalaConsulting.Objects - Core Models
+# AnointedAutomation.Objects - Core Models
 
 ## Overview
 
-This directory contains the core data models for the MandalaConsulting.Objects library. These models provide standardized structures for account management, billing operations, and data serialization without API-specific dependencies.
+This directory contains the core data models for the AnointedAutomation.Objects library. These models provide standardized structures for account management, billing operations, and data serialization without API-specific dependencies.
 
 ## Core Components
 
@@ -155,7 +155,7 @@ Billing/shipping addresses.
 
 ### Working with User Objects
 ```csharp
-using MandalaConsulting.Objects.API.Account;
+using AnointedAutomation.Objects.API.Account;
 
 var user = new User
 {
@@ -176,7 +176,7 @@ var profile = new Profile
 
 ### Creating Billing Records
 ```csharp
-using MandalaConsulting.Objects.API.Billing;
+using AnointedAutomation.Objects.API.Billing;
 
 var product = new Product
 {
@@ -231,7 +231,7 @@ var errorResponse = new ResponseData
 
 ## License
 
-Copyright © 2023 Mandala Consulting, LLC. All rights reserved.
+Copyright © 2023 Anointed Automation, LLC. All rights reserved.
 
 ## Author
 

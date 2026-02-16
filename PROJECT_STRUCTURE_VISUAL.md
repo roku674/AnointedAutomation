@@ -1,12 +1,12 @@
 [← Back to Dictionary](./PROJECT_STRUCTURE_DICTIONARY.md)
 
-# PROJECT STRUCTURE VISUAL - MandalaConsulting Platform
+# PROJECT STRUCTURE VISUAL - AnointedAutomation Platform
 
 ## System Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
-│                        MandalaConsulting .NET Library Suite                         │
+│                        AnointedAutomation .NET Library Suite                         │
 ├─────────────────────────────────────────────────────────────────────────────────────┤
 │                                                                                     │
 │  ┌─────────────┐  ┌──────────────┐  ┌─────────────┐  ┌────────────┐  ┌───────────┐ │
@@ -98,7 +98,7 @@
 ## Test Organization Structure
 
 ```
-MandalaConsulting.sln
+AnointedAutomation.sln
 ├── Libraries/
 │   ├── Base/
 │   ├── Logging/
@@ -213,37 +213,37 @@ Application Startup
 ## Solution File Structure
 
 ```
-MandalaConsulting/
+AnointedAutomation/
 ├── .github/
 │   └── workflows/
 │       └── dotnet.yml (CI/CD Pipeline)
 ├── Libraries/
-│   ├── MandalaConsulting.Base/
-│   │   ├── MandalaConsulting.Base.csproj
+│   ├── AnointedAutomation.Base/
+│   │   ├── AnointedAutomation.Base.csproj
 │   │   └── [Core interfaces & types]
-│   ├── MandalaConsulting.Logging/
-│   │   ├── MandalaConsulting.Logging.csproj
+│   ├── AnointedAutomation.Logging/
+│   │   ├── AnointedAutomation.Logging.csproj
 │   │   └── [Logging implementation]
-│   ├── MandalaConsulting.Memory/
-│   │   ├── MandalaConsulting.Memory.csproj
+│   ├── AnointedAutomation.Memory/
+│   │   ├── AnointedAutomation.Memory.csproj
 │   │   └── [Memory management]
-│   ├── MandalaConsulting.MongoDB/
-│   │   ├── MandalaConsulting.MongoDB.csproj
+│   ├── AnointedAutomation.MongoDB/
+│   │   ├── AnointedAutomation.MongoDB.csproj
 │   │   └── [MongoDB repository]
-│   ├── MandalaConsulting.APIMiddleware/
-│   │   ├── MandalaConsulting.APIMiddleware.csproj
+│   ├── AnointedAutomation.APIMiddleware/
+│   │   ├── AnointedAutomation.APIMiddleware.csproj
 │   │   └── [API middleware]
-│   └── MandalaConsulting.Utilities/
-│       ├── MandalaConsulting.Utilities.csproj
+│   └── AnointedAutomation.Utilities/
+│       ├── AnointedAutomation.Utilities.csproj
 │       └── [Utility functions]
 ├── Tests/
-│   ├── MandalaConsulting.BaseTests/
-│   ├── MandalaConsulting.LoggingTests/
-│   ├── MandalaConsulting.MemoryTests/
-│   ├── MandalaConsulting.MongoDBTests/
-│   ├── MandalaConsulting.APIMiddlewareTests/
-│   └── MandalaConsulting.UtilitiesTests/
-├── MandalaConsulting.sln
+│   ├── AnointedAutomation.BaseTests/
+│   ├── AnointedAutomation.LoggingTests/
+│   ├── AnointedAutomation.MemoryTests/
+│   ├── AnointedAutomation.MongoDBTests/
+│   ├── AnointedAutomation.APIMiddlewareTests/
+│   └── AnointedAutomation.UtilitiesTests/
+├── AnointedAutomation.sln
 ├── LICENSE (MIT)
 └── README.md
 ```

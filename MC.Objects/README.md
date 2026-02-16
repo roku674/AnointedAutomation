@@ -1,17 +1,17 @@
-# MandalaConsulting.Objects
+# AnointedAutomation.Objects
 
 A .NET library providing standardized data models and objects for general application development, focusing on account management, billing systems, and data serialization.
 
 ## Overview
 
-MandalaConsulting.Objects provides a core set of reusable data models that can be used across various types of applications. Unlike the API-specific variant, this library focuses on general-purpose object models without API-specific dependencies.
+AnointedAutomation.Objects provides a core set of reusable data models that can be used across various types of applications. Unlike the API-specific variant, this library focuses on general-purpose object models without API-specific dependencies.
 
 ## Installation
 
 Install via NuGet:
 
 ```bash
-dotnet add package MandalaConsulting.Objects
+dotnet add package AnointedAutomation.Objects
 ```
 
 ## Features
@@ -22,7 +22,7 @@ dotnet add package MandalaConsulting.Objects
 - **JSON Serialization**: Newtonsoft.Json integration
 - **No API Dependencies**: Pure data models without ASP.NET Core dependencies
 
-## Key Differences from MandalaConsulting.Objects.API
+## Key Differences from AnointedAutomation.Objects.API
 
 - No ASP.NET Core MVC dependencies
 - No API-specific utilities (CustomFormFile, etc.)
@@ -57,8 +57,8 @@ dotnet add package MandalaConsulting.Objects
 ## Usage Example
 
 ```csharp
-using MandalaConsulting.Objects.API.Account;
-using MandalaConsulting.Objects.API.Billing;
+using AnointedAutomation.Objects.API.Account;
+using AnointedAutomation.Objects.API.Billing;
 
 // Create a user
 var user = new User
@@ -98,7 +98,7 @@ For detailed documentation on individual models and their properties, see the [A
 
 ## License
 
-Copyright © 2023 Mandala Consulting, LLC. All rights reserved.
+Copyright © 2023 Anointed Automation, LLC. All rights reserved.
 
 ## Author
 

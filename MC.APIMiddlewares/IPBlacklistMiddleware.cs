@@ -1,9 +1,9 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-13 01:57:25
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-13 01:57:25
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
-using MandalaConsulting.APIMiddleware.Objects;
-using MandalaConsulting.APIMiddleware.Utility;
-using MandalaConsulting.Optimization.Logging;
+using AnointedAutomation.APIMiddleware.Objects;
+using AnointedAutomation.APIMiddleware.Utility;
+using AnointedAutomation.Optimization.Logging;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Concurrent;
@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MandalaConsulting.APIMiddleware
+namespace AnointedAutomation.APIMiddleware
 {
     /// <summary>
     /// Middleware for blocking blacklisted IP addresses from accessing the API.

@@ -1,4 +1,4 @@
-# Copyright © Mandala Consulting, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-10-17
+# Copyright © Anointed Automation, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-10-17
 name: Auto-Increment Version on PR
 
 on:
@@ -41,12 +41,12 @@ jobs:
 
           # Define all project files and their directories to check
           declare -A PROJECTS=(
-            ["MC.Logging/MandalaConsulting.Logging.csproj"]="MC.Logging"
-            ["MC.Memory/MandalaConsulting.Memory.csproj"]="MC.Memory"
-            ["MC.APIMiddlewares/MandalaConsulting.APIMiddlewares.csproj"]="MC.APIMiddlewares"
-            ["MC.Repository.Mongo/MandalaConsulting.Repository.Mongo.csproj"]="MC.Repository.Mongo"
-            ["MC.Objects/MandalaConsulting.Objects.csproj"]="MC.Objects"
-            ["MC.Objects.API/MandalaConsulting.Objects.API.csproj"]="MC.Objects.API"
+            ["MC.Logging/AnointedAutomation.Logging.csproj"]="MC.Logging"
+            ["MC.Memory/AnointedAutomation.Memory.csproj"]="MC.Memory"
+            ["MC.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="MC.APIMiddlewares"
+            ["MC.Repository.Mongo/AnointedAutomation.Repository.Mongo.csproj"]="MC.Repository.Mongo"
+            ["MC.Objects/AnointedAutomation.Objects.csproj"]="MC.Objects"
+            ["MC.Objects.API/AnointedAutomation.Objects.API.csproj"]="MC.Objects.API"
           )
 
           VERSIONS_UPDATED=0

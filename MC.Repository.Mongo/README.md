@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **MongoHelper** library, developed by Mandala Consulting, LLC, provides a simple and efficient wrapper for MongoDB database operations in .NET. It offers utility methods to handle common MongoDB operations such as creating, reading, updating, and deleting documents, alongside helper functions for managing connections and logging.
+The **MongoHelper** library, developed by Anointed Automation, LLC, provides a simple and efficient wrapper for MongoDB database operations in .NET. It offers utility methods to handle common MongoDB operations such as creating, reading, updating, and deleting documents, alongside helper functions for managing connections and logging.
 
 ---
 
@@ -26,7 +26,7 @@ The **MongoHelper** library, developed by Mandala Consulting, LLC, provides a si
 Clone the repository and include the library in your project. Ensure you have the following dependencies installed:
 
 - `MongoDB.Driver`
-- `MandalaConsulting.Optimization.Logging`
+- `AnointedAutomation.Optimization.Logging`
 
 ---
 
@@ -35,7 +35,7 @@ Clone the repository and include the library in your project. Ensure you have th
 ### Setting Up MongoHelper
 
 ```csharp
-using MandalaConsulting.Repository.Mongo;
+using AnointedAutomation.Repository.Mongo;
 
 // Initialize with database name and connection string
 MongoHelper mongoHelper = new MongoHelper("YourDatabaseName", "YourConnectionString");
@@ -147,7 +147,7 @@ MongoHelper.ClearLogs();
 - MongoDB Instance
 - NuGet Packages:
   - MongoDB.Driver
-  - MandalaConsulting.Optimization.Logging
+  - AnointedAutomation.Optimization.Logging
 
 ---
 
@@ -160,6 +160,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## Author
 
 Created by **Alexander Fields**  
-Copyright © 2023 Mandala Consulting, LLC  
+Copyright © 2023 Anointed Automation, LLC  
 
-For inquiries, please contact [Mandala Consulting](https://mandalaconsulting.com).
+For inquiries, please contact [Anointed Automation](https://anointedautomation.com).

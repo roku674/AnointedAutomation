@@ -1,6 +1,6 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-15 18:02:13
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-15 18:02:13
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
-﻿using MandalaConsulting.Optimization.Memory;
+﻿using AnointedAutomation.Optimization.Memory;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Concurrent;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 //Created by Alexander Fields
 
-namespace MandalaConsulting.APIMiddleware
+namespace AnointedAutomation.APIMiddleware
 {
     /// <summary>
     /// Middleware for tracking endpoint access and managing memory cleanup based on endpoint idle time.

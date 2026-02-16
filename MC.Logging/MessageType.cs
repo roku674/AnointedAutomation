@@ -1,8 +1,8 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-06-12 11:24:21
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-06-12 11:24:21
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
-namespace MandalaConsulting.Optimization.Logging
+namespace AnointedAutomation.Optimization.Logging
 {
     /// <summary>
     /// Defines the severity levels for log messages.

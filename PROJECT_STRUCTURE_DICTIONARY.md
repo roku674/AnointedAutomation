@@ -1,7 +1,7 @@
-# PROJECT STRUCTURE DICTIONARY - MandalaConsulting Platform
+# PROJECT STRUCTURE DICTIONARY - AnointedAutomation Platform
 
 ## Overview
-This file serves as the index/directory for all PROJECT_STRUCTURE files in the MandalaConsulting .NET library solution. Use this to quickly find which file contains the information you need.
+This file serves as the index/directory for all PROJECT_STRUCTURE files in the AnointedAutomation .NET library solution. Use this to quickly find which file contains the information you need.
 
 ## PROJECT_STRUCTURE Files Directory
 

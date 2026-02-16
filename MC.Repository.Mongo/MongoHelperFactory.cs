@@ -1,9 +1,9 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-12 10:20:40
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-12 10:20:40
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 using System.Collections.Concurrent;
 
 //Created by Alexander Fields
-namespace MandalaConsulting.Repository.Mongo
+namespace AnointedAutomation.Repository.Mongo
 {
     /// <summary>
     /// Interface for factory creating MongoDB helper instances.

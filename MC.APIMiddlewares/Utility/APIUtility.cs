@@ -1,15 +1,15 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-13 01:57:25
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-13 01:57:25
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
-using MandalaConsulting.Optimization.Logging;
+using AnointedAutomation.Optimization.Logging;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 using System.Linq;
 
-namespace MandalaConsulting.APIMiddleware.Utility
+namespace AnointedAutomation.APIMiddleware.Utility
 {
     /// <summary>
     /// Utility class for handling API-related operations, particularly IP address extraction.

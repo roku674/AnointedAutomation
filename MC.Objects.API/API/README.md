@@ -1,4 +1,4 @@
-# MandalaConsulting.Objects.API - API Models
+# AnointedAutomation.Objects.API - API Models
 
 ## Overview
 
@@ -238,7 +238,7 @@ var subscription = new Subscription
 
 ## License
 
-Copyright © 2023 Mandala Consulting, LLC. All rights reserved.
+Copyright © 2023 Anointed Automation, LLC. All rights reserved.
 
 ## Author
 

@@ -1,8 +1,8 @@
-// Copyright © Mandala Consulting, Ltd., 2025. All Rights Reserved.
+// Copyright © Anointed Automation, Ltd., 2025. All Rights Reserved.
 using System;
 using System.Collections.Generic;
 
-namespace MandalaConsulting.Objects
+namespace AnointedAutomation.Objects
 {
     /// <summary>
     /// Represents a paginated response from an API

@@ -5,16 +5,16 @@
 		<ImplicitUsings>disable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageProjectUrl>https://github.com/roku674/MandalaConsulting</PackageProjectUrl>
-		<Title>MandalaConsulting.Repository.Mongo</Title>
-		<Company>Mandala Consulting LLC - Alexander Fields</Company>
-		<Copyright>Copyright © 2023 Mandala Consulting, LLC All rights reserved.</Copyright>
-		<Description>Repository for Generic Mongo Usage - MandalaConsulting.Repository.Mongo</Description>
-		<RepositoryUrl>https://github.com/roku674/MandalaConsulting</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/roku674/AnointedAutomation</PackageProjectUrl>
+		<Title>AnointedAutomation.Repository.Mongo</Title>
+		<Company>Anointed Automation LLC - Alexander Fields</Company>
+		<Copyright>Copyright © 2023 Anointed Automation, LLC All rights reserved.</Copyright>
+		<Description>Repository for Generic Mongo Usage - AnointedAutomation.Repository.Mongo</Description>
+		<RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
 		<Version>0.0.8</Version>
 		<PackageTags>Mongo</PackageTags>
-		<PackageReleaseNotes>https://github.com/roku674/MandalaConsulting/pkgs/nuget/MandalaConsulting.Repository.Logging</PackageReleaseNotes>
-		<Authors>Mandala Consulting LLC, Alexander Fields</Authors>
+		<PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Repository.Logging</PackageReleaseNotes>
+		<Authors>Anointed Automation LLC, Alexander Fields</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 
@@ -25,7 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\MC.Logging\MandalaConsulting.Logging.csproj" />
+		<ProjectReference Include="..\MC.Logging\AnointedAutomation.Logging.csproj" />
 		<PackageReference Include="MongoDB.Bson" Version="3.6.0" />
 	  <PackageReference Include="MongoDB.Driver" Version="3.6.0" />
 	  <PackageReference Include="MongoDB.Driver.Core" Version="2.30.0" />

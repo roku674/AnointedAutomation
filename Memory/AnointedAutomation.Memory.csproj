@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/roku674/AnointedAutomation</PackageProjectUrl>
+    <Title>Anointed Automation LLC - Alexander Fields</Title>
+    <Company>Anointed Automation LLC - Alexander Fields</Company>
+    <Copyright>Copyright © 2024 Anointed Automation, LLC All rights reserved.</Copyright>
+    <Description>Basic things for memory management - AnointedAutomation.Memory</Description>
+    <RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
+    <Version>0.0.2</Version>
+    <PackageTags>memory</PackageTags>
+    <PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Memory</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="nuget.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="nuget.config" />
+  </ItemGroup>
+
+</Project>

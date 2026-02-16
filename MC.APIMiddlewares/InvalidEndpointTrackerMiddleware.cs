@@ -1,15 +1,15 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-13 01:57:25
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-13 01:57:25
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
-using MandalaConsulting.APIMiddleware.Objects;
-using MandalaConsulting.APIMiddleware.Utility;
-using MandalaConsulting.Optimization.Logging;
+using AnointedAutomation.APIMiddleware.Objects;
+using AnointedAutomation.APIMiddleware.Utility;
+using AnointedAutomation.Optimization.Logging;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MandalaConsulting.APIMiddleware
+namespace AnointedAutomation.APIMiddleware
 {
     /// <summary>
     /// Stores information about failed access attempts from an IP address.

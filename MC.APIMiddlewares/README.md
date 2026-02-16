@@ -1,8 +1,8 @@
-# MandalaConsulting.APIMiddleware
+# AnointedAutomation.APIMiddleware
 
 ## Overview
 
-The **MandalaConsulting.APIMiddleware** library is a comprehensive middleware solution for ASP.NET Core applications. It provides tools for security, performance optimization, and API monitoring. Features include IP blacklisting, invalid endpoint tracking, memory management, and API key validation, designed to enhance the reliability and security of your APIs.
+The **AnointedAutomation.APIMiddleware** library is a comprehensive middleware solution for ASP.NET Core applications. It provides tools for security, performance optimization, and API monitoring. Features include IP blacklisting, invalid endpoint tracking, memory management, and API key validation, designed to enhance the reliability and security of your APIs.
 
 ---
 
@@ -28,10 +28,10 @@ The **MandalaConsulting.APIMiddleware** library is a comprehensive middleware so
 Add the library to your ASP.NET Core project and reference the necessary namespaces:
 
 ```csharp
-using MandalaConsulting.APIMiddleware;
-using MandalaConsulting.APIMiddleware.Filters;
-using MandalaConsulting.APIMiddleware.Utility;
-using MandalaConsulting.Logging;
+using AnointedAutomation.APIMiddleware;
+using AnointedAutomation.APIMiddleware.Filters;
+using AnointedAutomation.APIMiddleware.Utility;
+using AnointedAutomation.Logging;
 ```
 
 ---
@@ -138,7 +138,7 @@ IPBlacklist.AddBannedIP("192.168.1.1", "Repeated unauthorized attempts.");
 
 ## Logging
 
-All middleware components use the logging system provided by `MandalaConsulting.Logging`.
+All middleware components use the logging system provided by `AnointedAutomation.Logging`.
 
 ### Add Logs
 
@@ -173,7 +173,7 @@ IPBlacklistMiddleware.ClearLogs();
 
 ## License
 
-This project is copyrighted © 2024 Mandala Consulting, LLC.  
+This project is copyrighted © 2024 Anointed Automation, LLC.  
 **All Rights Reserved**.
 
 ---
@@ -181,4 +181,4 @@ This project is copyrighted © 2024 Mandala Consulting, LLC.
 ## Author
 
 Created by **Alexander Fields**  
-For inquiries, please contact [Mandala Consulting](https://mandalaconsulting.com).
+For inquiries, please contact [Anointed Automation](https://anointedautomation.com).

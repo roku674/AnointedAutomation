@@ -1,11 +1,11 @@
-// Copyright © Mandala Consulting, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
+// Copyright © Anointed Automation, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 using Xunit;
-using MandalaConsulting.APIMiddleware.Objects;
-using MandalaConsulting.APIMiddleware;
+using AnointedAutomation.APIMiddleware.Objects;
+using AnointedAutomation.APIMiddleware;
 using System;
 
-namespace MandalaConsulting.APIMiddlewares.Tests.Objects
+namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 {
     [Collection("Sequential")]
     public class IPBlacklistTests : IDisposable

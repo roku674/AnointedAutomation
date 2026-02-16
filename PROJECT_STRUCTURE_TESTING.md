@@ -7,7 +7,7 @@ All test projects are organized under a "Tests" solution folder in the main .sln
 
 ## Test Projects Structure
 
-### 1. MC.Logging.Tests (MandalaConsulting.Logging.Tests)
+### 1. MC.Logging.Tests (AnointedAutomation.Logging.Tests)
 **Test Files:**
 - `LogMessageTests.cs` - Tests for LogMessage class (49 tests - ENHANCED)
   - Comprehensive edge case coverage added (null, empty, long strings, special chars, Unicode)
@@ -19,14 +19,14 @@ All test projects are organized under a "Tests" solution folder in the main .sln
 **Testing Framework:** Xunit (.NET 8.0)
 **Test Coverage:** ✅ EXCELLENT - Meets CLAUDE_TESTING.md standards (Success, Failure, Edge scenarios)
 
-### 2. MC.Memory.Tests (MandalaConsulting.Memory.Tests)
+### 2. MC.Memory.Tests (AnointedAutomation.Memory.Tests)
 **Test Files:**
 - `GarbageCollectionTests.cs` - Tests for GarbageCollection class (5 tests)
 
 **Testing Framework:** Xunit (.NET 8.0)
 **Test Coverage:** ⚠️ Basic - Could benefit from additional edge case testing
 
-### 3. MC.APIMiddlewares.Tests (MandalaConsulting.APIMiddlewares.Tests)
+### 3. MC.APIMiddlewares.Tests (AnointedAutomation.APIMiddlewares.Tests)
 **Test Files:**
 - `EndpointAccessMiddlewareTests.cs` - Tests for endpoint access middleware
 - `IPBlacklistMiddlewareTests.cs` - Tests for IP blacklist middleware
@@ -46,7 +46,7 @@ All test projects are organized under a "Tests" solution folder in the main .sln
 **Testing Framework:** Xunit (.NET 8.0)
 **Test Coverage:** ✅ EXCELLENT for IPBlacklist - Meets CLAUDE_TESTING.md standards
 
-### 4. MC.Repository.Mongo.Tests (MandalaConsulting.Repository.Mongo.Tests)
+### 4. MC.Repository.Mongo.Tests (AnointedAutomation.Repository.Mongo.Tests)
 **Test Files:**
 - `MongoHelperTests.cs` - Tests for MongoDB operations (11 tests)
 

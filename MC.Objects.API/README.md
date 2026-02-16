@@ -1,17 +1,17 @@
-# MandalaConsulting.Objects.API
+# AnointedAutomation.Objects.API
 
 A .NET library providing standardized data models and objects for API development, including account management, billing, and common API response structures.
 
 ## Overview
 
-MandalaConsulting.Objects.API offers a comprehensive set of data models designed for building robust APIs. It includes models for user accounts, billing operations, and standardized API responses with built-in JSON serialization support.
+AnointedAutomation.Objects.API offers a comprehensive set of data models designed for building robust APIs. It includes models for user accounts, billing operations, and standardized API responses with built-in JSON serialization support.
 
 ## Installation
 
 Install via NuGet:
 
 ```bash
-dotnet add package MandalaConsulting.Objects.API
+dotnet add package AnointedAutomation.Objects.API
 ```
 
 ## Features
@@ -48,7 +48,7 @@ dotnet add package MandalaConsulting.Objects.API
 ## Usage Example
 
 ```csharp
-using MandalaConsulting.Objects.API;
+using AnointedAutomation.Objects.API;
 
 // Create a standardized API response
 var response = new ResponseData<User>
@@ -85,7 +85,7 @@ For detailed documentation on individual models and their properties, see the [A
 
 ## License
 
-Copyright © 2023 Mandala Consulting, LLC. All rights reserved.
+Copyright © 2023 Anointed Automation, LLC. All rights reserved.
 
 ## Author
 

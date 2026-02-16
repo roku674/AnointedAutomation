@@ -28,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MC.APIMiddlewares\MandalaConsulting.APIMiddlewares.csproj" />
-    <ProjectReference Include="..\MC.Logging\MandalaConsulting.Logging.csproj" />
+    <ProjectReference Include="..\MC.APIMiddlewares\AnointedAutomation.APIMiddlewares.csproj" />
+    <ProjectReference Include="..\MC.Logging\AnointedAutomation.Logging.csproj" />
   </ItemGroup>
 
 </Project>

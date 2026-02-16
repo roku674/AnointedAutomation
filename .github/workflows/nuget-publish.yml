@@ -1,4 +1,4 @@
-# Copyright © Mandala Consulting, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
+# Copyright © Anointed Automation, LLC., 2025. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2025-06-08 13:27:40
 # Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 name: Publish NuGet Packages
 
@@ -39,12 +39,12 @@ jobs:
           
           # Define packages to check
           declare -A PACKAGES=(
-            ["MC.Logging/MandalaConsulting.Logging.csproj"]="mandalaconsulting.logging"
-            ["MC.Memory/MandalaConsulting.Memory.csproj"]="mandalaconsulting.memory"
-            ["MC.APIMiddlewares/MandalaConsulting.APIMiddlewares.csproj"]="mandalaconsulting.apimiddlewares"
-            ["MC.Repository.Mongo/MandalaConsulting.Repository.Mongo.csproj"]="mandalaconsulting.repository.mongo"
-            ["MC.Objects/MandalaConsulting.Objects.csproj"]="mandalaconsulting.objects"
-            ["MC.Objects.API/MandalaConsulting.Objects.API.csproj"]="mandalaconsulting.objects.api"
+            ["MC.Logging/AnointedAutomation.Logging.csproj"]="anointedautomation.logging"
+            ["MC.Memory/AnointedAutomation.Memory.csproj"]="anointedautomation.memory"
+            ["MC.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="anointedautomation.apimiddlewares"
+            ["MC.Repository.Mongo/AnointedAutomation.Repository.Mongo.csproj"]="anointedautomation.repository.mongo"
+            ["MC.Objects/AnointedAutomation.Objects.csproj"]="anointedautomation.objects"
+            ["MC.Objects.API/AnointedAutomation.Objects.API.csproj"]="anointedautomation.objects.api"
           )
           
           for PROJECT_PATH in "${!PACKAGES[@]}"; do

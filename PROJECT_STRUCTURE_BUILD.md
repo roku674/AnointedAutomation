@@ -3,7 +3,7 @@
 # PROJECT STRUCTURE BUILD
 
 ## CI/CD Pipeline Overview
-The MandalaConsulting solution uses GitHub Actions for automated build, test, and deployment with sophisticated version management and quality gates.
+The AnointedAutomation solution uses GitHub Actions for automated build, test, and deployment with sophisticated version management and quality gates.
 
 ## GitHub Actions Workflows
 
@@ -84,7 +84,7 @@ The MandalaConsulting solution uses GitHub Actions for automated build, test, an
 ## Build Configuration
 
 ### Solution Structure
-- **Main Solution**: `MandalaConsulting.sln`
+- **Main Solution**: `AnointedAutomation.sln`
 - **Projects**: 6 libraries + 4 test projects
 - **Target Framework**: .NET 8.0
 - **Configuration**: Debug/Release builds

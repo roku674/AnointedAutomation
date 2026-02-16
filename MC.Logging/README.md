@@ -1,8 +1,8 @@
-# MandalaConsulting.Logging
+# AnointedAutomation.Logging
 
 ## Overview
 
-The **MandalaConsulting.Logging** library provides a robust and flexible logging framework for .NET applications. It features a standardized `LogMessage` class that allows developers to create and manage detailed log entries efficiently. With support for various log message types and event-driven logging, this library is designed to streamline application monitoring and debugging.
+The **AnointedAutomation.Logging** library provides a robust and flexible logging framework for .NET applications. It features a standardized `LogMessage` class that allows developers to create and manage detailed log entries efficiently. With support for various log message types and event-driven logging, this library is designed to streamline application monitoring and debugging.
 
 ---
 
@@ -18,7 +18,7 @@ The **MandalaConsulting.Logging** library provides a robust and flexible logging
 
 ## Installation
 
-Include the library in your .NET project and reference the `MandalaConsulting.Logging` namespace.
+Include the library in your .NET project and reference the `AnointedAutomation.Logging` namespace.
 
 ---
 
@@ -27,7 +27,7 @@ Include the library in your .NET project and reference the `MandalaConsulting.Lo
 ### Import the Namespace
 
 ```csharp
-using MandalaConsulting.Logging;
+using AnointedAutomation.Logging;
 ```
 
 ---
@@ -132,7 +132,7 @@ LogMessage log = LogMessage.Success("Application started successfully.");
 
 ## License
 
-This project is copyrighted © 2023 Mandala Consulting, LLC.  
+This project is copyrighted © 2023 Anointed Automation, LLC.  
 **All Rights Reserved**.
 
 ---
@@ -140,4 +140,4 @@ This project is copyrighted © 2023 Mandala Consulting, LLC.
 ## Author
 
 Created by **Alexander Fields**  
-For inquiries, please contact [Mandala Consulting](https://mandalaconsulting.com).
+For inquiries, please contact [Anointed Automation](https://anointedautomation.com).

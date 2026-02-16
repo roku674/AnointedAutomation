@@ -1,6 +1,6 @@
-// Copyright © Mandala Consulting, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-12 10:20:40
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-10-12 10:20:40
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
-using MandalaConsulting.Optimization.Logging;
+using AnointedAutomation.Optimization.Logging;
 
 //Created by Alexander Fields
 using MongoDB.Driver;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace MandalaConsulting.Repository.Mongo
+namespace AnointedAutomation.Repository.Mongo
 {
     /// <summary>
     /// Make sure you set the MongoDB Instance before calling the classes in this
