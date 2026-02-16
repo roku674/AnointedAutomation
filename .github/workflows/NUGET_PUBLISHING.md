@@ -22,7 +22,7 @@ To publish a new version of a package:
 2. Create a pull request to merge your changes into master:
    ```bash
    git checkout -b feature/update-package-version
-   git add MC.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj
+   git add AnointedAutomation.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj
    git commit -m "Bump APIMiddlewares version to 0.0.10"
    git push origin feature/update-package-version
    ```
@@ -66,7 +66,7 @@ To manually publish a specific package:
 
 ```bash
 # Pack the project
-dotnet pack MC.Objects/AnointedAutomation.Objects.csproj -c Release -o ./nupkgs
+dotnet pack AnointedAutomation.Objects/AnointedAutomation.Objects.csproj -c Release -o ./nupkgs
 
 # Push to NuGet
 dotnet nuget push ./nupkgs/AnointedAutomation.Objects.0.0.10.nupkg \

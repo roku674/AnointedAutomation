@@ -20,8 +20,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MC.Logging\AnointedAutomation.Logging.csproj" />
-    <ProjectReference Include="..\MC.Memory\AnointedAutomation.Memory.csproj" />
+    <ProjectReference Include="..\AnointedAutomation.Logging\AnointedAutomation.Logging.csproj" />
+    <ProjectReference Include="..\AnointedAutomation.Memory\AnointedAutomation.Memory.csproj" />
     <PackageReference Include="Microsoft.AspNetCore" Version="2.3.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.3.9" />
   </ItemGroup>

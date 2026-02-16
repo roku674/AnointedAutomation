@@ -39,12 +39,12 @@ jobs:
           
           # Define packages to check
           declare -A PACKAGES=(
-            ["MC.Logging/AnointedAutomation.Logging.csproj"]="anointedautomation.logging"
-            ["MC.Memory/AnointedAutomation.Memory.csproj"]="anointedautomation.memory"
-            ["MC.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="anointedautomation.apimiddlewares"
-            ["MC.Repository.Mongo/AnointedAutomation.Repository.Mongo.csproj"]="anointedautomation.repository.mongo"
-            ["MC.Objects/AnointedAutomation.Objects.csproj"]="anointedautomation.objects"
-            ["MC.Objects.API/AnointedAutomation.Objects.API.csproj"]="anointedautomation.objects.api"
+            ["AnointedAutomation.Logging/AnointedAutomation.Logging.csproj"]="anointedautomation.logging"
+            ["AnointedAutomation.Memory/AnointedAutomation.Memory.csproj"]="anointedautomation.memory"
+            ["AnointedAutomation.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="anointedautomation.apimiddlewares"
+            ["AnointedAutomation.Repository.Mongo/AnointedAutomation.Repository.Mongo.csproj"]="anointedautomation.repository.mongo"
+            ["AnointedAutomation.Objects/AnointedAutomation.Objects.csproj"]="anointedautomation.objects"
+            ["AnointedAutomation.Objects.API/AnointedAutomation.Objects.API.csproj"]="anointedautomation.objects.api"
           )
           
           for PROJECT_PATH in "${!PACKAGES[@]}"; do

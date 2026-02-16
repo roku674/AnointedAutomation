@@ -17,19 +17,19 @@ This is a .NET solution containing multiple NuGet package libraries developed by
 The solution `AnointedAutomation.sln` contains the following project organization:
 
 ### Main Libraries
-1. **AnointedAutomation.Logging** (`MC.Logging/`)
-2. **AnointedAutomation.APIMiddlewares** (`MC.APIMiddlewares/`)
-3. **AnointedAutomation.Repository.Mongo** (`MC.Repository.Mongo/`)
-4. **AnointedAutomation.Objects.API** (`MC.Objects.API/`)
-5. **AnointedAutomation.Memory** (`MC.Memory/`)
-6. **AnointedAutomation.Objects** (`MC.Objects/`)
+1. **AnointedAutomation.Logging** (`AnointedAutomation.Logging/`)
+2. **AnointedAutomation.APIMiddlewares** (`AnointedAutomation.APIMiddlewares/`)
+3. **AnointedAutomation.Repository.Mongo** (`AnointedAutomation.Repository.Mongo/`)
+4. **AnointedAutomation.Objects.API** (`AnointedAutomation.Objects.API/`)
+5. **AnointedAutomation.Memory** (`AnointedAutomation.Memory/`)
+6. **AnointedAutomation.Objects** (`AnointedAutomation.Objects/`)
 
 ### Test Projects
 All test projects are organized under a "Tests" solution folder:
-- **AnointedAutomation.Logging.Tests** (`MC.Logging.Tests/`)
-- **AnointedAutomation.Memory.Tests** (`MC.Memory.Tests/`)
-- **AnointedAutomation.APIMiddlewares.Tests** (`MC.APIMiddlewares.Tests/`)
-- **AnointedAutomation.Repository.Mongo.Tests** (`MC.Repository.Mongo.Tests/`)
+- **AnointedAutomation.Logging.Tests** (`AnointedAutomation.Logging.Tests/`)
+- **AnointedAutomation.Memory.Tests** (`AnointedAutomation.Memory.Tests/`)
+- **AnointedAutomation.APIMiddlewares.Tests** (`AnointedAutomation.APIMiddlewares.Tests/`)
+- **AnointedAutomation.Repository.Mongo.Tests** (`AnointedAutomation.Repository.Mongo.Tests/`)
 
 ### External Dependencies
 - **Google/** - Contains Google OAuth integration objects

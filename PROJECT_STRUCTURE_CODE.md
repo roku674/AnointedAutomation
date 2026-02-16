@@ -5,7 +5,7 @@ All code files in the solution have been documented with XML documentation follo
 
 ## Documentation Coverage
 
-### 1. MC.APIMiddlewares
+### 1. AnointedAutomation.APIMiddlewares
 - IPBlacklistMiddleware.cs
   - Class and method documentation
   - Event documentation
@@ -28,14 +28,14 @@ All code files in the solution have been documented with XML documentation follo
   - Environment variable configuration
   - Security implications
 
-### 2. MC.Memory
+### 2. AnointedAutomation.Memory
 - GarbageCollection.cs
   - Complete class documentation
   - Memory management method details
   - Safety considerations
   - Exception documentation
 
-### 3. MC.Objects
+### 3. AnointedAutomation.Objects
 - Account/
   - User.cs - Full authentication model documentation
   - Profile.cs - Profile data model documentation
@@ -48,7 +48,7 @@ All code files in the solution have been documented with XML documentation follo
   - Payment models (PaymentCredentials, PaymentType)
   - Address and contact models
 
-### 4. MC.Logging
+### 4. AnointedAutomation.Logging
 - LogMessage.cs
   - Class and method documentation
   - Event system documentation
@@ -59,7 +59,7 @@ All code files in the solution have been documented with XML documentation follo
   - Enum value documentation
   - Usage guidelines
 
-### 5. MC.Repository.Mongo
+### 5. AnointedAutomation.Repository.Mongo
 - MongoHelper.cs
   - Full CRUD operation documentation
   - Connection management

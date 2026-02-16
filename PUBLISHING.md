@@ -71,10 +71,10 @@ dotnet build --configuration Release
 dotnet test --configuration Release
 
 # Pack a specific project
-dotnet pack MC.Logging/AnointedAutomation.Logging.csproj --configuration Release
+dotnet pack AnointedAutomation.Logging/AnointedAutomation.Logging.csproj --configuration Release
 
 # Push to NuGet
-dotnet nuget push MC.Logging/bin/Release/AnointedAutomation.Logging.*.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
+dotnet nuget push AnointedAutomation.Logging/bin/Release/AnointedAutomation.Logging.*.nupkg --api-key YOUR_API_KEY --source https://api.nuget.org/v3/index.json
 ```
 
 ## GitHub Actions Configuration

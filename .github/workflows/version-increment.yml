@@ -41,12 +41,12 @@ jobs:
 
           # Define all project files and their directories to check
           declare -A PROJECTS=(
-            ["MC.Logging/AnointedAutomation.Logging.csproj"]="MC.Logging"
-            ["MC.Memory/AnointedAutomation.Memory.csproj"]="MC.Memory"
-            ["MC.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="MC.APIMiddlewares"
-            ["MC.Repository.Mongo/AnointedAutomation.Repository.Mongo.csproj"]="MC.Repository.Mongo"
-            ["MC.Objects/AnointedAutomation.Objects.csproj"]="MC.Objects"
-            ["MC.Objects.API/AnointedAutomation.Objects.API.csproj"]="MC.Objects.API"
+            ["AnointedAutomation.Logging/AnointedAutomation.Logging.csproj"]="AnointedAutomation.Logging"
+            ["AnointedAutomation.Memory/AnointedAutomation.Memory.csproj"]="AnointedAutomation.Memory"
+            ["AnointedAutomation.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="AnointedAutomation.APIMiddlewares"
+            ["AnointedAutomation.Repository.Mongo/AnointedAutomation.Repository.Mongo.csproj"]="AnointedAutomation.Repository.Mongo"
+            ["AnointedAutomation.Objects/AnointedAutomation.Objects.csproj"]="AnointedAutomation.Objects"
+            ["AnointedAutomation.Objects.API/AnointedAutomation.Objects.API.csproj"]="AnointedAutomation.Objects.API"
           )
 
           VERSIONS_UPDATED=0

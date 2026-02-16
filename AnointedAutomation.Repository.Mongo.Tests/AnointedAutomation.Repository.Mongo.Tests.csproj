@@ -19,11 +19,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="MongoDB.Driver" Version="3.6.0" />
     <PackageReference Include="Moq" Version="4.20.72" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MC.Logging\AnointedAutomation.Logging.csproj" />
+    <ProjectReference Include="..\AnointedAutomation.Repository.Mongo\AnointedAutomation.Repository.Mongo.csproj" />
+    <ProjectReference Include="..\AnointedAutomation.Logging\AnointedAutomation.Logging.csproj" />
   </ItemGroup>
 
 </Project>
