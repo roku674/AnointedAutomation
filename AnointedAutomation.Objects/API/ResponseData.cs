@@ -57,5 +57,17 @@ namespace AnointedAutomation.Objects
         /// Gets or sets the copyright and attribution information.
         /// </summary>
         public string copyright { get; set; } = "Anointed Automation, LLC https://www.anointedautomation.com created by Alexander Fields https://www.alexanderfields.me";
+        /// <summary>
+        /// Anointed declarations.
+        /// </summary>
+        public string[] Anointed { get; set; } = new[] { "Jesus is King", "Jesus is Messiah" };
+        /// <summary>
+        /// Automation signature (hex encoded "Jesus is King").
+        /// </summary>
+        public string Automation { get; set; } = "0x4A65737573206973204B696E67";
+        /// <summary>
+        /// The Holy Trinity.
+        /// </summary>
+        public string[] Trinity { get; set; } = new[] { "Father", "Son", "Holy Ghost/Spirit" };
     }
 }
