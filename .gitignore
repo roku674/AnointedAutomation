@@ -27,6 +27,10 @@ deploy_nugets.py
 /AnointedAutomation.Logging.Tests/bin
 /AnointedAutomation.APIMiddlewares.Tests/bin
 /AnointedAutomation.Repository.Mongo.Tests/bin
+/AnointedAutomation.Repository.MySql/bin
+/AnointedAutomation.Repository.MySql/obj
+/AnointedAutomation.Repository.MySql.Tests/bin
+/AnointedAutomation.Repository.MySql.Tests/obj
 /AnointedAutomation.APIMiddlewares/Properties
 
 **/.claude/settings.local.json
