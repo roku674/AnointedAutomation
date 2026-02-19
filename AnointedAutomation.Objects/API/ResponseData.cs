@@ -53,5 +53,9 @@ namespace AnointedAutomation.Objects
         /// Gets or sets the timestamp when the response was created in ISO 8601 format.
         /// </summary>
         public string timestamp { get; set; }
+        /// <summary>
+        /// Gets or sets the copyright and attribution information.
+        /// </summary>
+        public string copyright { get; set; } = "Anointed Automation, LLC https://www.anointedautomation.com created by Alexander Fields https://www.alexanderfields.me";
     }
 }

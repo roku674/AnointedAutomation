@@ -1,0 +1,16 @@
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/bin/Release/net8.0/AnointedAutomation.Repository.MySql.deps.json
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/bin/Release/net8.0/AnointedAutomation.Repository.MySql.dll
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/bin/Release/net8.0/AnointedAutomation.Repository.MySql.pdb
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/bin/Release/net8.0/AnointedAutomation.Logging.dll
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/bin/Release/net8.0/AnointedAutomation.Logging.pdb
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.csproj.AssemblyReference.cache
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.GeneratedMSBuildEditorConfig.editorconfig
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.AssemblyInfoInputs.cache
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.AssemblyInfo.cs
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.csproj.CoreCompileInputs.cache
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.sourcelink.json
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/Anointed.FBC08221.Up2Date
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.dll
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/refint/AnointedAutomation.Repository.MySql.dll
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/AnointedAutomation.Repository.MySql.pdb
+/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/Release/net8.0/ref/AnointedAutomation.Repository.MySql.dll

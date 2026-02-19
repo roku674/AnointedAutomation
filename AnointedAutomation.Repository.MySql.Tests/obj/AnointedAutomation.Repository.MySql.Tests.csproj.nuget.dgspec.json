@@ -1,0 +1,269 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql.Tests/AnointedAutomation.Repository.MySql.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/AnointedAutomation.Logging.csproj": {
+      "version": "0.0.8",
+      "restore": {
+        "projectUniqueName": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/AnointedAutomation.Logging.csproj",
+        "projectName": "AnointedAutomation.Logging",
+        "projectPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/AnointedAutomation.Logging.csproj",
+        "packagesPath": "/home/roku674/.nuget/packages/",
+        "outputPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/NuGet.config",
+          "/home/roku674/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/roku674/.dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql.Tests/AnointedAutomation.Repository.MySql.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql.Tests/AnointedAutomation.Repository.MySql.Tests.csproj",
+        "projectName": "AnointedAutomation.Repository.MySql.Tests",
+        "projectPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql.Tests/AnointedAutomation.Repository.MySql.Tests.csproj",
+        "packagesPath": "/home/roku674/.nuget/packages/",
+        "outputPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/NuGet.config",
+          "/home/roku674/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/AnointedAutomation.Logging.csproj": {
+                "projectPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/AnointedAutomation.Logging.csproj"
+              },
+              "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/AnointedAutomation.Repository.MySql.csproj": {
+                "projectPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/AnointedAutomation.Repository.MySql.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[18.0.1, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.9.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/roku674/.dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/AnointedAutomation.Repository.MySql.csproj": {
+      "version": "0.0.1",
+      "restore": {
+        "projectUniqueName": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/AnointedAutomation.Repository.MySql.csproj",
+        "projectName": "AnointedAutomation.Repository.MySql",
+        "projectPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/AnointedAutomation.Repository.MySql.csproj",
+        "packagesPath": "/home/roku674/.nuget/packages/",
+        "outputPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Repository.MySql/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/NuGet.config",
+          "/home/roku674/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/AnointedAutomation.Logging.csproj": {
+                "projectPath": "/home/roku674/Anointed Automation LLC/Anointed Automation Open Source CSharp/AnointedAutomation.Logging/AnointedAutomation.Logging.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.100"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.11, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/roku674/.dotnet/sdk/10.0.102/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
