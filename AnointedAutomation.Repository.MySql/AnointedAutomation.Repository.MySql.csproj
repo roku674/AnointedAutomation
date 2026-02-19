@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://github.com/roku674/AnointedAutomation</PackageProjectUrl>
+		<Title>AnointedAutomation.Repository.MySql</Title>
+		<Company>Anointed Automation LLC - Alexander Fields</Company>
+		<Copyright>Copyright 2023 Anointed Automation, LLC All rights reserved.</Copyright>
+		<Description>Repository for Generic MySQL Usage with Entity Framework Core - AnointedAutomation.Repository.MySql</Description>
+		<RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
+		<Version>0.0.1</Version>
+		<PackageTags>MySQL;EFCore;Repository</PackageTags>
+		<PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Repository.MySql</PackageReleaseNotes>
+		<Authors>Anointed Automation LLC, Alexander Fields</Authors>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AnointedAutomation.Logging\AnointedAutomation.Logging.csproj" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.11" />
+		<PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
+
+</Project>
