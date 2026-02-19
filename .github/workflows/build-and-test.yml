@@ -58,6 +58,9 @@ jobs:
     - name: Run Repository.Mongo Tests
       run: dotnet test AnointedAutomation.Repository.Mongo.Tests/AnointedAutomation.Repository.Mongo.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
 
+    - name: Run Repository.MySql Tests
+      run: dotnet test AnointedAutomation.Repository.MySql.Tests/AnointedAutomation.Repository.MySql.Tests.csproj --no-build --configuration Release --collect:"XPlat Code Coverage"
+
     - name: Publish Test Results
       if: always()
       uses: actions/upload-artifact@v6
