@@ -1,37 +1,17 @@
 # Ignore Visual Studio folder
-/.vs/
-# Ignore build folders
-/bin/
-/obj/
+.vs/
+
+# Ignore build folders (all projects)
+**/bin/
+**/obj/
+
 # Ignore config files
 *.config
 !NuGet.config
-/AnointedAutomation.APIMiddlewares/bin
-/AnointedAutomation.APIMiddlewares/obj
-/AnointedAutomation.Logging/bin
-/AnointedAutomation.Logging/obj
-/AnointedAutomation.Repository.Mongo/obj
-/AnointedAutomation.Repository.Mongo/bin
-/AnointedAutomation.Objects.API/obj
-/AnointedAutomation.Objects.API/bin
-/AnointedAutomation.Memory/bin
-/AnointedAutomation.Memory/obj
+
+# Other
 deploy_nugets.py
-/AnointedAutomation.Objects/obj
-/AnointedAutomation.Objects/bin
-/AnointedAutomation.Logging.Tests/obj
-/AnointedAutomation.APIMiddlewares.Tests/obj
-/AnointedAutomation.Memory.Tests/obj
-/AnointedAutomation.Repository.Mongo.Tests/obj
-/AnointedAutomation.Memory.Tests/bin
-/AnointedAutomation.Logging.Tests/bin
-/AnointedAutomation.APIMiddlewares.Tests/bin
-/AnointedAutomation.Repository.Mongo.Tests/bin
-/AnointedAutomation.Repository.MySql/bin
-/AnointedAutomation.Repository.MySql/obj
-/AnointedAutomation.Repository.MySql.Tests/bin
-/AnointedAutomation.Repository.MySql.Tests/obj
-/AnointedAutomation.APIMiddlewares/Properties
+**/Properties/
 
 **/.claude/settings.local.json
 
