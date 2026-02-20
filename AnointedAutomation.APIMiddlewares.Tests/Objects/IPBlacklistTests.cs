@@ -35,8 +35,8 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
             EventHandler<BannedIP> handler = (sender, e) => 
             {
                 eventRaised = true;
-                Assert.Equal(ip, e.ipv4);
-                Assert.Equal(reason, e.reason);
+                Assert.Equal(ip, e.Ipv4);
+                Assert.Equal(reason, e.Reason);
             };
             IPBlacklist.IPBanned += handler;
             
