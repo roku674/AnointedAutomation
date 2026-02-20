@@ -2,6 +2,13 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
 namespace AnointedAutomation.Objects.API
 {
     /// <summary>
@@ -15,7 +22,7 @@ namespace AnointedAutomation.Objects.API
         public ResponseData()
         {
             Timestamp = System.DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss.fff'Z'");
-            Success = Error == null;
+            success = Error == null;
         }
 
         /// <summary>
@@ -30,7 +37,7 @@ namespace AnointedAutomation.Objects.API
             Data = data;
             Error = error;
             Timestamp = System.DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss.fff'Z'");
-            Success = error == null;
+            success = error == null;
         }
 
         /// <summary>
@@ -48,7 +55,7 @@ namespace AnointedAutomation.Objects.API
         /// <summary>
         /// Gets or sets whether the response represents a successful operation.
         /// </summary>
-        public bool Success { get; set; }
+        public bool success { get; set; }
         /// <summary>
         /// Gets or sets the timestamp when the response was created in ISO 8601 format.
         /// </summary>
@@ -80,7 +87,7 @@ namespace AnointedAutomation.Objects.API
         /// <summary>
         /// Gets or sets whether the response represents a successful operation.
         /// </summary>
-        public bool Success { get; set; }
+        public bool success { get; set; }
         /// <summary>
         /// Gets or sets the response data payload.
         /// </summary>
@@ -92,7 +99,7 @@ namespace AnointedAutomation.Objects.API
         /// <summary>
         /// Gets or sets the HTTP status code.
         /// </summary>
-        public int StatusCode { get; set; }
+        public int statusCode { get; set; }
         /// <summary>
         /// Gets or sets the timestamp when the response was created in ISO 8601 format.
         /// </summary>
@@ -121,10 +128,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = true,
+                success = true,
                 Data = data,
                 Message = message,
-                StatusCode = 200
+                statusCode = 200
             };
         }
 
@@ -135,10 +142,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = true,
+                success = true,
                 Data = data,
                 Message = message,
-                StatusCode = 201
+                statusCode = 201
             };
         }
 
@@ -149,10 +156,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = statusCode
+                statusCode = statusCode
             };
         }
 
@@ -163,10 +170,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 404
+                statusCode = 404
             };
         }
 
@@ -177,10 +184,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 401
+                statusCode = 401
             };
         }
 
@@ -191,10 +198,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 403
+                statusCode = 403
             };
         }
 
@@ -205,10 +212,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 400
+                statusCode = 400
             };
         }
 
@@ -219,10 +226,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 409
+                statusCode = 409
             };
         }
 
@@ -233,10 +240,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 422
+                statusCode = 422
             };
         }
 
@@ -247,10 +254,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 429
+                statusCode = 429
             };
         }
 
@@ -261,10 +268,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 500
+                statusCode = 500
             };
         }
 
@@ -275,10 +282,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = false,
+                success = false,
                 Data = default,
                 Message = message,
-                StatusCode = 503
+                statusCode = 503
             };
         }
 
@@ -289,10 +296,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = true,
+                success = true,
                 Data = default,
                 Message = null,
-                StatusCode = 204
+                statusCode = 204
             };
         }
 
@@ -303,10 +310,10 @@ namespace AnointedAutomation.Objects.API
         {
             return new ResponseData<T>
             {
-                Success = true,
+                success = true,
                 Data = data,
                 Message = message,
-                StatusCode = 202
+                statusCode = 202
             };
         }
     }
