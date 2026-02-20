@@ -10,8 +10,8 @@ namespace AnointedAutomation.Objects.API.Billing
         {
             CardNumber = cardNumber;
             CardHolderName = cardHolderName;
-            ExpirationDate = expirationDate;
-            CVV = cvv;
+            this.expirationDate = expirationDate;
+            this.cvv = cvv;
         }
 
         public CreditCard()
@@ -28,19 +28,19 @@ namespace AnointedAutomation.Objects.API.Billing
             get; set;
         }
 
-        public int CVV
+        public int cvv
         {
             get; set;
         }
 
-        public System.DateTime ExpirationDate
+        public System.DateTime expirationDate
         {
             get; set;
         }
 
         public bool IsValid()
         {
-            return System.DateTime.Now < ExpirationDate;
+            return System.DateTime.Now < expirationDate;
         }
 
         // Add other methods as needed, e.g. for validating card numbers, checking card types, etc.

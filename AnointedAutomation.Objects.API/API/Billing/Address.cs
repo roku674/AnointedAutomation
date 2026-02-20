@@ -2,6 +2,13 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
 using System.Runtime.Serialization;
 
 namespace AnointedAutomation.Objects.API.Billing
@@ -24,12 +31,12 @@ namespace AnointedAutomation.Objects.API.Billing
         /// <param name="zip"></param>
         public Address(string city, string country, string name, Contact contact, string state, string street, int zip)
         {
-            this.city = city ?? throw new System.ArgumentNullException(nameof(city));
-            this.country = country ?? throw new System.ArgumentNullException(nameof(country));
-            this.name = name;
-            this.contact = contact ?? throw new System.ArgumentNullException(nameof(contact));
-            this.state = state ?? throw new System.ArgumentNullException(nameof(state));
-            this.street = street ?? throw new System.ArgumentNullException(nameof(street));
+            this.City = city ?? throw new System.ArgumentNullException(nameof(city));
+            this.Country = country ?? throw new System.ArgumentNullException(nameof(country));
+            this.Name = name;
+            this.Contact = contact ?? throw new System.ArgumentNullException(nameof(contact));
+            this.State = state ?? throw new System.ArgumentNullException(nameof(state));
+            this.Street = street ?? throw new System.ArgumentNullException(nameof(street));
             this.zip = zip;
         }
 
@@ -37,60 +44,39 @@ namespace AnointedAutomation.Objects.API.Billing
         /// Do they put on for their...
         /// </summary>
         [DataMember]
-        public string city
-        {
-            get; set;
-        }
+        public string City { get; set; }
 
         [DataMember]
-        public Contact contact
-        {
-            get; set;
-        }
+        public Contact Contact { get; set; }
 
         /// <summary>
         /// Their Country/State (not to be confused with individual states in U.S.)
         /// </summary>
         [DataMember]
-        public string country
-        {
-            get; set;
-        }
+        public string Country { get; set; }
 
         /// <summary>
         /// This isn't required if sending to a person
         /// </summary>
         [DataMember]
-        public string name
-        {
-            get; set;
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// State/Province
         /// </summary>
         [DataMember]
-        public string state
-        {
-            get; set;
-        }
+        public string State { get; set; }
 
         /// <summary>
         /// street address
         /// </summary>
         [DataMember]
-        public string street
-        {
-            get; set;
-        }
+        public string Street { get; set; }
 
         /// <summary>
         /// zip code
         /// </summary>
         [DataMember]
-        public int zip
-        {
-            get;
-        }
+        public int zip { get; set; }
     }
 }

@@ -9,17 +9,17 @@ namespace AnointedAutomation.Objects.API.Billing
         public Sale(string UID, System.DateTime date, string menuItem, int soldQuantity, decimal totalSale)
         {
             this.UID = UID;
-            Date = date;
+            this.date = date;
             MenuItem = menuItem;
-            SoldQuantity = soldQuantity;
-            TotalSale = totalSale;
+            this.quantitySold = soldQuantity;
+            this.totalSale = totalSale;
         }
 
         public Sale()
         {
         }
 
-        public System.DateTime Date
+        public System.DateTime date
         {
             get; set;
         }
@@ -29,12 +29,12 @@ namespace AnointedAutomation.Objects.API.Billing
             get; set;
         }
 
-        public int SoldQuantity
+        public int quantitySold
         {
             get; set;
         }
 
-        public decimal TotalSale
+        public decimal totalSale
         {
             get; set;
         }

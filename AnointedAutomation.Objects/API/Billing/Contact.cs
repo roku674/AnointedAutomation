@@ -37,9 +37,9 @@ namespace AnointedAutomation.Objects.Billing
         public Contact(System.DateTime dob, string firstName, string lastName, string middleName, ulong number)
         {
             this.dob = dob != default ? dob : new System.DateTime(1900, 1, 1);
-            this.firstName = firstName ?? "";
-            this.lastName = lastName ?? "";
-            this.middleName = middleName;
+            this.FirstName = firstName ?? "";
+            this.LastName = lastName ?? "";
+            this.MiddleName = middleName;
             this.number = number;
         }
 
@@ -56,7 +56,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the person's first name.
         /// </summary>
-        public string firstName
+        public string FirstName
         {
             get; set;
         }
@@ -65,7 +65,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the person's last name.
         /// </summary>
-        public string lastName
+        public string LastName
         {
             get; set;
         }
@@ -74,7 +74,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the person's middle name.
         /// </summary>
-        public string middleName
+        public string MiddleName
         {
             get; set;
         }

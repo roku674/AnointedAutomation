@@ -66,11 +66,11 @@ namespace AnointedAutomation.Objects.Billing
         {
             AddressBilling = billing ?? throw new System.ArgumentNullException(nameof(billing));
             AddressShipping = shipping != null ? shipping : billing;
-            this.company = company ?? throw new System.ArgumentNullException(nameof(company));
+            this.Company = company ?? throw new System.ArgumentNullException(nameof(company));
             this.isBilledMonthly = billedMonthly;
             this.isBilledYearly = billedYearly;
             this.donation = donation;
-            transactionId = System.Guid.NewGuid().ToString();
+            TransactionId = System.Guid.NewGuid().ToString();
             this.isRefund = isRefund;
             this.isActive = isActive;
             this.isRecurring = isRecurring;
@@ -78,14 +78,14 @@ namespace AnointedAutomation.Objects.Billing
             this.paymentType = paymentType;
             this.Purchaser = purchaser ?? throw new System.ArgumentNullException(nameof(purchaser));
             this.renewalTime = renewalTime != default ? renewalTime : System.DateTime.Now;
-            this.taxLocation = taxLocation;
+            this.TaxLocation = taxLocation;
             this.taxPercentage = taxPercentage <= 0 ? this.taxPercentage = 1 : this.taxPercentage = taxPercentage;
-            decimal weightedPrice = (Item.Cost + (this.Item.Price * this.Item.QuantitySold));
+            decimal weightedPrice = (Item.cost + (this.Item.price * this.Item.quantitySold));
             decimal taxAmount = weightedPrice * (this.taxPercentage / 100);
             this.time = time != default ? time : System.DateTime.Now;
             this.tip = tip;
             this.total = weightedPrice + this.taxAmount + this.tip + this.donation;
-            this.typeOfSubscription = typeOfSubscription;
+            this.TypeOfSubscription = typeOfSubscription;
         }
 
         [DataMember]
@@ -141,7 +141,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the type or tier of subscription.
         /// </summary>
-        public string typeOfSubscription
+        public string TypeOfSubscription
         {
             get; set;
         }

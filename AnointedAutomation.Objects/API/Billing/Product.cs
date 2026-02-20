@@ -19,7 +19,7 @@ namespace AnointedAutomation.Objects.Billing
         /// </summary>
         public Product()
         {
-            this.QuantitySold = 1;
+            this.quantitySold = 1;
             this.Currency = "USD";
         }
 
@@ -43,11 +43,11 @@ namespace AnointedAutomation.Objects.Billing
         /// <exception cref="System.ArgumentNullException">Thrown when name is null.</exception>
         public Product(string name, decimal cost, string currency, decimal price, string productId, int quantitySold)
         {
-            this.Cost = cost;
+            this.cost = cost;
             this.Currency = currency ?? "USD";
-            this.Price = price;
+            this.price = price;
             this.ProductId = productId;
-            this.QuantitySold = (quantitySold == 0) ? 1 : quantitySold;
+            this.quantitySold = (quantitySold == 0) ? 1 : quantitySold;
             this.Name = name ?? throw new System.ArgumentNullException(nameof(name));
         }
 
@@ -55,7 +55,7 @@ namespace AnointedAutomation.Objects.Billing
         /// Cost to produce/acquire
         /// </summary>
         [DataMember]
-        public decimal Cost
+        public decimal cost
         {
             get; set;
         }
@@ -86,7 +86,7 @@ namespace AnointedAutomation.Objects.Billing
         /// Amount of money the purchase costs to customers
         /// </summary>
         [DataMember]
-        public decimal Price
+        public decimal price
         {
             get; set;
         }
@@ -104,7 +104,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the quantity of this product that has been sold.
         /// </summary>
-        public int QuantitySold
+        public int quantitySold
         {
             get; set;
         }
@@ -123,11 +123,11 @@ namespace AnointedAutomation.Objects.Billing
             {
                 if (quantities.ContainsKey(sale.MenuItem))
                 {
-                    quantities[sale.MenuItem] += sale.SoldQuantity;
+                    quantities[sale.MenuItem] += sale.quantitySold;
                 }
                 else
                 {
-                    quantities.Add(sale.MenuItem, sale.SoldQuantity);
+                    quantities.Add(sale.MenuItem, sale.quantitySold);
                 }
             }
 
@@ -135,11 +135,11 @@ namespace AnointedAutomation.Objects.Billing
             {
                 if (quantities.TryGetValue(product.Name, out int soldQuantity))
                 {
-                    product.QuantitySold = soldQuantity;
+                    product.quantitySold = soldQuantity;
                 }
                 else
                 {
-                    product.QuantitySold = 0;
+                    product.quantitySold = 0;
                 }
             }
 

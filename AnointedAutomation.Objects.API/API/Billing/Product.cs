@@ -2,6 +2,13 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -12,7 +19,7 @@ namespace AnointedAutomation.Objects.API.Billing
     {
         public Product()
         {
-            this.QuantitySold = 1;
+            this.quantitySold = 1;
             this.Currency = "USD";
         }
 
@@ -26,11 +33,11 @@ namespace AnointedAutomation.Objects.API.Billing
         /// <exception cref="System.ArgumentNullException"></exception>
         public Product(string name, decimal cost, string currency, decimal price, string productId, int quantitySold)
         {
-            this.Cost = cost;
+            this.cost = cost;
             this.Currency = currency ?? "USD";
-            this.Price = price;
+            this.price = price;
             this.ProductId = productId;
-            this.QuantitySold = (quantitySold == 0) ? 1 : quantitySold;
+            this.quantitySold = (quantitySold == 0) ? 1 : quantitySold;
             this.Name = name ?? throw new System.ArgumentNullException(nameof(name));
         }
 
@@ -38,47 +45,29 @@ namespace AnointedAutomation.Objects.API.Billing
         /// Cost to produce/acquire
         /// </summary>
         [DataMember]
-        public decimal Cost
-        {
-            get; set;
-        }
+        public decimal cost { get; set; }
 
         // </summary>
         [DataMember]
-        public string Currency
-        {
-            get; set;
-        }
+        public string Currency { get; set; }
 
         /// <summary>
         /// Amount of money the purchase costs
         /// </summary>
         [DataMember]
-        public string Name
-        {
-            get; set;
-        }
+        public string Name { get; set; }
 
         /// <summary>
         /// Amount of money the purchase costs to customers
         /// </summary>
         [DataMember]
-        public decimal Price
-        {
-            get; set;
-        }
+        public decimal price { get; set; }
 
         [DataMember]
-        public string ProductId
-        {
-            get; set;
-        }
+        public string ProductId { get; set; }
 
         [DataMember]
-        public int QuantitySold
-        {
-            get; set;
-        }
+        public int quantitySold { get; set; }
 
         public static List<Product> GetTotalQuantitySold(List<Product> products, List<Sale> sales)
         {
@@ -88,11 +77,11 @@ namespace AnointedAutomation.Objects.API.Billing
             {
                 if (quantities.ContainsKey(sale.MenuItem))
                 {
-                    quantities[sale.MenuItem] += sale.SoldQuantity;
+                    quantities[sale.MenuItem] += sale.quantitySold;
                 }
                 else
                 {
-                    quantities.Add(sale.MenuItem, sale.SoldQuantity);
+                    quantities.Add(sale.MenuItem, sale.quantitySold);
                 }
             }
 
@@ -100,11 +89,11 @@ namespace AnointedAutomation.Objects.API.Billing
             {
                 if (quantities.TryGetValue(product.Name, out int soldQuantity))
                 {
-                    product.QuantitySold = soldQuantity;
+                    product.quantitySold = soldQuantity;
                 }
                 else
                 {
-                    product.QuantitySold = 0;
+                    product.quantitySold = 0;
                 }
             }
 
