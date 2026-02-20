@@ -12,7 +12,7 @@ namespace AnointedAutomation.Objects.API.Billing
 
         public PaymentCredentials(PaymentType paymentType)
         {
-            PaymentType = paymentType;
+            this.paymentType = paymentType;
         }
 
         public CreditCard CreditCard
@@ -25,7 +25,7 @@ namespace AnointedAutomation.Objects.API.Billing
             get; set;
         }
 
-        public PaymentType PaymentType
+        public PaymentType paymentType
         {
             get; set;
         }

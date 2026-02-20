@@ -38,13 +38,13 @@ namespace AnointedAutomation.Objects.Account
         )
             : base(dob, firstName, lastName, middleName, number)
         {
-            this.accountSettings = accountSetting;
+            this.AccountSettings = accountSetting;
         }
 
         [BsonSerializer(typeof(JObjectSerializer))]
         /// <summary>
         /// Gets or sets the JSON object containing user account settings.
         /// </summary>
-        public JObject accountSettings { get; set; }
+        public JObject AccountSettings { get; set; }
     }
 }

@@ -25,27 +25,27 @@ namespace AnointedAutomation.Objects.Account
         /// <param name="googleToken">Google authentication token.</param>
         public Credentials(string email, string password, string token, string googleToken)
         {
-            this.email = email ?? throw new System.ArgumentNullException(nameof(email));
-            this.password = password ?? throw new System.ArgumentNullException(nameof(password));
-            this.token = token;
-            this.googleToken = token;
+            this.Email = email ?? throw new System.ArgumentNullException(nameof(email));
+            this.Password = password ?? throw new System.ArgumentNullException(nameof(password));
+            this.Token = token;
+            this.GoogleToken = token;
         }
 
         /// <summary>
         /// Gets or sets the user's email address.
         /// </summary>
-        public string email { get; set; }
+        public string Email { get; set; }
         /// <summary>
         /// Gets or sets the Google authentication token.
         /// </summary>
-        public string googleToken { get; set; }
+        public string GoogleToken { get; set; }
         /// <summary>
         /// Gets or sets the user's password.
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
         /// <summary>
         /// Gets or sets the authentication token.
         /// </summary>
-        public string token { get; set; }
+        public string Token { get; set; }
     }
 }

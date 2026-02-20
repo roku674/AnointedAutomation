@@ -37,13 +37,13 @@ namespace AnointedAutomation.Objects.Billing
             Manufacturer = manufacturer;
             Supplier = supplier;
             Description = description;
-            CostPerItem = costPerItem;
-            StockQuantity = stockQuantity;
+            this.costPerItem = costPerItem;
+            this.stockQuantity = stockQuantity;
             InventoryValue = inventoryValue;
-            ReorderLevel = reorderLevel;
-            DaysPerReorder = daysPerReorder;
-            ItemReorderQuantity = itemReorderQuantity;
-            ItemDiscontinued = itemDiscontinued;
+            this.reorderLevel = reorderLevel;
+            this.daysPerReorder = daysPerReorder;
+            this.itemReorderQuantity = itemReorderQuantity;
+            this.itemDiscontinued = itemDiscontinued;
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the cost per unit of the item.
         /// </summary>
-        public decimal CostPerItem
+        public decimal costPerItem
         {
             get; set;
         }
@@ -64,7 +64,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the number of days between reorders.
         /// </summary>
-        public int DaysPerReorder
+        public int daysPerReorder
         {
             get; set;
         }
@@ -88,7 +88,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets a value indicating whether the item is discontinued.
         /// </summary>
-        public bool ItemDiscontinued
+        public bool itemDiscontinued
         {
             get; set;
         }
@@ -104,7 +104,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the quantity to order when reordering.
         /// </summary>
-        public int ItemReorderQuantity
+        public int itemReorderQuantity
         {
             get; set;
         }
@@ -136,7 +136,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the quantity at which to reorder.
         /// </summary>
-        public int ReorderLevel
+        public int reorderLevel
         {
             get; set;
         }
@@ -144,7 +144,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the current quantity in stock.
         /// </summary>
-        public int StockQuantity
+        public int stockQuantity
         {
             get; set;
         }

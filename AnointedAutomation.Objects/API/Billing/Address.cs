@@ -41,12 +41,12 @@ namespace AnointedAutomation.Objects.Billing
         /// <exception cref="System.ArgumentNullException">Thrown when required parameters are null.</exception>
         public Address(string city, string country, string name, Contact contact, string state, string street, int zip)
         {
-            this.city = city ?? throw new System.ArgumentNullException(nameof(city));
-            this.country = country ?? throw new System.ArgumentNullException(nameof(country));
-            this.name = name;
-            this.contact = contact ?? throw new System.ArgumentNullException(nameof(contact));
-            this.state = state ?? throw new System.ArgumentNullException(nameof(state));
-            this.street = street ?? throw new System.ArgumentNullException(nameof(street));
+            this.City = city ?? throw new System.ArgumentNullException(nameof(city));
+            this.Country = country ?? throw new System.ArgumentNullException(nameof(country));
+            this.Name = name;
+            this.Contact = contact ?? throw new System.ArgumentNullException(nameof(contact));
+            this.State = state ?? throw new System.ArgumentNullException(nameof(state));
+            this.Street = street ?? throw new System.ArgumentNullException(nameof(street));
             this.zip = zip;
         }
 
@@ -54,7 +54,7 @@ namespace AnointedAutomation.Objects.Billing
         /// Do they put on for their...
         /// </summary>
         [DataMember]
-        public string city
+        public string City
         {
             get; set;
         }
@@ -63,7 +63,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the contact information associated with this address.
         /// </summary>
-        public Contact contact
+        public Contact Contact
         {
             get; set;
         }
@@ -72,7 +72,7 @@ namespace AnointedAutomation.Objects.Billing
         /// Their Country/State (not to be confused with individual states in U.S.)
         /// </summary>
         [DataMember]
-        public string country
+        public string Country
         {
             get; set;
         }
@@ -81,7 +81,7 @@ namespace AnointedAutomation.Objects.Billing
         /// This isn't required if sending to a person
         /// </summary>
         [DataMember]
-        public string name
+        public string Name
         {
             get; set;
         }
@@ -90,7 +90,7 @@ namespace AnointedAutomation.Objects.Billing
         /// State/Province
         /// </summary>
         [DataMember]
-        public string state
+        public string State
         {
             get; set;
         }
@@ -99,7 +99,7 @@ namespace AnointedAutomation.Objects.Billing
         /// street address
         /// </summary>
         [DataMember]
-        public string street
+        public string Street
         {
             get; set;
         }

@@ -20,10 +20,10 @@ namespace AnointedAutomation.Objects.Billing
         public Sale(string UID, System.DateTime date, string menuItem, int soldQuantity, decimal totalSale)
         {
             this.UID = UID;
-            Date = date;
+            this.date = date;
             MenuItem = menuItem;
-            SoldQuantity = soldQuantity;
-            TotalSale = totalSale;
+            this.quantitySold = soldQuantity;
+            this.totalSale = totalSale;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the date of the sale.
         /// </summary>
-        public System.DateTime Date
+        public System.DateTime date
         {
             get; set;
         }
@@ -52,7 +52,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the quantity sold in this transaction.
         /// </summary>
-        public int SoldQuantity
+        public int quantitySold
         {
             get; set;
         }
@@ -60,7 +60,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the total sale amount.
         /// </summary>
-        public decimal TotalSale
+        public decimal totalSale
         {
             get; set;
         }

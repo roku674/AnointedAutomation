@@ -1,4 +1,12 @@
 // Copyright © Anointed Automation, Ltd., 2025. All Rights Reserved.
+
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
 using System;
 using System.Collections.Generic;
 
@@ -18,32 +26,32 @@ namespace AnointedAutomation.Objects
         /// <summary>
         /// The current page number (1-based)
         /// </summary>
-        public int CurrentPage { get; set; }
+        public int currentPage { get; set; }
 
         /// <summary>
         /// The number of items per page
         /// </summary>
-        public int PageSize { get; set; }
+        public int pageSize { get; set; }
 
         /// <summary>
         /// The total number of items across all pages
         /// </summary>
-        public long TotalItems { get; set; }
+        public long totalItems { get; set; }
 
         /// <summary>
         /// The total number of pages
         /// </summary>
-        public int TotalPages { get; set; }
+        public int totalPages { get; set; }
 
         /// <summary>
         /// Whether there is a next page available
         /// </summary>
-        public bool HasNextPage => CurrentPage < TotalPages;
+        public bool hasNextPage => currentPage < totalPages;
 
         /// <summary>
         /// Whether there is a previous page available
         /// </summary>
-        public bool HasPreviousPage => CurrentPage > 1;
+        public bool hasPreviousPage => currentPage > 1;
 
         /// <summary>
         /// Creates a new paginated response
@@ -63,10 +71,10 @@ namespace AnointedAutomation.Objects
         public PaginatedResponse(List<T> data, int currentPage, int pageSize, long totalItems)
         {
             Data = data ?? new List<T>();
-            CurrentPage = currentPage;
-            PageSize = pageSize;
-            TotalItems = totalItems;
-            TotalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+            this.currentPage = currentPage;
+            this.pageSize = pageSize;
+            this.totalItems = totalItems;
+            this.totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
         }
     }
 }

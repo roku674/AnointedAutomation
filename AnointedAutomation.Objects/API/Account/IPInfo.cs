@@ -29,7 +29,7 @@ namespace AnointedAutomation.Objects.Account
         public IPInfo(System.DateTime firstLogin, string ipAddress, System.DateTime lastLogin, uint loginCount, System.TimeSpan timeOnline)
         {
             this.firstLogin = firstLogin;
-            this.ipAddress = ipAddress;
+            this.IpAddress = ipAddress;
             this.lastLogin = lastLogin;
             this.loginCount = loginCount;
             this.timeOnline = default;
@@ -48,7 +48,7 @@ namespace AnointedAutomation.Objects.Account
         /// <summary>
         /// Gets or sets the IP address.
         /// </summary>
-        public string ipAddress
+        public string IpAddress
         {
             get; set;
         }

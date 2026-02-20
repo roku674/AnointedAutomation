@@ -56,17 +56,17 @@ namespace AnointedAutomation.Objects.Account
         {
             this.banned = banned != default ? banned : new System.DateTime(1900, 1, 1);
             this.createdDate = createdDate != default ? createdDate : System.DateTime.Now;
-            this.email = email;
+            this.Email = email;
             this.emailConfirmed = emailConfirmed;
-            this.IPAdresses = ipAddresses ?? new List<IPInfo>();
+            this.IPAddresses = ipAddresses ?? new List<IPInfo>();
             this.lastActiveDate = lastActiveDate != default ? lastActiveDate : System.DateTime.Now;
-            this.password = password ?? throw new System.ArgumentNullException(nameof(password));
+            this.Password = password ?? throw new System.ArgumentNullException(nameof(password));
             this.Profile = profile ?? new Profile();
-            this.role = role;
+            this.Role = role;
             this.timeOnline = timeOnline;
-            this.userId = userId;
-            this.username = username;
-            this.token = token;
+            this.UserId = userId;
+            this.Username = username;
+            this.Token = token;
             this.tokenExpiration = tokenExpiration;
             //this.GoogleObjects = googleObjects;
         }
@@ -87,7 +87,7 @@ namespace AnointedAutomation.Objects.Account
         /// email serves as their login name
         /// </summary>
         [DataMember]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         [DataMember]
         /// <summary>
@@ -99,7 +99,7 @@ namespace AnointedAutomation.Objects.Account
         /// <summary>
         /// Gets or sets the list of IP addresses associated with this user's account.
         /// </summary>
-        public List<IPInfo> IPAdresses { get; set; }
+        public List<IPInfo> IPAddresses { get; set; }
 
         [DataMember]
         /// <summary>
@@ -111,13 +111,13 @@ namespace AnointedAutomation.Objects.Account
         /// This will most likely be a big json
         /// </summary>
         [DataMember]
-        public string meta { get; set; }
+        public string Meta { get; set; }
 
         [DataMember]
         /// <summary>
         /// Gets or sets the user's password.
         /// </summary>
-        public string password { get; set; }
+        public string Password { get; set; }
 
         [DataMember]
         /// <summary>
@@ -129,7 +129,7 @@ namespace AnointedAutomation.Objects.Account
         /// <summary>
         /// Gets or sets the user's role in the system.
         /// </summary>
-        public string role { get; set; }
+        public string Role { get; set; }
 
         [DataMember]
         /// <summary>
@@ -141,7 +141,7 @@ namespace AnointedAutomation.Objects.Account
         /// <summary>
         /// Gets or sets the user's authentication token.
         /// </summary>
-        public string token { get; set; }
+        public string Token { get; set; }
 
         [DataMember]
         /// <summary>
@@ -154,12 +154,12 @@ namespace AnointedAutomation.Objects.Account
         /// </summary>
         [BsonId]
         [DataMember]
-        public string userId { get; set; }
+        public string UserId { get; set; }
 
         [DataMember]
         /// <summary>
         /// Gets or sets the user's display name.
         /// </summary>
-        public string username { get; set; }
+        public string Username { get; set; }
     }
 }

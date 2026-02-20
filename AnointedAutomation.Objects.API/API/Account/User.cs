@@ -2,6 +2,13 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
 using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -33,19 +40,18 @@ namespace AnointedAutomation.Objects.API.Account
         {
             this.banned = banned != default ? banned : new System.DateTime(1900, 1, 1);
             this.createdDate = createdDate != default ? createdDate : System.DateTime.Now;
-            this.email = email;
+            this.Email = email;
             this.emailConfirmed = emailConfirmed;
-            this.IPAdresses = ipAddresses ?? new List<IPInfo>();
+            this.IPAddresses = ipAddresses ?? new List<IPInfo>();
             this.lastActiveDate = lastActiveDate != default ? lastActiveDate : System.DateTime.Now;
-            this.password = password ?? throw new System.ArgumentNullException(nameof(password));
+            this.Password = password ?? throw new System.ArgumentNullException(nameof(password));
             this.Profile = profile ?? new Profile();
-            this.role = role;
+            this.Role = role;
             this.timeOnline = timeOnline;
-            this.userId = userId;
-            this.username = username;
-            this.token = token;
+            this.UserId = userId;
+            this.Username = username;
+            this.Token = token;
             this.tokenExpiration = tokenExpiration;
-            //this.GoogleObjects = googleObjects;
         }
 
         /// <summary>
@@ -61,13 +67,13 @@ namespace AnointedAutomation.Objects.API.Account
         /// email serves as their login name
         /// </summary>
         [DataMember]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         [DataMember]
         public bool emailConfirmed { get; set; }
 
         [DataMember]
-        public List<IPInfo> IPAdresses { get; set; }
+        public List<IPInfo> IPAddresses { get; set; }
 
         [DataMember]
         public System.DateTime lastActiveDate { get; set; }
@@ -76,22 +82,22 @@ namespace AnointedAutomation.Objects.API.Account
         /// This will most likely be a big json
         /// </summary>
         [DataMember]
-        public string meta { get; set; }
+        public string Meta { get; set; }
 
         [DataMember]
-        public string password { get; set; }
+        public string Password { get; set; }
 
         [DataMember]
         public Profile Profile { get; set; }
 
         [DataMember]
-        public string role { get; set; }
+        public string Role { get; set; }
 
         [DataMember]
         public System.TimeSpan timeOnline { get; set; }
 
         [DataMember]
-        public string token { get; set; }
+        public string Token { get; set; }
 
         [DataMember]
         public System.DateTime tokenExpiration { get; set; }
@@ -101,9 +107,9 @@ namespace AnointedAutomation.Objects.API.Account
         /// </summary>
         [BsonId]
         [DataMember]
-        public string userId { get; set; }
+        public string UserId { get; set; }
 
         [DataMember]
-        public string username { get; set; }
+        public string Username { get; set; }
     }
 }

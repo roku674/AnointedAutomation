@@ -22,7 +22,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <param name="paymentType">The type of payment.</param>
         public PaymentCredentials(PaymentType paymentType)
         {
-            PaymentType = paymentType;
+            this.paymentType = paymentType;
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the type of payment method being used.
         /// </summary>
-        public PaymentType PaymentType
+        public PaymentType paymentType
         {
             get; set;
         }

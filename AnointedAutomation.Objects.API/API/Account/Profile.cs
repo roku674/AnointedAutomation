@@ -1,6 +1,14 @@
 // Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-01-16 19:19:01
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
+
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
 using AnointedAutomation.Objects.API.Billing;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json.Linq;
@@ -14,7 +22,7 @@ namespace AnointedAutomation.Objects.API.Account
         { }
 
         public Profile(
-            JObject accountSetting,
+            JObject accountSettings,
             System.DateTime dob,
             string firstName,
             string lastName,
@@ -23,10 +31,10 @@ namespace AnointedAutomation.Objects.API.Account
         )
             : base(dob, firstName, lastName, middleName, number)
         {
-            this.accountSettings = accountSetting;
+            this.AccountSettings = accountSettings;
         }
 
         [BsonSerializer(typeof(JObjectSerializer))]
-        public JObject accountSettings { get; set; }
+        public JObject AccountSettings { get; set; }
     }
 }

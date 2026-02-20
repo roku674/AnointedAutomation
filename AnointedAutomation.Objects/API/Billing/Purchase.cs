@@ -18,7 +18,7 @@ namespace AnointedAutomation.Objects.Billing
         /// </summary>
         public Purchase()
         {
-            this.transactionId = System.Guid.NewGuid().ToString();
+            this.TransactionId = System.Guid.NewGuid().ToString();
         }
 
         /// <summary>
@@ -67,18 +67,18 @@ namespace AnointedAutomation.Objects.Billing
         {
             AddressBilling = billing ?? throw new System.ArgumentNullException(nameof(billing));
             AddressShipping = shipping ?? billing;
-            this.company = company ?? throw new System.ArgumentNullException(nameof(company));
+            this.Company = company ?? throw new System.ArgumentNullException(nameof(company));
             this.discount = discount;
             this.discountPerc = discountPerc <= 0 ? this.discountPerc = 1 : this.discountPerc = discountPerc;
             this.donation = donation;
-            transactionId = System.Guid.NewGuid().ToString();
+            TransactionId = System.Guid.NewGuid().ToString();
             this.isRefund = isRefund;
             this.Item = item ?? throw new System.ArgumentNullException(nameof(item));
             this.paymentType = paymentType;
             this.Purchaser = purchaser ?? throw new System.ArgumentNullException(nameof(purchaser));
-            this.taxLocation = taxLocation;
+            this.TaxLocation = taxLocation;
             this.taxPercentage = taxPercentage <= 0 ? this.taxPercentage = 1 : this.taxPercentage = taxPercentage;
-            decimal weightedPrice = (Item.Cost + (this.Item.Price * this.Item.QuantitySold));
+            decimal weightedPrice = (Item.cost + (this.Item.price * this.Item.quantitySold));
             this.taxAmount = weightedPrice * (this.taxPercentage / 100);
             this.time = time != default ? time : System.DateTime.Now;
             this.tip = tip;
@@ -104,7 +104,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the company from which the purchase was made.
         /// </summary>
-        public string company
+        public string Company
         {
             get; set;
         }
@@ -191,7 +191,7 @@ namespace AnointedAutomation.Objects.Billing
         /// State/Province for tax purposes
         /// </summary>
         [DataMember]
-        public string taxLocation
+        public string TaxLocation
         {
             get; set;
         }
@@ -233,7 +233,7 @@ namespace AnointedAutomation.Objects.Billing
         /// <summary>
         /// Gets or sets the unique identifier for this transaction.
         /// </summary>
-        public string transactionId
+        public string TransactionId
         {
             get; set;
         }
