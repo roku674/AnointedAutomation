@@ -16,9 +16,9 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
             // Assert
             Assert.NotNull(bannedIP);
             Assert.Null(bannedIP._id);
-            Assert.Null(bannedIP.ipv4);
-            Assert.Null(bannedIP.ipv6);
-            Assert.Null(bannedIP.reason);
+            Assert.Null(bannedIP.Ipv4);
+            Assert.Null(bannedIP.Ipv6);
+            Assert.Null(bannedIP.Reason);
         }
 
         [Fact]
@@ -32,10 +32,10 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
             var bannedIP = new BannedIP(ipv4, ipv6);
 
             // Assert
-            Assert.Equal(ipv4, bannedIP.ipv4);
-            Assert.Equal(ipv6, bannedIP.ipv6);
+            Assert.Equal(ipv4, bannedIP.Ipv4);
+            Assert.Equal(ipv6, bannedIP.Ipv6);
             Assert.Null(bannedIP._id);
-            Assert.Null(bannedIP.reason);
+            Assert.Null(bannedIP.Reason);
         }
 
         [Fact]
@@ -52,9 +52,9 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Assert
             Assert.Equal(id, bannedIP._id);
-            Assert.Equal(ipv4, bannedIP.ipv4);
-            Assert.Equal(ipv6, bannedIP.ipv6);
-            Assert.Equal(reason, bannedIP.reason);
+            Assert.Equal(ipv4, bannedIP.Ipv4);
+            Assert.Equal(ipv6, bannedIP.Ipv6);
+            Assert.Equal(reason, bannedIP.Reason);
         }
 
         [Fact]
@@ -69,15 +69,15 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Act
             bannedIP._id = id;
-            bannedIP.ipv4 = ipv4;
-            bannedIP.ipv6 = ipv6;
-            bannedIP.reason = reason;
+            bannedIP.Ipv4 = ipv4;
+            bannedIP.Ipv6 = ipv6;
+            bannedIP.Reason = reason;
 
             // Assert
             Assert.Equal(id, bannedIP._id);
-            Assert.Equal(ipv4, bannedIP.ipv4);
-            Assert.Equal(ipv6, bannedIP.ipv6);
-            Assert.Equal(reason, bannedIP.reason);
+            Assert.Equal(ipv4, bannedIP.Ipv4);
+            Assert.Equal(ipv6, bannedIP.Ipv6);
+            Assert.Equal(reason, bannedIP.Reason);
         }
 
         // EDGE CASE TESTS - Added per CLAUDE_TESTING.md requirements
@@ -89,8 +89,8 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
             var bannedIP = new BannedIP(null, null);
 
             // Assert
-            Assert.Null(bannedIP.ipv4);
-            Assert.Null(bannedIP.ipv6);
+            Assert.Null(bannedIP.Ipv4);
+            Assert.Null(bannedIP.Ipv6);
         }
 
         [Fact]
@@ -100,8 +100,8 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
             var bannedIP = new BannedIP("", "");
 
             // Assert
-            Assert.Equal("", bannedIP.ipv4);
-            Assert.Equal("", bannedIP.ipv6);
+            Assert.Equal("", bannedIP.Ipv4);
+            Assert.Equal("", bannedIP.Ipv6);
         }
 
         [Fact]
@@ -112,9 +112,9 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Assert
             Assert.Null(bannedIP._id);
-            Assert.Null(bannedIP.ipv4);
-            Assert.Null(bannedIP.ipv6);
-            Assert.Null(bannedIP.reason);
+            Assert.Null(bannedIP.Ipv4);
+            Assert.Null(bannedIP.Ipv6);
+            Assert.Null(bannedIP.Reason);
         }
 
         [Fact]
@@ -125,9 +125,9 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Assert
             Assert.Equal("", bannedIP._id);
-            Assert.Equal("", bannedIP.ipv4);
-            Assert.Equal("", bannedIP.ipv6);
-            Assert.Equal("", bannedIP.reason);
+            Assert.Equal("", bannedIP.Ipv4);
+            Assert.Equal("", bannedIP.Ipv6);
+            Assert.Equal("", bannedIP.Reason);
         }
 
         [Fact]
@@ -141,9 +141,9 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Assert
             Assert.Equal(longString, bannedIP._id);
-            Assert.Equal(longString, bannedIP.ipv4);
-            Assert.Equal(longString, bannedIP.ipv6);
-            Assert.Equal(longString, bannedIP.reason);
+            Assert.Equal(longString, bannedIP.Ipv4);
+            Assert.Equal(longString, bannedIP.Ipv6);
+            Assert.Equal(longString, bannedIP.Reason);
         }
 
         [Fact]
@@ -154,15 +154,15 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Act
             bannedIP._id = null;
-            bannedIP.ipv4 = null;
-            bannedIP.ipv6 = null;
-            bannedIP.reason = null;
+            bannedIP.Ipv4 = null;
+            bannedIP.Ipv6 = null;
+            bannedIP.Reason = null;
 
             // Assert
             Assert.Null(bannedIP._id);
-            Assert.Null(bannedIP.ipv4);
-            Assert.Null(bannedIP.ipv6);
-            Assert.Null(bannedIP.reason);
+            Assert.Null(bannedIP.Ipv4);
+            Assert.Null(bannedIP.Ipv6);
+            Assert.Null(bannedIP.Reason);
         }
 
         [Fact]
@@ -173,15 +173,15 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Act
             bannedIP._id = "";
-            bannedIP.ipv4 = "";
-            bannedIP.ipv6 = "";
-            bannedIP.reason = "";
+            bannedIP.Ipv4 = "";
+            bannedIP.Ipv6 = "";
+            bannedIP.Reason = "";
 
             // Assert
             Assert.Equal("", bannedIP._id);
-            Assert.Equal("", bannedIP.ipv4);
-            Assert.Equal("", bannedIP.ipv6);
-            Assert.Equal("", bannedIP.reason);
+            Assert.Equal("", bannedIP.Ipv4);
+            Assert.Equal("", bannedIP.Ipv6);
+            Assert.Equal("", bannedIP.Reason);
         }
 
         [Fact]
@@ -195,9 +195,9 @@ namespace AnointedAutomation.APIMiddlewares.Tests.Objects
 
             // Assert
             Assert.Equal(specialChars, bannedIP._id);
-            Assert.Equal(specialChars, bannedIP.ipv4);
-            Assert.Equal(specialChars, bannedIP.ipv6);
-            Assert.Equal(specialChars, bannedIP.reason);
+            Assert.Equal(specialChars, bannedIP.Ipv4);
+            Assert.Equal(specialChars, bannedIP.Ipv6);
+            Assert.Equal(specialChars, bannedIP.Reason);
         }
     }
 }
