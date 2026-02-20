@@ -26,9 +26,9 @@ namespace AnointedAutomation.APIMiddleware.Objects
         public BannedIP(string id, string ipv4, string ipv6, string reason)
         {
             this._id = id;
-            this.ipv4 = ipv4;
-            this.ipv6 = ipv6;
-            this.reason = reason;
+            this.Ipv4 = ipv4;
+            this.Ipv6 = ipv6;
+            this.Reason = reason;
         }
 
         /// <summary>
@@ -38,8 +38,8 @@ namespace AnointedAutomation.APIMiddleware.Objects
         /// <param name="ipv6">The IPv6 address.</param>
         public BannedIP(string ipv4, string ipv6)
         {
-            this.ipv4 = ipv4;
-            this.ipv6 = ipv6;
+            this.Ipv4 = ipv4;
+            this.Ipv6 = ipv6;
         }
 
         /// <summary>
@@ -49,14 +49,14 @@ namespace AnointedAutomation.APIMiddleware.Objects
         /// <summary>
         /// Gets or sets the IPv4 address.
         /// </summary>
-        public string ipv4 { get; set; }
+        public string Ipv4 { get; set; }
         /// <summary>
         /// Gets or sets the IPv6 address.
         /// </summary>
-        public string ipv6 { get; set; }
+        public string Ipv6 { get; set; }
         /// <summary>
         /// Gets or sets the reason for banning the IP.
         /// </summary>
-        public string reason { get; set; }
+        public string Reason { get; set; }
     }
 }
