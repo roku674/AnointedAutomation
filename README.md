@@ -40,9 +40,11 @@ Our libraries are available as NuGet packages. Here are the packages currently a
 - **AnointedAutomation.APIMiddlewares** - Middleware components for ASP.NET Core APIs
 - **AnointedAutomation.Logging** - Standardized logging utilities
 - **AnointedAutomation.Memory** - Memory management utilities
-- **AnointedAutomation.Objects** - Common object models
+- **AnointedAutomation.Objects** - Common object models (pure POCOs)
 - **AnointedAutomation.Objects.API** - API-specific object models
+- **AnointedAutomation.Objects.Mongo** - MongoDB-specific entity classes with BSON serialization
 - **AnointedAutomation.Repository.Mongo** - MongoDB repository pattern implementation
+- **AnointedAutomation.Repository.MySql** - MySQL/EF Core repository pattern implementation
 
 ### Package Publishing
 

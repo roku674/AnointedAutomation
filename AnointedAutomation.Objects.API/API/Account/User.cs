@@ -9,7 +9,6 @@
 //   - Reference types (objects): PascalCase (e.g., string Message, object Data)
 // =============================================================================
 
-using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -105,7 +104,6 @@ namespace AnointedAutomation.Objects.API.Account
         /// <summary>
         /// unique userId generated when creating account
         /// </summary>
-        [BsonId]
         [DataMember]
         public string UserId { get; set; }
 

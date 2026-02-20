@@ -2,7 +2,6 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
-using MongoDB.Bson.Serialization.Attributes;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -152,7 +151,6 @@ namespace AnointedAutomation.Objects.Account
         /// <summary>
         /// unique userId generated when creating account
         /// </summary>
-        [BsonId]
         [DataMember]
         public string UserId { get; set; }
 

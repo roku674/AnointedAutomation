@@ -1,15 +1,15 @@
-// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-06-08 14:21:14
-// Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
-//Created by Alexander Fields
+// Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me
+
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Newtonsoft.Json.Linq;
 
-namespace AnointedAutomation.Objects
+namespace AnointedAutomation.Objects.Mongo
 {
     /// <summary>
     /// Custom serializer for converting between JObject and BSON format.
+    /// This serializer enables seamless storage and retrieval of Newtonsoft.Json JObjects in MongoDB.
     /// </summary>
     public class JObjectSerializer : SerializerBase<JObject>
     {
