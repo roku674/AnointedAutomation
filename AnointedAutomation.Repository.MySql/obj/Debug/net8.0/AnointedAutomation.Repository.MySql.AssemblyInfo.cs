@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Repository for Generic MySQL Usage with Entity Framework Core - AnointedAutomatio" +
     "n.Repository.MySql"))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+f608ca4f9331973fe204f540a59e36e5f4c1c288")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1+5cf7ce7348f07116846b622c6a30809b5a36df8a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnointedAutomation.Repository.MySql")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnointedAutomation.Repository.MySql")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.1.0")]

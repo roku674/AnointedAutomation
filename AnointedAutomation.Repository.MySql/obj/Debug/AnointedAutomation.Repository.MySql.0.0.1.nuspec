@@ -13,7 +13,7 @@
     <releaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Repository.MySql</releaseNotes>
     <copyright>Copyright 2023 Anointed Automation, LLC All rights reserved.</copyright>
     <tags>MySQL EFCore Repository</tags>
-    <repository type="git" url="https://github.com/roku674/AnointedAutomation" commit="f608ca4f9331973fe204f540a59e36e5f4c1c288" />
+    <repository type="git" url="https://github.com/roku674/AnointedAutomation" commit="5cf7ce7348f07116846b622c6a30809b5a36df8a" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="AnointedAutomation.Logging" version="0.0.8" exclude="Build,Analyzers" />
