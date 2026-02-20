@@ -10,12 +10,10 @@
 // =============================================================================
 
 using AnointedAutomation.Objects.API.Billing;
-using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json.Linq;
 
 namespace AnointedAutomation.Objects.API.Account
 {
-    [BsonIgnoreExtraElements]
     public class Profile : Contact
     {
         public Profile()
@@ -34,7 +32,6 @@ namespace AnointedAutomation.Objects.API.Account
             this.AccountSettings = accountSettings;
         }
 
-        [BsonSerializer(typeof(JObjectSerializer))]
         public JObject AccountSettings { get; set; }
     }
 }

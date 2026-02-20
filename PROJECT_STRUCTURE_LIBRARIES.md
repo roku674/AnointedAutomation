@@ -3,7 +3,7 @@
 # PROJECT STRUCTURE LIBRARIES
 
 ## Solution Overview
-The AnointedAutomation solution contains 6 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
+The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
 
 ## Library Details
 
@@ -265,6 +265,46 @@ All billing models include complete XML documentation
   - Microsoft.AspNetCore.Mvc.NewtonsoftJson (8.0.17)
   - Newtonsoft.Json (13.0.3)
 
+### 7. AnointedAutomation.Objects.Mongo v0.0.1
+
+**Purpose & Functionality:**
+- MongoDB-specific data models with BSON serialization attributes
+- Extends base AnointedAutomation.Objects classes with MongoDB support
+- Clean separation of MongoDB dependencies from base models
+
+**Key Classes:**
+
+**Account Namespace:**
+- `MongoUser` - MongoDB-specific user extending base `User`
+  - Adds `[BsonId]` attribute to UserId property
+  - Adds `[BsonIgnoreExtraElements]` for flexible schema evolution
+  - Full constructor matching base User class
+  - Complete XML documentation
+
+- `MongoProfile` - MongoDB-specific profile extending base `Profile`
+  - Adds `[BsonIgnoreExtraElements]` attribute
+  - Custom BSON serialization for JObject properties
+  - Full constructor matching base Profile class
+
+**Utilities:**
+- `JObjectSerializer` - Custom serializer for JObject to BSON conversion
+  - Enables seamless storage of Newtonsoft.Json JObjects in MongoDB
+  - Handles null values correctly
+  - Bidirectional serialization/deserialization
+  - Complete XML documentation
+
+**Dependencies:**
+- **Internal:**
+  - AnointedAutomation.Objects (base data models)
+- **External:**
+  - MongoDB.Bson (3.6.0)
+  - Newtonsoft.Json (13.0.4)
+
+**Public API Surface:**
+- MongoDB-ready classes: `MongoUser`, `MongoProfile`
+- Serialization: `JObjectSerializer` for JObject to BSON conversion
+- All classes inherit from base Objects and can be cast to base types
+
 ## Inter-Library Dependencies
 
 ```
@@ -286,6 +326,9 @@ AnointedAutomation.Objects
 
 AnointedAutomation.Objects.API
 └── (no internal dependencies)
+
+AnointedAutomation.Objects.Mongo
+└── AnointedAutomation.Objects (base models)
 ```
 
 ## Key Architectural Notes

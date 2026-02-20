@@ -3,7 +3,6 @@
 //Created by Alexander Fields
 
 using Microsoft.AspNetCore.Http;
-using MongoDB.Bson.Serialization.Attributes;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -52,9 +51,8 @@ namespace AnointedAutomation.Objects.API
         /// </summary>
         public string ContentType => "application/octet-stream";
 
-        [BsonId]
         /// <summary>
-        /// Gets or sets the name of the file. Used as the document ID in MongoDB.
+        /// Gets or sets the name of the file.
         /// </summary>
         public string FileName
         {

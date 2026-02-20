@@ -2,12 +2,10 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 using AnointedAutomation.Objects.Billing;
-using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json.Linq;
 
 namespace AnointedAutomation.Objects.Account
 {
-    [BsonIgnoreExtraElements]
     /// <summary>
     /// Represents a user profile with additional account settings, inheriting basic contact information.
     /// </summary>
@@ -41,7 +39,6 @@ namespace AnointedAutomation.Objects.Account
             this.AccountSettings = accountSetting;
         }
 
-        [BsonSerializer(typeof(JObjectSerializer))]
         /// <summary>
         /// Gets or sets the JSON object containing user account settings.
         /// </summary>

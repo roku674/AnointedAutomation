@@ -23,6 +23,7 @@ The solution `AnointedAutomation.sln` contains the following project organizatio
 4. **AnointedAutomation.Objects.API** (`AnointedAutomation.Objects.API/`)
 5. **AnointedAutomation.Memory** (`AnointedAutomation.Memory/`)
 6. **AnointedAutomation.Objects** (`AnointedAutomation.Objects/`)
+7. **AnointedAutomation.Objects.Mongo** (`AnointedAutomation.Objects.Mongo/`) - MongoDB-specific data models with BSON attributes
 
 ### Test Projects
 All test projects are organized under a "Tests" solution folder:

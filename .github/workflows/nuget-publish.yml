@@ -46,6 +46,7 @@ jobs:
             ["AnointedAutomation.Repository.MySql/AnointedAutomation.Repository.MySql.csproj"]="anointedautomation.repository.mysql"
             ["AnointedAutomation.Objects/AnointedAutomation.Objects.csproj"]="anointedautomation.objects"
             ["AnointedAutomation.Objects.API/AnointedAutomation.Objects.API.csproj"]="anointedautomation.objects.api"
+            ["AnointedAutomation.Objects.Mongo/AnointedAutomation.Objects.Mongo.csproj"]="anointedautomation.objects.mongo"
           )
           
           for PROJECT_PATH in "${!PACKAGES[@]}"; do
