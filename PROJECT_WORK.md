@@ -2,6 +2,22 @@
 
 ## Current Tasks
 
+### MongoDB 3.x BSON Inheritance Fix - COMPLETED ✅
+- **Description**: Fixed BsonSerializationException when using MongoUser with MongoDB Driver 3.x
+- **Error**: `The property 'banned' of type 'MongoUser' cannot use element name 'banned' because it is already being used by property 'banned' of type 'User'`
+- **Root Cause**: MongoDB Driver 3.x changed inheritance handling - creates separate class maps for both User and MongoUser, causing element name conflicts
+- **Files Changed**:
+  - `AnointedAutomation.Objects.Mongo/BsonClassMapRegistrar.cs` (NEW) - Registers class maps for proper inheritance
+- **Solution**: Created BsonClassMapRegistrar that:
+  - Registers User as root class with `SetIsRootClass(true)`
+  - Registers MongoUser as subclass with proper ID mapping
+  - Thread-safe and idempotent (can be called multiple times safely)
+- **Usage**: Call `BsonClassMapRegistrar.RegisterClassMaps()` at application startup before any MongoDB operations
+- **Status**: ✅ COMPLETED
+- **Date**: 2026-02-20
+
+---
+
 ### Testing Review and Implementation - COMPLETED ✅
 - **Description**: Review and ensure proper testing coverage for the AnointedAutomation solution according to CLAUDE_TESTING.md standards
 - **Files**: All test projects across the solution (5 test files enhanced + 3 production code bug fixes)
