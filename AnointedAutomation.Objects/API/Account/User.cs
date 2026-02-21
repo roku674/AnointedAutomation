@@ -189,5 +189,24 @@ namespace AnointedAutomation.Objects.Account
         /// Gets or sets the user's display name.
         /// </summary>
         public string Username { get; set; }
+
+        /// <summary>
+        /// Gets or sets the date when the account is scheduled for deletion.
+        /// Set to a far future date (e.g., 3005-12-31) if not scheduled.
+        /// </summary>
+        [DataMember]
+        public System.DateTime deletionDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the 6-digit deletion confirmation code sent to user's email.
+        /// </summary>
+        [DataMember]
+        public string DeletionConfirmationCode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the expiration time for the deletion confirmation code (valid for 30 minutes).
+        /// </summary>
+        [DataMember]
+        public System.DateTime deletionConfirmationExpiration { get; set; }
     }
 }
