@@ -9,29 +9,17 @@
 //   - Reference types (objects): PascalCase (e.g., string Message, object Data)
 // =============================================================================
 
-using AnointedAutomation.Objects.API.Billing;
-using Newtonsoft.Json.Linq;
+using BaseProfile = AnointedAutomation.Objects.Account.Profile;
 
 namespace AnointedAutomation.Objects.API.Account
 {
-    public class Profile : Contact
+    /// <summary>
+    /// API-specific profile class. Inherits all properties from the base Profile class.
+    /// </summary>
+    public class Profile : BaseProfile
     {
         public Profile()
+            : base()
         { }
-
-        public Profile(
-            JObject accountSettings,
-            System.DateTime dob,
-            string firstName,
-            string lastName,
-            string middleName,
-            ulong number
-        )
-            : base(dob, firstName, lastName, middleName, number)
-        {
-            this.AccountSettings = accountSettings;
-        }
-
-        public JObject AccountSettings { get; set; }
     }
 }

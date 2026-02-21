@@ -33,10 +33,10 @@ dotnet add package AnointedAutomation.Objects.Mongo
 
 ### Account Namespace
 - `MongoUser` - MongoDB-specific user with `[BsonId]` on UserId
-- `MongoProfile` - MongoDB-specific profile with JObject serialization
 
 ### Utilities
 - `JObjectSerializer` - Custom serializer for JObject to BSON conversion
+- `BsonClassMapRegistrar` - Registers BSON class maps and global serializers (call once at startup)
 
 ## Usage Example
 

@@ -2,6 +2,7 @@
 
 using AnointedAutomation.Objects.Account;
 using MongoDB.Bson.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace AnointedAutomation.Objects.Mongo
 {
@@ -32,10 +33,18 @@ namespace AnointedAutomation.Objects.Mongo
                     return;
                 }
 
+                RegisterGlobalSerializers();
                 RegisterUserClassMaps();
 
                 _isRegistered = true;
             }
+        }
+
+        private static void RegisterGlobalSerializers()
+        {
+            // Register JObjectSerializer globally for all JObject properties
+            // This handles Newtonsoft.Json JObject <-> MongoDB BSON conversion
+            BsonSerializer.RegisterSerializer(typeof(JObject), new JObjectSerializer());
         }
 
         private static void RegisterUserClassMaps()

@@ -11,7 +11,7 @@
 		<Copyright>Copyright © 2023 Anointed Automation, LLC All rights reserved.</Copyright>
 		<Description>Standardization for API Objects - AnointedAutomation.Objects.API</Description>
 		<RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
-		<Version>0.0.13</Version>
+		<Version>0.0.14</Version>
 		<PackageTags>objects</PackageTags>
 		<PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Objects.API</PackageReleaseNotes>
 		<Authors>Anointed Automation LLC, Alexander Fields</Authors>
@@ -27,6 +27,10 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.24" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AnointedAutomation.Objects\AnointedAutomation.Objects.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

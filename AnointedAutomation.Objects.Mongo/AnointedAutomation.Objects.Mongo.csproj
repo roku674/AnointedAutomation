@@ -11,7 +11,7 @@
 		<Copyright>Copyright © 2023 Anointed Automation, LLC All rights reserved.</Copyright>
 		<Description>MongoDB-specific objects with BSON attributes - AnointedAutomation.Objects.Mongo</Description>
 		<RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
-		<Version>0.0.3</Version>
+		<Version>0.0.4</Version>
 		<PackageTags>objects,mongodb,bson</PackageTags>
 		<PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Objects.Mongo</PackageReleaseNotes>
 		<Authors>Anointed Automation LLC, Alexander Fields</Authors>
