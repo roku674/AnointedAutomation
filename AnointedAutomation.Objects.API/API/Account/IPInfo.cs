@@ -9,41 +9,17 @@
 //   - Reference types (objects): PascalCase (e.g., string Message, object Data)
 // =============================================================================
 
-using System.Runtime.Serialization;
+using BaseIPInfo = AnointedAutomation.Objects.Account.IPInfo;
 
 namespace AnointedAutomation.Objects.API.Account
 {
-    public class IPInfo
+    /// <summary>
+    /// API-specific IP info class. Inherits all properties from the base IPInfo class.
+    /// </summary>
+    public class IPInfo : BaseIPInfo
     {
         public IPInfo()
-        {
-        }
-
-        public IPInfo(System.DateTime firstLogin, string ipAddress, System.DateTime lastLogin, ulong loginCount, System.TimeSpan timeOnline)
-        {
-            this.firstLogin = firstLogin;
-            this.IpAddress = ipAddress;
-            this.lastLogin = lastLogin;
-            this.loginCount = loginCount;
-            this.timeOnline = default;
-        }
-
-        [DataMember]
-        public System.DateTime firstLogin { get; set; }
-
-        [DataMember]
-        public string IpAddress { get; set; }
-
-        [DataMember]
-        public System.DateTime lastLogin { get; set; }
-
-        /// <summary>
-        /// amount of times the ip as logged in
-        /// </summary>
-        [DataMember]
-        public ulong loginCount { get; set; }
-
-        [DataMember]
-        public System.TimeSpan timeOnline { get; set; }
+            : base()
+        { }
     }
 }

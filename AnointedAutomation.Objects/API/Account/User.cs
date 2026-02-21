@@ -78,6 +78,18 @@ namespace AnointedAutomation.Objects.Account
 
         [DataMember]
         /// <summary>
+        /// Gets or sets the reason for the ban (null if not banned).
+        /// </summary>
+        public string BannedReason { get; set; }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the list of user IDs this user has blocked.
+        /// </summary>
+        public List<string> BlockedUsers { get; set; }
+
+        [DataMember]
+        /// <summary>
         /// Gets or sets the date when the user account was created.
         /// </summary>
         public System.DateTime createdDate { get; set; }
@@ -96,9 +108,27 @@ namespace AnointedAutomation.Objects.Account
 
         [DataMember]
         /// <summary>
+        /// Gets or sets the unique 6-character friend ID for social features.
+        /// </summary>
+        public string FriendId { get; set; }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the list of friend IDs this user has added.
+        /// </summary>
+        public List<string> Friends { get; set; }
+
+        [DataMember]
+        /// <summary>
         /// Gets or sets the list of IP addresses associated with this user's account.
         /// </summary>
         public List<IPInfo> IPAddresses { get; set; }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets whether the user is currently banned.
+        /// </summary>
+        public bool isBanned { get; set; }
 
         [DataMember]
         /// <summary>
@@ -160,34 +190,23 @@ namespace AnointedAutomation.Objects.Account
         /// </summary>
         public string Username { get; set; }
 
-        [DataMember]
         /// <summary>
-        /// Gets or sets whether the user is currently banned.
+        /// Gets or sets the date when the account is scheduled for deletion.
+        /// Set to a far future date (e.g., 3005-12-31) if not scheduled.
         /// </summary>
-        public bool isBanned { get; set; }
+        [DataMember]
+        public System.DateTime deletionDate { get; set; }
 
-        [DataMember]
         /// <summary>
-        /// Gets or sets the reason for the ban (null if not banned).
+        /// Gets or sets the 6-digit deletion confirmation code sent to user's email.
         /// </summary>
-        public string BannedReason { get; set; }
+        [DataMember]
+        public string DeletionConfirmationCode { get; set; }
 
-        [DataMember]
         /// <summary>
-        /// Gets or sets the unique 6-character friend ID for social features.
+        /// Gets or sets the expiration time for the deletion confirmation code (valid for 30 minutes).
         /// </summary>
-        public string FriendId { get; set; }
-
         [DataMember]
-        /// <summary>
-        /// Gets or sets the list of friend IDs this user has added.
-        /// </summary>
-        public List<string> Friends { get; set; }
-
-        [DataMember]
-        /// <summary>
-        /// Gets or sets the list of user IDs this user has blocked.
-        /// </summary>
-        public List<string> BlockedUsers { get; set; }
+        public System.DateTime deletionConfirmationExpiration { get; set; }
     }
 }

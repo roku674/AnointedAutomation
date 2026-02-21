@@ -19,14 +19,24 @@ namespace AnointedAutomation.Objects.API
     public class PaginatedResponse<T>
     {
         /// <summary>
+        /// The current page number (1-based)
+        /// </summary>
+        public int currentPage { get; set; }
+
+        /// <summary>
         /// The data items for this page
         /// </summary>
         public List<T> Data { get; set; }
 
         /// <summary>
-        /// The current page number (1-based)
+        /// Whether there is a next page available
         /// </summary>
-        public int currentPage { get; set; }
+        public bool hasNextPage => currentPage < totalPages;
+
+        /// <summary>
+        /// Whether there is a previous page available
+        /// </summary>
+        public bool hasPreviousPage => currentPage > 1;
 
         /// <summary>
         /// The number of items per page
@@ -43,15 +53,6 @@ namespace AnointedAutomation.Objects.API
         /// </summary>
         public int totalPages { get; set; }
 
-        /// <summary>
-        /// Whether there is a next page available
-        /// </summary>
-        public bool hasNextPage => currentPage < totalPages;
-
-        /// <summary>
-        /// Whether there is a previous page available
-        /// </summary>
-        public bool hasPreviousPage => currentPage > 1;
 
         /// <summary>
         /// Creates a new paginated response
