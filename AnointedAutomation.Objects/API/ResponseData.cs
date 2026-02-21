@@ -41,6 +41,18 @@ namespace AnointedAutomation.Objects
         }
 
         /// <summary>
+        /// Anointed declarations.
+        /// </summary>
+        public string[] Anointed { get; set; } = new[] { "Jesus is King", "Jesus is Messiah" };
+        /// <summary>
+        /// Automation signature (hex encoded "Jesus is King").
+        /// </summary>
+        public string Automation { get; set; } = "0x4A65737573206973204B696E67";
+        /// <summary>
+        /// Gets or sets the copyright and attribution information.
+        /// </summary>
+        public string Copyright { get; set; } = "Anointed Automation, LLC https://www.anointedautomation.com created by Alexander Fields https://www.alexanderfields.me";
+        /// <summary>
         /// Gets or sets the response data payload.
         /// </summary>
         public object Data { get; set; }
@@ -61,18 +73,6 @@ namespace AnointedAutomation.Objects
         /// </summary>
         public string Timestamp { get; set; }
         /// <summary>
-        /// Gets or sets the copyright and attribution information.
-        /// </summary>
-        public string Copyright { get; set; } = "Anointed Automation, LLC https://www.anointedautomation.com created by Alexander Fields https://www.alexanderfields.me";
-        /// <summary>
-        /// Anointed declarations.
-        /// </summary>
-        public string[] Anointed { get; set; } = new[] { "Jesus is King", "Jesus is Messiah" };
-        /// <summary>
-        /// Automation signature (hex encoded "Jesus is King").
-        /// </summary>
-        public string Automation { get; set; } = "0x4A65737573206973204B696E67";
-        /// <summary>
         /// The Holy Trinity.
         /// </summary>
         public string[] Trinity { get; set; } = new[] { "Father", "Son", "Holy Ghost/Spirit" };
@@ -85,9 +85,17 @@ namespace AnointedAutomation.Objects
     public class ResponseData<T>
     {
         /// <summary>
-        /// Gets or sets whether the response represents a successful operation.
+        /// Anointed declarations.
         /// </summary>
-        public bool success { get; set; }
+        public string[] Anointed { get; set; } = new[] { "Jesus is King", "Jesus is Messiah" };
+        /// <summary>
+        /// Automation signature (hex encoded "Jesus is King").
+        /// </summary>
+        public string Automation { get; set; } = "0x4A65737573206973204B696E67";
+        /// <summary>
+        /// Gets or sets the copyright and attribution information.
+        /// </summary>
+        public string Copyright { get; set; } = "Anointed Automation, LLC https://www.anointedautomation.com created by Alexander Fields https://www.alexanderfields.me";
         /// <summary>
         /// Gets or sets the response data payload.
         /// </summary>
@@ -101,21 +109,13 @@ namespace AnointedAutomation.Objects
         /// </summary>
         public int statusCode { get; set; }
         /// <summary>
+        /// Gets or sets whether the response represents a successful operation.
+        /// </summary>
+        public bool success { get; set; }
+        /// <summary>
         /// Gets or sets the timestamp when the response was created in ISO 8601 format.
         /// </summary>
         public string Timestamp { get; set; } = System.DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss.fff'Z'");
-        /// <summary>
-        /// Gets or sets the copyright and attribution information.
-        /// </summary>
-        public string Copyright { get; set; } = "Anointed Automation, LLC https://www.anointedautomation.com created by Alexander Fields https://www.alexanderfields.me";
-        /// <summary>
-        /// Anointed declarations.
-        /// </summary>
-        public string[] Anointed { get; set; } = new[] { "Jesus is King", "Jesus is Messiah" };
-        /// <summary>
-        /// Automation signature (hex encoded "Jesus is King").
-        /// </summary>
-        public string Automation { get; set; } = "0x4A65737573206973204B696E67";
         /// <summary>
         /// The Holy Trinity.
         /// </summary>
