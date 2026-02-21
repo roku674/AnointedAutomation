@@ -4,10 +4,10 @@ using AnointedAutomation.Objects.Account;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json.Linq;
 
-namespace AnointedAutomation.Objects.Mongo
+namespace AnointedAutomation.Repository.Mongo
 {
     /// <summary>
-    /// Registers BSON class maps for proper MongoDB serialization with inheritance.
+    /// Registers BSON class maps for proper MongoDB serialization.
     /// Call <see cref="RegisterClassMaps"/> once at application startup before any MongoDB operations.
     /// </summary>
     public static class BsonClassMapRegistrar
@@ -49,7 +49,7 @@ namespace AnointedAutomation.Objects.Mongo
 
         private static void RegisterUserClassMaps()
         {
-            // Register base User class as root class first
+            // Register User class with UserId as the document ID
             if (!BsonClassMap.IsClassMapRegistered(typeof(User)))
             {
                 BsonClassMap.RegisterClassMap<User>(cm =>
@@ -57,17 +57,24 @@ namespace AnointedAutomation.Objects.Mongo
                     cm.AutoMap();
                     cm.SetIsRootClass(true);
                     cm.SetIgnoreExtraElements(true);
+                    cm.MapIdMember(x => x.UserId);
                 });
             }
+        }
 
-            // Register MongoUser - inherits from User
-            if (!BsonClassMap.IsClassMapRegistered(typeof(Account.MongoUser)))
+        /// <summary>
+        /// Registers a derived user class (e.g., PerilousUser) with BSON class maps.
+        /// Call this after <see cref="RegisterClassMaps"/> for each derived user type.
+        /// </summary>
+        /// <typeparam name="T">The derived user type.</typeparam>
+        public static void RegisterDerivedUser<T>() where T : User
+        {
+            if (!BsonClassMap.IsClassMapRegistered(typeof(T)))
             {
-                BsonClassMap.RegisterClassMap<Account.MongoUser>(cm =>
+                BsonClassMap.RegisterClassMap<T>(cm =>
                 {
                     cm.AutoMap();
                     cm.SetIgnoreExtraElements(true);
-                    cm.MapIdMember(x => x.UserId);
                 });
             }
         }

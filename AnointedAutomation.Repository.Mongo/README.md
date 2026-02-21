@@ -2,7 +2,7 @@
 
 ## Overview
 
-The **MongoHelper** library, developed by Anointed Automation, LLC, provides a simple and efficient wrapper for MongoDB database operations in .NET. It offers utility methods to handle common MongoDB operations such as creating, reading, updating, and deleting documents, alongside helper functions for managing connections and logging.
+The **MongoHelper** library, developed by Anointed Automation, LLC, provides a simple and efficient wrapper for MongoDB database operations in .NET. It offers utility methods to handle common MongoDB operations such as creating, reading, updating, and deleting documents, alongside helper functions for managing connections, logging, and BSON serialization.
 
 ---
 
@@ -14,6 +14,8 @@ The **MongoHelper** library, developed by Anointed Automation, LLC, provides a s
   - Read: Fetch documents using filters or retrieve all documents.
   - Update: Modify existing documents.
   - Delete: Remove documents based on filters.
+- **BSON Class Map Registration**: Automatic configuration of base objects for MongoDB serialization.
+- **JObject Serialization**: Built-in support for Newtonsoft.Json JObject <-> MongoDB BSON conversion.
 - Logging functionality to capture MongoDB activity.
 - Event-driven log management (`LogAdded`, `LogCleared`).
 - Connection string builder for secure MongoDB access.
@@ -23,14 +25,54 @@ The **MongoHelper** library, developed by Anointed Automation, LLC, provides a s
 
 ## Installation
 
-Clone the repository and include the library in your project. Ensure you have the following dependencies installed:
+Install via NuGet:
+
+```bash
+dotnet add package AnointedAutomation.Repository.Mongo
+```
+
+Or clone the repository and include the library in your project. Ensure you have the following dependencies installed:
 
 - `MongoDB.Driver`
-- `AnointedAutomation.Optimization.Logging`
+- `AnointedAutomation.Objects`
+- `AnointedAutomation.Logging`
+- `Newtonsoft.Json`
 
 ---
 
 ## Usage
+
+### Setting Up BsonClassMapRegistrar (IMPORTANT)
+
+Before performing any MongoDB operations, you must register the BSON class maps. Call this once at application startup:
+
+```csharp
+using AnointedAutomation.Repository.Mongo;
+
+// In your Program.cs or startup code:
+BsonClassMapRegistrar.RegisterClassMaps();
+```
+
+This registers:
+- **User class** with `UserId` as the MongoDB document `_id`
+- **JObjectSerializer** for Newtonsoft.Json JObject properties
+- Proper inheritance handling for derived user classes
+
+### Registering Derived User Classes
+
+If you have a custom user class that extends `User`, register it after the base class maps:
+
+```csharp
+using AnointedAutomation.Repository.Mongo;
+
+// Register base class maps first
+BsonClassMapRegistrar.RegisterClassMaps();
+
+// Then register your derived user class
+BsonClassMapRegistrar.RegisterDerivedUser<MyCustomUser>();
+```
+
+This ensures proper BSON serialization for your custom user types in MongoDB.
 
 ### Setting Up MongoHelper
 
@@ -97,6 +139,19 @@ if (collections != null)
 
 ---
 
+## Database-Agnostic Objects
+
+This library is designed to work with pure POCO objects from `AnointedAutomation.Objects`. The BSON serialization is configured via `BsonClassMap` rather than attributes, allowing the same object classes to be used with:
+
+- **MongoDB** (using this library)
+- **SQL Server** (using Entity Framework Fluent API)
+- **MySQL** (using Entity Framework or Dapper)
+- **Any other database** (just add appropriate configuration)
+
+No need for separate `MongoUser`, `SqlUser`, etc. classes - just use the base `User` class and configure serialization externally.
+
+---
+
 ## Events
 
 ### `LogAdded` Event
@@ -143,11 +198,13 @@ MongoHelper.ClearLogs();
 
 ## Requirements
 
-- .NET Framework or .NET Core
+- .NET 8.0 or later
 - MongoDB Instance
 - NuGet Packages:
   - MongoDB.Driver
-  - AnointedAutomation.Optimization.Logging
+  - AnointedAutomation.Objects
+  - AnointedAutomation.Logging
+  - Newtonsoft.Json
 
 ---
 
@@ -159,7 +216,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Author
 
-Created by **Alexander Fields**  
-Copyright © 2023 Anointed Automation, LLC  
+Created by **Alexander Fields**
+Copyright © 2023 Anointed Automation, LLC
 
 For inquiries, please contact [Anointed Automation](https://anointedautomation.com).

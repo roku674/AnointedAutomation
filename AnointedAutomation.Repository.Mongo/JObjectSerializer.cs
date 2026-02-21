@@ -5,7 +5,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Newtonsoft.Json.Linq;
 
-namespace AnointedAutomation.Objects.Mongo
+namespace AnointedAutomation.Repository.Mongo
 {
     /// <summary>
     /// Custom serializer for converting between JObject and BSON format.
