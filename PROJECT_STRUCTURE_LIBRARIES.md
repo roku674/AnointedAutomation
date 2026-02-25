@@ -135,14 +135,24 @@ The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, ea
 - Event system for logging and IP banning
 - Environment variable configuration: `API_KEY`, `API_KEY_NAME`
 
-### 4. AnointedAutomation.Repository.Mongo v0.0.5
+### 4. AnointedAutomation.Repository.Mongo v0.0.10
 
 **Purpose & Functionality:**
 - MongoDB database operations wrapper
 - Generic CRUD operations with strongly-typed interfaces
 - Connection management and logging integration
+- Base document classes for MongoDB entities
 
 **Key Classes:**
+- `MongoDocument` - Abstract base class for MongoDB documents
+  - Provides `Id` property with proper `[BsonId]` and `[BsonRepresentation(BsonType.ObjectId)]` attributes
+  - Includes `[BsonIgnoreExtraElements]` for forward compatibility
+  - Inherit from this for any MongoDB-persisted entity
+
+- `AuditableMongoDocument` - Base class with audit timestamps
+  - Extends `MongoDocument` with `createdAt` and `updatedAt` properties (DateTime = value type = camelCase)
+  - Use for entities requiring creation/modification tracking
+
 - `IMongoHelper` - Interface defining MongoDB operations
   - Defines standard CRUD operations
   - Connection management methods
@@ -176,6 +186,7 @@ The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, ea
   - MongoDB.Libmongocrypt (1.12.0)
 
 **Public API Surface:**
+- Base classes: `MongoDocument`, `AuditableMongoDocument`
 - CRUD operations: `CreateDocumentAsync<T>()`, `GetAllDocumentsAsync<T>()`, `UpdateDocumentAsync<T>()`, `DeleteDocumentAsync<T>()`
 - Connection management: `CreateMongoDbInstance()`, `TestConnection()`
 - Utility methods: `ConnectionStringBuilder()`, `GetIdFromObj<T>()`
