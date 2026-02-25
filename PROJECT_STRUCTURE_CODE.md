@@ -60,6 +60,12 @@ All code files in the solution have been documented with XML documentation follo
   - Usage guidelines
 
 ### 5. AnointedAutomation.Repository.Mongo
+- MongoDocument.cs
+  - Base class for MongoDB documents (`MongoDocument`)
+  - Auditable base class with timestamps (`AuditableMongoDocument`)
+  - BSON attribute configuration for ObjectId handling
+  - Full XML documentation
+
 - MongoHelper.cs
   - Full CRUD operation documentation
   - Connection management

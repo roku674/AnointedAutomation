@@ -8,6 +8,7 @@ The **MongoHelper** library, developed by Anointed Automation, LLC, provides a s
 
 ## Features
 
+- **Base Document Classes**: `MongoDocument` and `AuditableMongoDocument` for consistent entity definitions.
 - Simplifies MongoDB connection setup.
 - CRUD operations for MongoDB documents:
   - Create: Insert documents.
@@ -73,6 +74,46 @@ BsonClassMapRegistrar.RegisterDerivedUser<MyCustomUser>();
 ```
 
 This ensures proper BSON serialization for your custom user types in MongoDB.
+
+### Using Base Document Classes
+
+The library provides two abstract base classes for your MongoDB entities:
+
+#### MongoDocument
+
+Basic base class with proper ObjectId handling:
+
+```csharp
+using AnointedAutomation.Repository.Mongo;
+
+public class Product : MongoDocument
+{
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+```
+
+This gives you:
+- `Id` property with `[BsonId]` and `[BsonRepresentation(BsonType.ObjectId)]`
+- `[BsonIgnoreExtraElements]` for forward compatibility
+
+#### AuditableMongoDocument
+
+Extends `MongoDocument` with audit timestamps:
+
+```csharp
+using AnointedAutomation.Repository.Mongo;
+
+public class Order : AuditableMongoDocument
+{
+    public string CustomerId { get; set; }
+    public decimal Total { get; set; }
+}
+```
+
+This adds:
+- `createdAt` - creation timestamp (DateTime is a value type)
+- `updatedAt` - last update timestamp
 
 ### Setting Up MongoHelper
 
