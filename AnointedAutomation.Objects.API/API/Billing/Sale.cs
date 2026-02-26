@@ -2,46 +2,28 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
+using BaseSale = AnointedAutomation.Objects.Billing.Sale;
+
 namespace AnointedAutomation.Objects.API.Billing
 {
-    public class Sale
+    /// <summary>
+    /// API-specific sale class. Inherits all properties from the base Sale class.
+    /// </summary>
+    public class Sale : BaseSale
     {
-        public Sale(string UID, System.DateTime date, string menuItem, int soldQuantity, decimal totalSale)
-        {
-            this.UID = UID;
-            this.date = date;
-            MenuItem = menuItem;
-            this.quantitySold = soldQuantity;
-            this.totalSale = totalSale;
-        }
-
         public Sale()
-        {
-        }
+            : base()
+        { }
 
-        public System.DateTime date
-        {
-            get; set;
-        }
-
-        public string MenuItem
-        {
-            get; set;
-        }
-
-        public int quantitySold
-        {
-            get; set;
-        }
-
-        public decimal totalSale
-        {
-            get; set;
-        }
-
-        public string UID
-        {
-            get; set;
-        }
+        public Sale(string UID, System.DateTime date, string menuItem, int soldQuantity, decimal totalSale)
+            : base(UID, date, menuItem, soldQuantity, totalSale)
+        { }
     }
 }

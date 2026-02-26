@@ -2,7 +2,7 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
-namespace AnointedAutomation.Objects.Billing
+namespace AnointedAutomation.Enums
 {
     /// <summary>
     /// Defines the supported payment methods.

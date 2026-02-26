@@ -9,49 +9,22 @@
 //   - Reference types (objects): PascalCase (e.g., string Message, object Data)
 // =============================================================================
 
-using System.Runtime.Serialization;
+using BaseContact = AnointedAutomation.Objects.Billing.Contact;
 
 namespace AnointedAutomation.Objects.API.Billing
 {
+    /// <summary>
+    /// API-specific contact class. Inherits all properties from the base Contact class.
+    /// </summary>
     [System.Serializable]
-    public class Contact
+    public class Contact : BaseContact
     {
         public Contact()
-        {
-        }
+            : base()
+        { }
 
-        /// <summary>
-        /// Construct their name
-        /// </summary>
-        /// <param name="firstName">!nullable</param>
-        /// <param name="lastName">!nullable</param>
-        /// <param name="middleName"></param>
-        /// <param name="number"></param>
         public Contact(System.DateTime dob, string firstName, string lastName, string middleName, ulong number)
-        {
-            this.dob = dob != default ? dob : new System.DateTime(1900, 1, 1);
-            this.FirstName = firstName ?? "";
-            this.LastName = lastName ?? "";
-            this.MiddleName = middleName;
-            this.number = number;
-        }
-
-        [DataMember]
-        public System.DateTime dob { get; set; }
-
-        [DataMember]
-        public string FirstName { get; set; }
-
-        [DataMember]
-        public string LastName { get; set; }
-
-        [DataMember]
-        public string MiddleName { get; set; }
-
-        /// <summary>
-        /// This is their phone number if they have one
-        /// </summary>
-        [DataMember]
-        public ulong number { get; set; }
+            : base(dob, firstName, lastName, middleName, number)
+        { }
     }
 }

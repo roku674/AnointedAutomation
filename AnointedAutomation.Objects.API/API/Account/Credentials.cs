@@ -9,25 +9,21 @@
 //   - Reference types (objects): PascalCase (e.g., string Message, object Data)
 // =============================================================================
 
+using BaseCredentials = AnointedAutomation.Objects.Account.Credentials;
+
 namespace AnointedAutomation.Objects.API.Account
 {
-    public class Credentials
+    /// <summary>
+    /// API-specific credentials class. Inherits all properties from the base Credentials class.
+    /// </summary>
+    public class Credentials : BaseCredentials
     {
         public Credentials()
-        {
-        }
+            : base()
+        { }
 
         public Credentials(string email, string password, string token, string googleToken)
-        {
-            this.Email = email ?? throw new System.ArgumentNullException(nameof(email));
-            this.Password = password ?? throw new System.ArgumentNullException(nameof(password));
-            this.Token = token;
-            this.GoogleToken = googleToken;
-        }
-
-        public string Email { get; set; }
-        public string GoogleToken { get; set; }
-        public string Password { get; set; }
-        public string Token { get; set; }
+            : base(email, password, token, googleToken)
+        { }
     }
 }

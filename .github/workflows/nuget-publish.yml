@@ -39,6 +39,7 @@ jobs:
           
           # Define packages to check
           declare -A PACKAGES=(
+            ["AnointedAutomation.Enums/AnointedAutomation.Enums.csproj"]="anointedautomation.enums"
             ["AnointedAutomation.Logging/AnointedAutomation.Logging.csproj"]="anointedautomation.logging"
             ["AnointedAutomation.Memory/AnointedAutomation.Memory.csproj"]="anointedautomation.memory"
             ["AnointedAutomation.APIMiddlewares/AnointedAutomation.APIMiddlewares.csproj"]="anointedautomation.apimiddlewares"

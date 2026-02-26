@@ -3,6 +3,7 @@
 //Created by Alexander Fields
 
 using System.Runtime.Serialization;
+using AnointedAutomation.Enums;
 
 namespace AnointedAutomation.Objects.Billing
 {

@@ -2,47 +2,28 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
+using BaseCreditCard = AnointedAutomation.Objects.Billing.CreditCard;
+
 namespace AnointedAutomation.Objects.API.Billing
 {
-    public class CreditCard
+    /// <summary>
+    /// API-specific credit card class. Inherits all properties from the base CreditCard class.
+    /// </summary>
+    public class CreditCard : BaseCreditCard
     {
-        public CreditCard(string cardNumber, string cardHolderName, System.DateTime expirationDate, int cvv)
-        {
-            CardNumber = cardNumber;
-            CardHolderName = cardHolderName;
-            this.expirationDate = expirationDate;
-            this.cvv = cvv;
-        }
-
         public CreditCard()
-        {
-        }
+            : base()
+        { }
 
-        public string CardHolderName
-        {
-            get; set;
-        }
-
-        public string CardNumber
-        {
-            get; set;
-        }
-
-        public int cvv
-        {
-            get; set;
-        }
-
-        public System.DateTime expirationDate
-        {
-            get; set;
-        }
-
-        public bool IsValid()
-        {
-            return System.DateTime.Now < expirationDate;
-        }
-
-        // Add other methods as needed, e.g. for validating card numbers, checking card types, etc.
+        public CreditCard(string cardNumber, string cardHolderName, System.DateTime expirationDate, int cvv)
+            : base(cardNumber, cardHolderName, expirationDate, cvv)
+        { }
     }
 }
