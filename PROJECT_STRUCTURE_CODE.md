@@ -5,7 +5,36 @@ All code files in the solution have been documented with XML documentation follo
 
 ## Documentation Coverage
 
-### 1. AnointedAutomation.APIMiddlewares
+### 1. AnointedAutomation.Enums
+- PaymentType.cs
+  - Enum value documentation for all payment methods
+  - None, PayPalToken, MasterCard, Visa, ACH
+
+- PaymentProvider.cs
+  - Enum value documentation for payment gateway providers
+  - None, Stripe, PayPal, Braintree, Checkout, Square, Adyen, AuthorizeNet
+
+- TransactionStatus.cs
+  - Comprehensive transaction status values
+  - Pending, Processing, RequiresAction, Succeeded, Failed, etc.
+
+- WebhookEventType.cs
+  - Common webhook event types across payment providers
+  - Payment, refund, dispute, customer, subscription, invoice events
+
+- SubscriptionStatus.cs
+  - Subscription lifecycle status values
+  - None, Active, Trialing, PastDue, Cancelled, Suspended, Paused, Expired, Pending, NotRenewed
+
+- PaymentOperation.cs
+  - PCI-DSS audit logging operation types (25 operations)
+  - CreateCharge, CreateRefund, CreateCustomer, CreateSubscription, etc.
+
+- CardType.cs
+  - Credit/debit card type detection values
+  - Unknown, Visa, MasterCard, AmericanExpress, Discover, DinersClub, JCB, UnionPay, Maestro
+
+### 2. AnointedAutomation.APIMiddlewares
 - IPBlacklistMiddleware.cs
   - Class and method documentation
   - Event documentation
@@ -28,14 +57,14 @@ All code files in the solution have been documented with XML documentation follo
   - Environment variable configuration
   - Security implications
 
-### 2. AnointedAutomation.Memory
+### 3. AnointedAutomation.Memory
 - GarbageCollection.cs
   - Complete class documentation
   - Memory management method details
   - Safety considerations
   - Exception documentation
 
-### 3. AnointedAutomation.Objects
+### 4. AnointedAutomation.Objects
 - Account/
   - User.cs - Full authentication model documentation
   - Profile.cs - Profile data model documentation
@@ -45,10 +74,22 @@ All code files in the solution have been documented with XML documentation follo
 - Billing/
   - All billing models documented (CreditCard, Product, etc.)
   - Transaction models (Purchase, Sale)
-  - Payment models (PaymentCredentials, PaymentType)
+  - Payment models (PaymentCredentials - PaymentType moved to Enums)
   - Address and contact models
+  - PaymentIntent.cs - Standardized payment intent for Stripe, PayPal, Braintree, Checkout.com
+  - PaymentCustomer.cs - Customer profile stored with payment providers
+  - PaymentMethodToken.cs - Tokenized payment method storage
+  - Refund.cs - Standardized refund across payment providers
+  - Dispute.cs - Chargeback/dispute handling with DisputeStatus enum
+  - WebhookEvent.cs - Webhook event handling for payment notifications
+  - PaymentAuditLog.cs - PCI-DSS compliant audit trail with sensitive data masking
+  - StatusHistoryEntry.cs - Status change tracking for audit purposes
+  - SubscriptionUsage.cs - Usage tracking with limits, remaining, percentage calculations
+  - CreditCard.cs - Enhanced with Luhn validation, card type detection, masking
+  - Subscription.cs - Pause/resume/cancel lifecycle, usage tracking, status history
+  - Purchase.cs - Order status and status history audit trail
 
-### 4. AnointedAutomation.Logging
+### 5. AnointedAutomation.Logging
 - LogMessage.cs
   - Class and method documentation
   - Event system documentation
@@ -59,7 +100,7 @@ All code files in the solution have been documented with XML documentation follo
   - Enum value documentation
   - Usage guidelines
 
-### 5. AnointedAutomation.Repository.Mongo
+### 6. AnointedAutomation.Repository.Mongo
 - MongoDocument.cs
   - Base class for MongoDB documents (`MongoDocument`)
   - Auditable base class with timestamps (`AuditableMongoDocument`)
@@ -81,7 +122,7 @@ All code files in the solution have been documented with XML documentation follo
   - Factory pattern documentation
   - Caching mechanism details
 
-### 6. Google Integration
+### 7. Google Integration
 - GoogleObjects.cs
   - Authentication object documentation
   - Integration details

@@ -2,6 +2,7 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using AnointedAutomation.Enums;
 
@@ -10,6 +11,7 @@ namespace AnointedAutomation.Objects.Billing
     [System.Serializable]
     /// <summary>
     /// Represents a purchase transaction with billing, shipping, and payment details.
+    /// Includes status history tracking for audit purposes.
     /// </summary>
     public class Purchase
     {
@@ -20,6 +22,8 @@ namespace AnointedAutomation.Objects.Billing
         public Purchase()
         {
             this.TransactionId = System.Guid.NewGuid().ToString();
+            this.StatusHistory = new List<StatusHistoryEntry>();
+            this.OrderStatus = TransactionStatus.Pending;
         }
 
         /// <summary>
@@ -237,6 +241,43 @@ namespace AnointedAutomation.Objects.Billing
         public string TransactionId
         {
             get; set;
+        }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the current order status.
+        /// </summary>
+        public TransactionStatus OrderStatus
+        {
+            get; set;
+        }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the status change history for audit purposes.
+        /// </summary>
+        public List<StatusHistoryEntry> StatusHistory
+        {
+            get; set;
+        }
+
+        /// <summary>
+        /// Updates the order status with history tracking.
+        /// </summary>
+        /// <param name="newStatus">The new status.</param>
+        /// <param name="changedBy">Who made the change.</param>
+        /// <param name="reason">The reason for the change.</param>
+        public void UpdateOrderStatus(TransactionStatus newStatus, string changedBy, string reason)
+        {
+            TransactionStatus previousStatus = OrderStatus;
+            OrderStatus = newStatus;
+
+            if (StatusHistory == null)
+            {
+                StatusHistory = new List<StatusHistoryEntry>();
+            }
+
+            StatusHistory.Add(new StatusHistoryEntry(previousStatus.ToString(), newStatus.ToString(), changedBy, reason));
         }
     }
 }
