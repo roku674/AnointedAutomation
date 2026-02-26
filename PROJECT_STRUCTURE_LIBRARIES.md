@@ -3,11 +3,51 @@
 # PROJECT STRUCTURE LIBRARIES
 
 ## Solution Overview
-The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
+The AnointedAutomation solution contains 8 core libraries targeting .NET 8.0, each focusing on specific functionality areas. All libraries are designed as NuGet packages with MIT licensing. All code is fully documented with XML documentation.
 
 ## Library Details
 
-### 1. AnointedAutomation.Logging v0.0.5
+### 1. AnointedAutomation.Enums v0.0.1
+
+**Purpose & Functionality:**
+- Shared enumeration types used across multiple AnointedAutomation libraries
+- Provides standardized payment and transaction status values
+- Defines common webhook event types for payment provider integration
+
+**Key Enums:**
+- `PaymentType` - Defines supported payment methods
+  - None (0) - No payment type specified
+  - PayPalToken (1) - PayPal payment token
+  - MasterCard (2) - MasterCard credit card
+  - Visa (3) - Visa credit card
+  - ACH (4) - Automated Clearing House bank transfer
+
+- `PaymentProvider` - Defines supported payment gateway providers
+  - None (0), Stripe (1), PayPal (2), Braintree (3), Checkout (4), Square (5), Adyen (6), AuthorizeNet (7)
+
+- `TransactionStatus` - Payment transaction status across providers
+  - None, Pending, Processing, RequiresAction, RequiresPaymentMethod, RequiresConfirmation
+  - RequiresCapture, Succeeded, Failed, Canceled, Refunded, PartiallyRefunded
+  - Disputed, Expired, Authorized, Voided
+
+- `WebhookEventType` - Common webhook event types across payment providers
+  - Payment events: PaymentCreated, PaymentSucceeded, PaymentFailed, PaymentCanceled
+  - Refund events: RefundCreated, RefundSucceeded, RefundFailed
+  - Dispute events: DisputeCreated, DisputeUpdated, DisputeClosed
+  - Customer events: CustomerCreated, CustomerUpdated, CustomerDeleted
+  - Subscription events: SubscriptionCreated, SubscriptionUpdated, SubscriptionCanceled, SubscriptionTrialEnding
+  - Invoice events: InvoiceCreated, InvoicePaid, InvoicePaymentFailed
+  - Payment method events: PaymentMethodAttached, PaymentMethodDetached
+  - Payout events: PayoutCreated, PayoutPaid, PayoutFailed
+
+**Dependencies:**
+- **Internal:** None (foundational library)
+- **External:** .NET 8.0 framework only
+
+**Public API Surface:**
+- All enums are public and accessible via `AnointedAutomation.Enums` namespace
+
+### 2. AnointedAutomation.Logging v0.0.8
 
 **Purpose & Functionality:**
 - Provides standardized logging framework for .NET applications
@@ -47,7 +87,7 @@ The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, ea
 - Properties: `id`, `localOperationName`, `message`, `messageSource`, `messageType`, `timeStamp`
 - Static property: `MessageSourceSetter` for application identification
 
-### 2. AnointedAutomation.Memory v0.0.4
+### 3. AnointedAutomation.Memory v0.0.5
 
 **Purpose & Functionality:**
 - Memory management utilities for .NET applications
@@ -71,7 +111,7 @@ The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, ea
 - `ReturnUnusedMemoryToOS()` - Private method for OS memory return
 - Uses .NET's no-GC region feature for optimization
 
-### 3. AnointedAutomation.APIMiddlewares v0.0.13
+### 4. AnointedAutomation.APIMiddlewares v0.0.16
 
 **Purpose & Functionality:**
 - ASP.NET Core middleware collection for API security and monitoring
@@ -135,7 +175,7 @@ The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, ea
 - Event system for logging and IP banning
 - Environment variable configuration: `API_KEY`, `API_KEY_NAME`
 
-### 4. AnointedAutomation.Repository.Mongo v0.0.10
+### 5. AnointedAutomation.Repository.Mongo v0.0.11
 
 **Purpose & Functionality:**
 - MongoDB database operations wrapper
@@ -192,7 +232,7 @@ The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, ea
 - Utility methods: `ConnectionStringBuilder()`, `GetIdFromObj<T>()`
 - Event system: `LogAdded`, `LogCleared` events
 
-### 5. AnointedAutomation.Objects v0.0.12
+### 6. AnointedAutomation.Objects v0.0.21
 
 **Purpose & Functionality:**
 - Core data models for general application development
@@ -232,9 +272,15 @@ The AnointedAutomation solution contains 7 core libraries targeting .NET 8.0, ea
 - `Product`, `Purchase`, `Sale` - Product and transaction models
 - `Subscription` - Recurring billing
 - `Bill` - Invoice generation
-- `CreditCard`, `PaymentCredentials`, `PaymentType` - Payment processing
+- `CreditCard`, `PaymentCredentials` - Payment processing (PaymentType moved to AnointedAutomation.Enums)
 - `Address`, `Contact` - Contact information
 - `Inventory` - Inventory tracking
+- `PaymentIntent` - Standardized payment intent model for Stripe, PayPal, Braintree, Checkout.com
+- `PaymentCustomer` - Customer profile stored with payment providers
+- `PaymentMethodToken` - Tokenized payment method storage
+- `Refund` - Standardized refund object across payment providers
+- `Dispute` - Chargeback/dispute handling with DisputeStatus enum
+- `WebhookEvent` - Webhook event handling for payment provider notifications
 All billing models include complete XML documentation
 
 **Core Classes:**
@@ -242,16 +288,12 @@ All billing models include complete XML documentation
 - `JObjectSerializer` - Custom BSON/JSON serialization
 
 **Dependencies:**
-- **Internal:** None
+- **Internal:**
+  - AnointedAutomation.Enums (PaymentType, TransactionStatus, PaymentProvider, WebhookEventType enums)
 - **External:**
-  - MongoDB.Driver (3.4.0)
-  - MongoDB.Driver.Core (2.30.0)
-  - MongoDB.Bson (3.4.0)
-  - MongoDB.Driver.GridFS (2.30.0)
-  - MongoDB.Libmongocrypt (1.12.0)
-  - Newtonsoft.Json (13.0.3)
+  - Newtonsoft.Json (13.0.4)
 
-### 6. AnointedAutomation.Objects.API v0.0.5
+### 7. AnointedAutomation.Objects.API v0.0.14
 
 **Purpose & Functionality:**
 - API-specific data models extending AnointedAutomation.Objects
@@ -276,7 +318,7 @@ All billing models include complete XML documentation
   - Microsoft.AspNetCore.Mvc.NewtonsoftJson (8.0.17)
   - Newtonsoft.Json (13.0.3)
 
-### 7. AnointedAutomation.Objects.Mongo v0.0.1
+### 8. AnointedAutomation.Objects.Mongo v0.0.1
 
 **Purpose & Functionality:**
 - MongoDB-specific data models with BSON serialization attributes
@@ -319,6 +361,9 @@ All billing models include complete XML documentation
 ## Inter-Library Dependencies
 
 ```
+AnointedAutomation.Enums
+└── (no internal dependencies - foundational library)
+
 AnointedAutomation.APIMiddlewares
 ├── AnointedAutomation.Logging (logging)
 └── AnointedAutomation.Memory (garbage collection)
@@ -333,7 +378,7 @@ AnointedAutomation.Logging
 └── (no internal dependencies)
 
 AnointedAutomation.Objects
-└── (no internal dependencies)
+└── AnointedAutomation.Enums (payment and transaction enums)
 
 AnointedAutomation.Objects.API
 └── (no internal dependencies)

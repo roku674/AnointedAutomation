@@ -1,94 +1,28 @@
 // Copyright © Anointed Automation, LLC., 2024. All Rights Reserved. Created by Alexander Fields https://www.alexanderfields.me on 2024-01-16 19:19:01
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 
-using System.Collections.Generic;
-using System.Runtime.Serialization;
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
+using BaseBill = AnointedAutomation.Objects.Billing.Bill;
 
 namespace AnointedAutomation.Objects.API.Billing
 {
-    public class Bill
+    /// <summary>
+    /// API-specific bill class. Inherits all properties from the base Bill class.
+    /// </summary>
+    public class Bill : BaseBill
     {
         public Bill()
-        {
-        }
+            : base()
+        { }
 
-        public Bill(string userId, Address addressBilling, List<string> orders, PaymentCredentials paymentTypes, List<Purchase> purchases, List<Purchase> refunds, List<Subscription> subscriptions)
-        {
-            this._id = userId;
-            this.AdressBilling = addressBilling ?? new Address();
-            this.Orders = orders ?? new List<string>();
-            this.PaymentTypesOnFile = paymentTypes ?? new PaymentCredentials();
-            this.Purchases = purchases ?? new List<Purchase>();
-            this.Refunds = refunds ?? new List<Purchase>();
-            this.Subscriptions = subscriptions ?? new List<Subscription>();
-        }
-
-        [DataMember]
-        public string _id { get; set; }
-
-        /// <summary>
-        /// Keep a billign address on file
-        /// </summary>
-        [DataMember]
-        public Address AdressBilling
-        {
-            get; set;
-        }
-
-        [DataMember]
-        public List<string> Orders
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// Credit cards, billing, etc
-        /// </summary>
-        [DataMember]
-        public PaymentCredentials PaymentTypesOnFile
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// All purchases made
-        /// </summary>
-        [DataMember]
-        public List<Purchase> Purchases
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// Purchases that have been refunded
-        /// </summary>
-        [DataMember]
-        public List<Purchase> Refunds
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// Subscriptions
-        /// </summary>
-        [DataMember]
-        public List<Subscription> Subscriptions
-        {
-            get; set;
-        }
-
-        public dynamic GetPrimaryPayment()
-        {
-            if (PaymentTypesOnFile.CreditCard != null)
-            {
-                return PaymentTypesOnFile.CreditCard;
-            }
-            else if (PaymentTypesOnFile.PayeeInfo != null)
-            {
-                return PaymentTypesOnFile.PayeeInfo;
-            }
-            else
-                return null;
-        }
+        public Bill(string userId, AnointedAutomation.Objects.Billing.Address addressBilling, System.Collections.Generic.List<string> orders, AnointedAutomation.Objects.Billing.PaymentCredentials paymentTypes, System.Collections.Generic.List<AnointedAutomation.Objects.Billing.Purchase> purchases, System.Collections.Generic.List<AnointedAutomation.Objects.Billing.Purchase> refunds, System.Collections.Generic.List<AnointedAutomation.Objects.Billing.Subscription> subscriptions)
+            : base(userId, addressBilling, orders, paymentTypes, purchases, refunds, subscriptions)
+        { }
     }
 }

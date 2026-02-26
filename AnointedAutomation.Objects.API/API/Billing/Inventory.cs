@@ -2,102 +2,29 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
+using BaseInventory = AnointedAutomation.Objects.Billing.Inventory;
+
 namespace AnointedAutomation.Objects.API.Billing
 {
-    public class Inventory
+    /// <summary>
+    /// API-specific inventory class. Inherits all properties from the base Inventory class.
+    /// </summary>
+    public class Inventory : BaseInventory
     {
-        public Inventory(string UID, string reorder, string itemNo, string name, string manufacturer, string supplier, string description, decimal costPerItem,
-                    int stockQuantity, string inventoryValue, int reorderLevel, int daysPerReorder, int itemReorderQuantity,
-                    bool itemDiscontinued)
-        {
-            this.UID = UID;
-            Reorder = reorder;
-            ItemNo = itemNo;
-            Name = name;
-            Manufacturer = manufacturer;
-            Supplier = supplier;
-            Description = description;
-            this.costPerItem = costPerItem;
-            this.stockQuantity = stockQuantity;
-            InventoryValue = inventoryValue;
-            this.reorderLevel = reorderLevel;
-            this.daysPerReorder = daysPerReorder;
-            this.itemReorderQuantity = itemReorderQuantity;
-            this.itemDiscontinued = itemDiscontinued;
-        }
-
         public Inventory()
-        {
-        }
+            : base()
+        { }
 
-        public decimal costPerItem
-        {
-            get; set;
-        }
-
-        public int daysPerReorder
-        {
-            get; set;
-        }
-
-        public string Description
-        {
-            get; set;
-        }
-
-        public string InventoryValue
-        {
-            get; set;
-        }
-
-        public bool itemDiscontinued
-        {
-            get; set;
-        }
-
-        public string ItemNo
-        {
-            get; set;
-        }
-
-        public int itemReorderQuantity
-        {
-            get; set;
-        }
-
-        public string Manufacturer
-        {
-            get; set;
-        }
-
-        public string Name
-        {
-            get; set;
-        }
-
-        public string Reorder
-        {
-            get; set;
-        }
-
-        public int reorderLevel
-        {
-            get; set;
-        }
-
-        public int stockQuantity
-        {
-            get; set;
-        }
-
-        public string Supplier
-        {
-            get; set;
-        }
-
-        public string UID
-        {
-            get; set;
-        }
+        public Inventory(string UID, string reorder, string itemNo, string name, string manufacturer, string supplier, string description, decimal costPerItem,
+            int stockQuantity, string inventoryValue, int reorderLevel, int daysPerReorder, int itemReorderQuantity, bool itemDiscontinued)
+            : base(UID, reorder, itemNo, name, manufacturer, supplier, description, costPerItem, stockQuantity, inventoryValue, reorderLevel, daysPerReorder, itemReorderQuantity, itemDiscontinued)
+        { }
     }
 }

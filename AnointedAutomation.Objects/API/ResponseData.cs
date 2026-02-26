@@ -61,6 +61,15 @@ namespace AnointedAutomation.Objects
         /// </summary>
         public object Error { get; set; }
         /// <summary>
+        /// Related Anointed family of sites and creator links.
+        /// </summary>
+        public System.Collections.Generic.Dictionary<string, string> Links { get; set; } = new()
+        {
+            { "Automation", "https://www.anointedautomation.net" },
+            { "Apparel", "https://www.anointedattireapparel.com" },
+            { "Creator", "https://www.alexanderfields.me" }
+        };
+        /// <summary>
         /// Gets or sets the response message.
         /// </summary>
         public string Message { get; set; }
@@ -100,6 +109,15 @@ namespace AnointedAutomation.Objects
         /// Gets or sets the response data payload.
         /// </summary>
         public T Data { get; set; }
+        /// <summary>
+        /// Related Anointed family of sites and creator links.
+        /// </summary>
+        public System.Collections.Generic.Dictionary<string, string> Links { get; set; } = new()
+        {
+            { "Automation", "https://www.anointedautomation.net" },
+            { "Apparel", "https://www.anointedattireapparel.com" },
+            { "Creator", "https://www.alexanderfields.me" }
+        };
         /// <summary>
         /// Gets or sets the response message.
         /// </summary>

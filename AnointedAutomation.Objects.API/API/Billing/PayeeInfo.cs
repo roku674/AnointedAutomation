@@ -2,30 +2,28 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
-using System.Runtime.Serialization;
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
+using BasePayeeInfo = AnointedAutomation.Objects.Billing.PayeeInfo;
 
 namespace AnointedAutomation.Objects.API.Billing
 {
-    public class PayeeInfo
+    /// <summary>
+    /// API-specific payee info class. Inherits all properties from the base PayeeInfo class.
+    /// </summary>
+    public class PayeeInfo : BasePayeeInfo
     {
-        [DataMember(Name = "client_id")]
-        public string ClientId;
-
-        [DataMember(Name = "email_address")]
-        public string Email;
-
-        [DataMember(Name = "merchant_id")]
-        public string MerchantId;
-
         public PayeeInfo()
-        {
-        }
+            : base()
+        { }
 
         public PayeeInfo(string clientId, string email, string merchantId)
-        {
-            ClientId = clientId;
-            Email = email;
-            MerchantId = merchantId;
-        }
+            : base(clientId, email, merchantId)
+        { }
     }
 }

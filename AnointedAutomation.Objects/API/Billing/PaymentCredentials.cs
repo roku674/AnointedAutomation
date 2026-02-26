@@ -2,6 +2,8 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
+using AnointedAutomation.Enums;
+
 namespace AnointedAutomation.Objects.Billing
 {
     /// <summary>

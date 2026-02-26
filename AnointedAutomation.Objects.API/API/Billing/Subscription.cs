@@ -2,101 +2,30 @@
 // Edited by Alexander Fields https://www.alexanderfields.me 2025-07-02 11:48:25
 //Created by Alexander Fields
 
-using System.Runtime.Serialization;
+// =============================================================================
+// NAMING CONVENTION:
+// This codebase follows a specific property naming pattern:
+//   - Value types (structs): lowercase (e.g., bool success, int statusCode)
+//   - Reference types (objects): PascalCase (e.g., string Message, object Data)
+// =============================================================================
+
+using BaseSubscription = AnointedAutomation.Objects.Billing.Subscription;
 
 namespace AnointedAutomation.Objects.API.Billing
 {
+    /// <summary>
+    /// API-specific subscription class. Inherits all properties from the base Subscription class.
+    /// </summary>
     [System.Serializable]
-    public class Subscription : Purchase
+    public class Subscription : BaseSubscription
     {
         public Subscription()
-        {
-        }
+            : base()
+        { }
 
-        /// <summary>
-        /// Subscription Constructor
-        /// </summary>
-        /// <param name="billing">!nullable</param>
-        /// <param name="shipping">if null will assign billing addy</param>
-        /// <param name="company">
-        /// !nullable | This is the company the client has purchased from
-        /// </param>
-        /// <param name="donation"></param>
-        /// <param name="isRefund"></param>
-        /// <param name="item">!nullable</param>
-        /// <param name="purchaser">!nullable</param>
-        /// <param name="paymentType"></param>
-        /// <param name="taxAmount"></param>
-        /// <param name="taxLocation"></param>
-        /// <param name="taxPercentage"></param>
-        /// <param name="time">if null will assign now</param>
-        /// <param name="tip"></param>
-        /// <param name="total"></param>
-        public Subscription(Address billing, Address shipping, bool billedMonthly, bool billedYearly, string company, decimal donation, bool isRefund, bool isActive, bool isRecurring, Product item,
-            PaymentType paymentType, Contact purchaser, System.DateTime renewalTime, string taxLocation, decimal taxPercentage, System.DateTime time, decimal tip, string typeOfSubscription)
-        {
-            AddressBilling = billing ?? throw new System.ArgumentNullException(nameof(billing));
-            AddressShipping = shipping != null ? shipping : billing;
-            this.Company = company ?? throw new System.ArgumentNullException(nameof(company));
-            this.isBilledMonthly = billedMonthly;
-            this.isBilledYearly = billedYearly;
-            this.donation = donation;
-            TransactionId = System.Guid.NewGuid().ToString();
-            this.isRefund = isRefund;
-            this.isActive = isActive;
-            this.isRecurring = isRecurring;
-            this.Item = item ?? throw new System.ArgumentNullException(nameof(item));
-            this.paymentType = paymentType;
-            this.Purchaser = purchaser ?? throw new System.ArgumentNullException(nameof(purchaser));
-            this.renewalTime = renewalTime != default ? renewalTime : System.DateTime.Now;
-            this.TaxLocation = taxLocation;
-            this.taxPercentage = taxPercentage <= 0 ? this.taxPercentage = 1 : this.taxPercentage = taxPercentage;
-            decimal weightedPrice = (Item.cost + (this.Item.price * this.Item.quantitySold));
-            decimal taxAmount = weightedPrice * (this.taxPercentage / 100);
-            this.time = time != default ? time : System.DateTime.Now;
-            this.tip = tip;
-            this.total = weightedPrice + this.taxAmount + this.tip + this.donation;
-            this.TypeOfSubscription = typeOfSubscription;
-        }
-
-        [DataMember]
-        public bool isActive
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// </summary>
-        [DataMember]
-        public bool isBilledMonthly
-        {
-            get; set;
-        }
-
-        /// <summary>
-        /// </summary>
-        [DataMember]
-        public bool isBilledYearly
-        {
-            get; set;
-        }
-
-        [DataMember]
-        public bool isRecurring
-        {
-            get; set;
-        }
-
-        [DataMember]
-        public System.DateTime renewalTime
-        {
-            get; set;
-        }
-
-        [DataMember]
-        public string TypeOfSubscription
-        {
-            get; set;
-        }
+        public Subscription(AnointedAutomation.Objects.Billing.Address billing, AnointedAutomation.Objects.Billing.Address shipping, bool billedMonthly, bool billedYearly, string company, decimal donation, bool isRefund, bool isActive, bool isRecurring, AnointedAutomation.Objects.Billing.Product item,
+            AnointedAutomation.Enums.PaymentType paymentType, AnointedAutomation.Objects.Billing.Contact purchaser, System.DateTime renewalTime, string taxLocation, decimal taxPercentage, System.DateTime time, decimal tip, string typeOfSubscription)
+            : base(billing, shipping, billedMonthly, billedYearly, company, donation, isRefund, isActive, isRecurring, item, paymentType, purchaser, renewalTime, taxLocation, taxPercentage, time, tip, typeOfSubscription)
+        { }
     }
 }

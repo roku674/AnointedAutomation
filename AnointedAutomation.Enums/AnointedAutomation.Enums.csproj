@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
@@ -6,35 +6,18 @@
 		<Nullable>disable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageProjectUrl>https://github.com/roku674/AnointedAutomation</PackageProjectUrl>
-		<Title>AnointedAutomation.Objects</Title>
+		<Title>AnointedAutomation.Enums</Title>
 		<Company>Anointed Automation LLC - Alexander Fields</Company>
 		<Copyright>Copyright © 2023 Anointed Automation, LLC All rights reserved.</Copyright>
-		<Description>Standardization for Objects - AnointedAutomation.Objects</Description>
+		<Description>Shared enumerations for AnointedAutomation packages</Description>
 		<RepositoryUrl>https://github.com/roku674/AnointedAutomation</RepositoryUrl>
-		<Version>0.0.22</Version>
-		<PackageTags>objects</PackageTags>
-		<PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Objects</PackageReleaseNotes>
+		<Version>0.0.1</Version>
+		<PackageTags>enums</PackageTags>
+		<PackageReleaseNotes>https://github.com/roku674/AnointedAutomation/pkgs/nuget/AnointedAutomation.Enums</PackageReleaseNotes>
 		<Authors>Anointed Automation LLC, Alexander Fields</Authors>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <None Remove="nuget.config" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\AnointedAutomation.Enums\AnointedAutomation.Enums.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Page Include="nuget.config" />
-	</ItemGroup>
 
 	<ItemGroup>
 	  <None Include="README.md" Pack="true" PackagePath="/" />
